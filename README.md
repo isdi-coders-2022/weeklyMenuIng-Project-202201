@@ -2,7 +2,7 @@
 
 ## Listado de componentes (V1 7feb)
 
-# Lista de componentes:
+## Lista de componentes:
 
 Button
 
@@ -39,3 +39,12 @@ SearchForm
 > SearchBar
 > Button (submit)
 > SearchFilters (checkboxes)
+
+## Page Struture
+
+- My Menu Page
+- Search Recies Page
+- Recipe Page
+- New Recipe Page
+- Edit Recipe Page
+- About Page
