@@ -1,5 +1,6 @@
 import Infoblock from "./components/Infoblock/Infoblock";
 import BurgerComponent from "./components/BurgerComponent/BurgerComponent";
+import Checkbox from "./components/Checkbox/Checkbox";
 import Button from "./components/Button/Button";
 import Recipe from "./components/Recipe/Recipe";
 
@@ -8,6 +9,9 @@ function App() {
     <div className="App">
       <Infoblock text="My Weekly Menu" />
       <BurgerComponent />
+
+      <Checkbox className="julai" text="Friday" />
+
       <Button
         text="Add to my recipes"
         className="button"
