@@ -1,8 +1,12 @@
+import Button from "./pages/components/Button/Button";
 function App() {
   return (
-    <div className="App">
-      <p>Hola</p>
-    </div>
+    <>
+      <div className="App">
+        <p>Hola</p>
+        <Button text="Receptes provando" />
+      </div>
+    </>
   );
 }
 
