@@ -11,7 +11,9 @@ Header
 > Navbar
 
 > > Logo
+
 > > LinksNav
+
 > > BurguerIcon
 
 > Infoblock
@@ -23,7 +25,9 @@ Header
 Recipe
 
 > RecipeDays
+
 > Button (edit) (en funció del path)
+
 > Button (toggle cor)
 
 Week
@@ -37,5 +41,7 @@ Week
 SearchForm
 
 > SearchBar
+
 > Button (submit)
+
 > SearchFilters (checkboxes)
