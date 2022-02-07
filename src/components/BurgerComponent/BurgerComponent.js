@@ -9,13 +9,16 @@ const BurgerContainer = styled.div`
   height: ${burgerHeight}px;
   width: min-content;
   justify-content: space-between;
-  &:hover .burger-bar:nth-child(2) {
+  &:hover .burger-bar:nth-child(2),
+  &.active .burger-bar:nth-child(2) {
     opacity: 0;
   }
-  &:hover .burger-bar:nth-child(1) {
+  &:hover .burger-bar:nth-child(1),
+  &.active .burger-bar:nth-child(1) {
     transform: rotate(45deg) translate(7.5px, ${burgerHeight / 2 - 4.5}px);
   }
-  &:hover .burger-bar:nth-child(3) {
+  &:hover .burger-bar:nth-child(3),
+  &.active .burger-bar:nth-child(3) {
     transform: rotate(-45deg) translate(7.5px, -${burgerHeight / 2 - 4.5}px);
   }
 `;
@@ -29,9 +32,9 @@ const BurgerBar = styled.span`
   transition: all 0.2s;
 `;
 
-const BurgerComponent = () => {
+const BurgerComponent = ({ isActive }) => {
   return (
-    <BurgerContainer className="burger-container">
+    <BurgerContainer className={`burger-container${isActive ? " active" : ""}`}>
       <BurgerBar className="burger-bar" />
       <BurgerBar className="burger-bar" />
       <BurgerBar className="burger-bar" />
