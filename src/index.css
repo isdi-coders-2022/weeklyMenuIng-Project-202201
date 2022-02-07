@@ -4,3 +4,8 @@ body {
   color: #00acbb;
   background-color: #fdf6fe;
 }
+button {
+  font-family: "Montserrat", sans-serif;
+  border-style: none;
+  border-radius: 10px;
+}
