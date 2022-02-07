@@ -5,3 +5,13 @@ body {
   color: #00acbb;
   background-color: #fdf6fe;
 }
+.sample-button {
+  border-style: none;
+
+  background-color: #00acbb;
+  color: white;
+}
+.sample-button:active {
+  background-color: #00626b;
+  color: white;
+}
