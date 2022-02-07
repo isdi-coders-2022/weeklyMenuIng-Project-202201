@@ -1,7 +1,9 @@
+import Infoblock from "./components/Infoblock/Infoblock";
+
 function App() {
   return (
     <div className="App">
-      <p>Hola</p>
+      <Infoblock text="My Weekly Menu" />
     </div>
   );
 }
