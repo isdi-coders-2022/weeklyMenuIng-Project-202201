@@ -1,9 +1,11 @@
+import Infoblock from "./components/Infoblock/Infoblock";
 import BurgerComponent from "./components/BurgerComponent/BurgerComponent";
+
 
 function App() {
   return (
     <div className="App">
-      <p>Hola</p>
+      <Infoblock text="My Weekly Menu" />
       <BurgerComponent />
     </div>
   );
