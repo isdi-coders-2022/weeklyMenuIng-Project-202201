@@ -1,24 +1,40 @@
-import styledComponents from "styled-components";
+import styled from "styled-components";
+import "./BurgerComponent.css";
 
-const BurgerComponent = () => {
-  const BurgerContainer = styledComponents.div`
+const burgerHeight = 33;
+
+const BurgerContainer = styled.div`
   display: flex;
   flex-direction: column;
-  height: 30px;
-  justify-content: space-between;
+  height: ${burgerHeight}px;
   width: min-content;
-  `;
-  const BurgerBar = styledComponents.span`
-  width: 33px;
-  height: 3px;
-  background-color: #000;
-  
-  `;
+  justify-content: space-between;
+  &:hover .burger-bar:nth-child(2) {
+    opacity: 0;
+  }
+  &:hover .burger-bar:nth-child(1) {
+    transform: rotate(45deg) translate(7.5px, ${burgerHeight / 2 - 4.5}px);
+  }
+  &:hover .burger-bar:nth-child(3) {
+    transform: rotate(-45deg) translate(7.5px, -${burgerHeight / 2 - 4.5}px);
+  }
+`;
+
+const BurgerBar = styled.span`
+  position: relative;
+  width: 35px;
+  background-color: #0f0f0f;
+  height: 5px;
+  border-radius: 5px;
+  transition: all 0.2s;
+`;
+
+const BurgerComponent = () => {
   return (
-    <BurgerContainer>
-      <BurgerBar />
-      <BurgerBar />
-      <BurgerBar />
+    <BurgerContainer className="burger-container">
+      <BurgerBar className="burger-bar" />
+      <BurgerBar className="burger-bar" />
+      <BurgerBar className="burger-bar" />
     </BurgerContainer>
   );
 };
