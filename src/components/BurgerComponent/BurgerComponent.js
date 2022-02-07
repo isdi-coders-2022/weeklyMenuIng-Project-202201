@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import "./BurgerComponent.css";
 
 const burgerHeight = 33;
 
@@ -32,9 +31,13 @@ const BurgerBar = styled.span`
   transition: all 0.2s;
 `;
 
-const BurgerComponent = ({ isActive }) => {
+const BurgerComponent = ({ isActive, actionOnClick }) => {
   return (
-    <BurgerContainer className={`burger-container${isActive ? " active" : ""}`}>
+    <BurgerContainer
+      title="Navigation Menu"
+      onClick={actionOnClick}
+      className={`burger-container${isActive ? " active" : ""}`}
+    >
       <BurgerBar className="burger-bar" />
       <BurgerBar className="burger-bar" />
       <BurgerBar className="burger-bar" />
