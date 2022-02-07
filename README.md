@@ -46,6 +46,10 @@ SearchForm
 
 > SearchFilters (checkboxes)
 
+RecipeForm (with 5 label/input)
+
+> Button (submit)
+
 ## Page Struture
 
 - My Menu Page
