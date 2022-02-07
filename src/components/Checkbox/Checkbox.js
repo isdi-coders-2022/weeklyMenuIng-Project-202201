@@ -9,16 +9,11 @@ border-radius:10px;
 background-color: #B3DEE2;
 width:100px;
 height:30px;`;
-const boxStyle;
+
 const Checkbox = ({ text, className }) => {
   return (
     <Container>
-      <input
-        style={boxStyle}
-        id="check"
-        type="checkbox"
-        className={className}
-      ></input>
+      <input id="check" type="checkbox" className={className}></input>
       <label htmlFor="check">{text}</label>
     </Container>
   );

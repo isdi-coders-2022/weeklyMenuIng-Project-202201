@@ -9,3 +9,6 @@ button {
   border-style: none;
   border-radius: 10px;
 }
+#check {
+  clip-path: circle(46% at 50% 50%);
+}
