@@ -4,7 +4,7 @@ function App() {
     <>
       <div className="App">
         <p>Hola</p>
-        <Button className="sample-button" text="Sample button" />
+        <Button text="HolaSample" className="sample-button" />
       </div>
     </>
   );

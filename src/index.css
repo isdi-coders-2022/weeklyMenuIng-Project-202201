@@ -5,13 +5,17 @@ body {
   color: #00acbb;
   background-color: #fdf6fe;
 }
-.sample-button {
+button {
+  font-family: "Montserrat", sans-serif;
   border-style: none;
-
+  border-radius: 10px;
+}
+.sample-button {
   background-color: #00acbb;
   color: white;
+  height: 20px;
+  width: 200px;
 }
 .sample-button:active {
   background-color: #00626b;
-  color: white;
 }
