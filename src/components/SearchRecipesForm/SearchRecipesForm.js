@@ -1,9 +1,6 @@
 import { useState } from "react";
-// import useAPI from "../../hooks/useAPI";
 
 const SearchRecipesForm = () => {
-  // const { loadMyRecipesAPI } = useAPI();
-
   const blankFields = {
     ingredients: "",
     "no-sugar": false,
