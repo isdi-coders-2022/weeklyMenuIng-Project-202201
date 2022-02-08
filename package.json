@@ -4,10 +4,9 @@
   "private": true,
   "jest": {
     "collectCoverageFrom": [
-      "src/**/*.{js,jsx}",
-      "!src/**/contexts",
+      "src/**/*.js",
       "!src/index.js",
-      "!src/app.js"
+      "!src/setupTests.js"
     ],
     "coverageReporters": [
       "json",
