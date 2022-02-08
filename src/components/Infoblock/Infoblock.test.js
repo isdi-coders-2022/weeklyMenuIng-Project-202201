@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import Infoblock from "./Infoblock";
+import TestRenderer from "react-test-renderer";
 
 describe("Given a Infoblock component", () => {
   describe("When instantiated", () => {
@@ -20,6 +21,14 @@ describe("Given a Infoblock component", () => {
       const displayedText = screen.queryByText(text);
 
       expect(displayedText).toBeInTheDocument();
+    });
+  });
+
+  describe("When it's rendered", () => {
+    test("Then it should match the snapshot", () => {
+      const info = TestRenderer.create(<Infoblock />).toJSON();
+
+      expect(info).toMatchSnapshot();
     });
   });
 });

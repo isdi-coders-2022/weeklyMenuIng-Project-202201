@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import Header from "./Header";
+import TestRenderer from "react-test-renderer";
 
 describe("Given a Header Component", () => {
   describe("When it's rendered", () => {
@@ -16,6 +17,15 @@ describe("Given a Header Component", () => {
       const logo = screen.queryByAltText(altTextLogo);
 
       expect(logo).toBeInTheDocument();
+    });
+    test("Then it should match the snapshot", () => {
+      const header = TestRenderer.create(
+        <BrowserRouter>
+          <Header />
+        </BrowserRouter>
+      ).toJSON();
+
+      expect(header).toMatchSnapshot();
     });
   });
 });
