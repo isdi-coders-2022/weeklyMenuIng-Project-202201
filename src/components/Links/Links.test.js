@@ -24,4 +24,8 @@ describe("Given a Links component", () => {
       });
     });
   });
+
+  describe("When a link is clicked", () => {
+    test("Then it should trigger an action", () => {});
+  });
 });
