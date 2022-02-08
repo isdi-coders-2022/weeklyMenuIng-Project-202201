@@ -1,6 +1,5 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import Infoblock from "./components/Infoblock/Infoblock";
-import Checkbox from "./components/Checkbox/Checkbox";
 import Button from "./components/Button/Button";
 import Recipe from "./components/Recipe/Recipe";
 import NewRecipePage from "./pages/NewRecipePage";
@@ -11,6 +10,7 @@ import RecipePage from "./pages/RecipePage";
 import SearchRecipesPage from "./pages/SearchRecipesPage";
 import AboutPage from "./pages/AboutPage";
 import Header from "./components/Header/Header";
+import SearchRecipesForm from "./components/SearchRecipesForm/SearchRecipesForm";
 
 const edamamJSON = require("./edamamResponse.json");
 const edamamReceipes = edamamJSON.hits;
@@ -19,10 +19,8 @@ function App() {
   return (
     <>
       <Header />
+      <SearchRecipesForm />
       <Infoblock text="My Weekly Menu" />
-
-      <Checkbox className="julai" text="Friday" />
-
       <Button
         text="Add to my recipes"
         className="button"
