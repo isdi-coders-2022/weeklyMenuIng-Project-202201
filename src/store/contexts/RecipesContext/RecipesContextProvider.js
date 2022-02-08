@@ -1,7 +1,10 @@
 import RecipesContext from "./RecipesContext";
 
 const RecipesContextProvider = ({ children }) => {
-  return <RecipesContext.Provider>{children}</RecipesContext.Provider>;
+  const data = ["mockData"];
+  return (
+    <RecipesContext.Provider value={data}>{children}</RecipesContext.Provider>
+  );
 };
 
 export default RecipesContextProvider;

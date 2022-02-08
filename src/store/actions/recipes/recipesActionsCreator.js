@@ -1,6 +1,11 @@
 import { actionTypes } from "./recipesActionsTypes";
 
-export const createRecipeAciton = (recipe) => ({
+export const loadRecipesAction = (recipes) => ({
+  type: actionTypes.loadRecipes,
+  recipes,
+});
+
+export const createRecipeAction = (recipe) => ({
   type: actionTypes.createRecipe,
   recipe,
 });

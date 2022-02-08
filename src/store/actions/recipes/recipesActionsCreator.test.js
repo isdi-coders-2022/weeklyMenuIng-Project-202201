@@ -1,6 +1,5 @@
-
 import {
-  createRecipeAciton,
+  createRecipeAction,
   removeRecipeAction,
   updateRecipe,
 } from "./recipesActionsCreator";
@@ -13,7 +12,7 @@ describe("Given a recipesActionsCreator set", () => {
       const mockObject = { recipe: { test: "test" } };
       const expectedAction = { type: createRecipeType, recipe: mockObject };
 
-      const action = createRecipeAciton(mockObject);
+      const action = createRecipeAction(mockObject);
       expect(action).toEqual(expectedAction);
     });
   });
