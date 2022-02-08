@@ -12,13 +12,20 @@ background-color: #B3DEE2;
 width:900px;
 height:600px;`;
 
-const Recipe = ({ className, image, title, description }) => {
+const Recipe = ({ className, element }) => {
   return (
     <Container>
       <div className={className}>
-        <img src={image} alt={title}></img>
-        <h2>{title}</h2>
-        <p>{description}</p>
+        <img src={element.recipe.image} alt={element.recipe.label}></img>
+        <h2>{element.recipe.label}</h2>
+        {element.recipe.ingredientLines.map((ingredient) => {
+          return <p className="ingredient">{ingredient}</p>;
+        })}
+        <Button
+          text="GO TO RECEIPE"
+          className="receipeUrl"
+          actionOnClick={window.open(element.recipe.url)}
+        />
         <Button
           text="REMOVE"
           className="button"
