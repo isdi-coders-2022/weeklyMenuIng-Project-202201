@@ -89,13 +89,7 @@ const RecipeCard = ({ className, element }) => {
             window.location.href = element.recipe.url;
           }}
         />
-        <Button
-          text="REMOVE"
-          className="button"
-          actionOnClick={() => {
-            window.alert("so.. you want to remove me, ah?");
-          }}
-        />
+        <Button text="REMOVE" className="button" actionOnClick={() => null} />
       </div>
     </Container>
   );
