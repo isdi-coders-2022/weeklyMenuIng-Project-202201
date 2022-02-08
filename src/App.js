@@ -1,6 +1,5 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import Infoblock from "./components/Infoblock/Infoblock";
-import Button from "./components/Button/Button";
 import Recipe from "./components/Recipe/Recipe";
 import NewRecipePage from "./pages/NewRecipePage";
 import EditRecipePage from "./pages/EditRecipePage";
