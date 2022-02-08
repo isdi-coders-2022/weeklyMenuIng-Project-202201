@@ -1,28 +1,27 @@
+import { Link } from "react-router-dom";
+
 const Links = () => {
-  const preventDefault = (event) => {
-    event.preventDefault();
-  };
   return (
     <ul>
       <li>
-        <a onClick={preventDefault} href="myweeklymenu">
+        <Link to="/home" href="myweeklymenu">
           My Weekly Menu
-        </a>
+        </Link>
       </li>
       <li>
-        <a onClick={preventDefault} href="searchrecipes">
+        <Link to="/search" href="searchrecipes">
           Search Recipes
-        </a>
+        </Link>
       </li>
       <li>
-        <a onClick={preventDefault} href="createnewrecipe">
+        <Link to="/home/new" href="createnewrecipe">
           Create New Recipe
-        </a>
+        </Link>
       </li>
       <li>
-        <a onClick={preventDefault} href="about">
+        <Link to="/about" href="about">
           About
-        </a>
+        </Link>
       </li>
     </ul>
   );

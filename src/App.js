@@ -1,6 +1,5 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import Infoblock from "./components/Infoblock/Infoblock";
-import BurgerComponent from "./components/BurgerComponent/BurgerComponent";
 import Checkbox from "./components/Checkbox/Checkbox";
 import Button from "./components/Button/Button";
 import Recipe from "./components/Recipe/Recipe";
@@ -11,13 +10,13 @@ import NotFoundPage from "./pages/NotFoundPage";
 import RecipePage from "./pages/RecipePage";
 import SearchRecipesPage from "./pages/SearchRecipesPage";
 import AboutPage from "./pages/AboutPage";
-
+import Header from "./components/Header/Header";
 
 function App() {
   return (
     <>
+      <Header />
       <Infoblock text="My Weekly Menu" />
-      <BurgerComponent />
 
       <Checkbox className="julai" text="Friday" />
 
@@ -51,7 +50,6 @@ function App() {
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>
-
   );
 }
 
