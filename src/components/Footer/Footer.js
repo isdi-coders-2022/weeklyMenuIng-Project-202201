@@ -9,16 +9,15 @@ const FooterContainer = styled.footer`
   & p {
     padding: 0;
     margin: 0;
+    font-size: 1.2rem;
   }
 `;
 
-const Header = () => {
+const Footer = () => {
   return (
-    <HeaderContainer>
-      <Logo src={logo} alt="My weekly menu logo" />
-      <Links />
-      <BurgerComponent />
-    </HeaderContainer>
+    <FooterContainer>
+      <p>My Weekly Menu</p>
+    </FooterContainer>
   );
 };
-export default Header;
+export default Footer;
