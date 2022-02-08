@@ -12,4 +12,14 @@ describe("Given a Checkbox component", () => {
       expect(displayedText).toBeInTheDocument();
     });
   });
+  describe("When instantiated", () => {
+    test("Then it should render a checkbox element", () => {
+      const text = "Friday";
+      render(<Checkbox text={text} />);
+
+      const displayedBox = screen.queryByRole("checkbox");
+
+      expect(displayedBox).toBeInTheDocument();
+    });
+  });
 });
