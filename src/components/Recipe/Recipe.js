@@ -4,13 +4,12 @@ import styledComponents from "styled-components";
 const Container = styledComponents.div`
 color : #151f28;
 display:flex;
+flex-wrap: wrap
 justify-content:center;
-flex-wrap:nowrap;
 align-items:center;
 border-radius:10px;
 background-color: #B3DEE2;
-width:900px;
-height:600px;`;
+width:90vw;`;
 
 const Recipe = ({ className, element }) => {
   return (
