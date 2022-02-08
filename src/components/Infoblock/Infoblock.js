@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 const Text = styledComponents.h1`
 color : #151f28;
 text-align: center;
-background-color: #B3DEE2;
+background-color: #00ABBB;
 margin: 0;
 padding: 20px;
 `;

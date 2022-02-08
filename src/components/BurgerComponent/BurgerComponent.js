@@ -4,6 +4,7 @@ const burgerHeight = 33;
 
 const BurgerContainer = styled.div`
   display: flex;
+  margin: 10px;
   flex-direction: column;
   height: ${burgerHeight}px;
   width: min-content;
