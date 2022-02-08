@@ -2,8 +2,9 @@ import Button from "../Button/Button";
 import styledComponents from "styled-components";
 
 const Container = styledComponents.div`
-color : #151f28;
+color : white;
 display:flex;
+flex-direction:column;
 flex-wrap: wrap
 justify-content:center;
 align-items:center;
@@ -11,15 +12,26 @@ border-radius:10px;
 background-color: #B3DEE2;
 width:90vw;`;
 
-const Recipe = ({ className, element }) => {
+const RecipeCard = ({ className, element }) => {
   return (
     <Container>
-      <div className={className}>
-        <img src={element.recipe.image} alt={element.recipe.label}></img>
+      <div
+        className="recipe-head"
+        style={{
+          background: `#0000006b url(${element.recipe.image}) no-repeat center cover`,
+          width: `100%`,
+          height: "50vh",
+          textAlign: `center`,
+        }}
+      >
         <h2>{element.recipe.label}</h2>
+      </div>
+      <div className="recipe-ingredients">
         {element.recipe.ingredientLines.map((ingredient) => {
           return <p className="ingredient">{ingredient}</p>;
         })}
+      </div>
+      <div className="recipe-buttons">
         <Button
           text="GO TO RECIPE"
           className="receipeUrl"
@@ -40,4 +52,4 @@ const Recipe = ({ className, element }) => {
   );
 };
 
-export default Recipe;
+export default RecipeCard;
