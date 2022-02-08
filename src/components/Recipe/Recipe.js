@@ -22,9 +22,12 @@ const Recipe = ({ className, element }) => {
           return <p className="ingredient">{ingredient}</p>;
         })}
         <Button
-          text="GO TO RECEIPE"
+          text="GO TO RECIPE"
           className="receipeUrl"
-          actionOnClick={window.open(element.recipe.url)}
+          actionOnClick={(event) => {
+            event.preventDefault();
+            window.location.href = element.recipe.url;
+          }}
         />
         <Button
           text="REMOVE"
