@@ -26,7 +26,7 @@ describe("Given an apiActionsCreator", () => {
   });
 
   describe("When the setError function is called", () => {
-    test("then it should return an object with type set is loading", () => {
+    test("then it should return an object with type set error", () => {
       const setErrorType = apiActionsTypes.setError;
       const expectedAction = { type: setErrorType };
       const action = setError();
@@ -35,7 +35,7 @@ describe("Given an apiActionsCreator", () => {
   });
 
   describe("When the unsetError function is called", () => {
-    test("then it should return an object with type set is loading", () => {
+    test("then it should return an object with type unset error", () => {
       const unsetErrorType = apiActionsTypes.unsetError;
       const expectedAction = { type: unsetErrorType };
       const action = unsetError();
