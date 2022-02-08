@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import BurgerComponent from "../BurgerComponent/BurgerComponent";
+import Infoblock from "../Infoblock/Infoblock";
 import Links from "../Links/Links";
 import logo from "./logo.svg";
 

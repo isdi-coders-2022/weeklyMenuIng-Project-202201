@@ -11,13 +11,13 @@ import NotFoundPage from "./pages/NotFoundPage";
 import RecipePage from "./pages/RecipePage";
 import SearchRecipesPage from "./pages/SearchRecipesPage";
 import AboutPage from "./pages/AboutPage";
-
+import Header from "./components/Header/Header";
 
 function App() {
   return (
     <>
+      <Header />
       <Infoblock text="My Weekly Menu" />
-      <BurgerComponent />
 
       <Checkbox className="julai" text="Friday" />
 
@@ -51,7 +51,6 @@ function App() {
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>
-
   );
 }
 
