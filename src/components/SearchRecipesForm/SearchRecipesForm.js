@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Checkbox from "../Checkbox/Checkbox";
 
 const SearchRecipesForm = () => {
   const blankFields = {
@@ -41,75 +42,61 @@ const SearchRecipesForm = () => {
 
   return (
     <form
-      className="new-recipe"
+      className="search-recipes-form"
       onSubmit={onFormSubmit}
       autoComplete="off"
       noValidate
     >
       <div className="form-group">
-        <label htmlFor="ingredients">Ingredients: </label>
+        <label className="ingredients-label" htmlFor="ingredients">
+          Ingredients:{" "}
+        </label>
         <input
           type="text"
           id="ingredients"
-          className="form-input"
-          value={formData.name}
+          className="form-input-ingredients"
+          value={formData.ingredients}
+          placeholder="write some ingredients..."
           onChange={changeData}
         />
       </div>
-      <div className="form-group">
-        <input
-          type="checkbox"
-          id="no-sugar"
-          checked={formData["no-sugar"]}
-          onChange={changeData}
-        />
-        <label htmlFor="no-sugar">No-sugar</label>
-      </div>
-      <div className="form-group">
-        <input
-          type="checkbox"
-          id="high-protein"
-          checked={formData["high-protein"]}
-          onChange={changeData}
-        />
-        <label htmlFor="high-protein">High-protein</label>
-      </div>
-      <div className="form-group">
-        <input
-          type="checkbox"
-          id="balanced"
-          checked={formData.balanced}
-          onChange={changeData}
-        />
-        <label htmlFor="balanced">Balanced</label>
-      </div>
-      <div className="form-group">
-        <input
-          type="checkbox"
-          id="low-sodium"
-          checked={formData["low-sodium"]}
-          onChange={changeData}
-        />
-        <label htmlFor="low-sodium">Low-sodium</label>
-      </div>
-      <div className="form-group">
-        <input
-          type="checkbox"
-          id="vegan"
-          checked={formData.vegan}
-          onChange={changeData}
-        />
-        <label htmlFor="vegan">Vegan</label>
-      </div>
-      <div className="form-group">
-        <input
-          type="checkbox"
-          id="vegetarian"
-          checked={formData.vegetarian}
-          onChange={changeData}
-        />
-        <label htmlFor="vegan">Vegetarian</label>
-      </div>
+
+      <Checkbox
+        text="no-sugar"
+        className="diets-checkbox"
+        checked={formData["no-sugar"]}
+        onChange={changeData}
+      />
+      <Checkbox
+        text="high-protein"
+        className="diets-checkbox"
+        checked={formData["high-protein"]}
+        onChange={changeData}
+      />
+      <Checkbox
+        text="balanced"
+        className="diets-checkbox"
+        checked={formData.balanced}
+        onChange={changeData}
+      />
+      <Checkbox
+        text="low-sodium"
+        className="diets-checkbox"
+        checked={formData["low-sodium"]}
+        onChange={changeData}
+      />
+      <Checkbox
+        text="vegan"
+        className="diets-checkbox"
+        checked={formData.vegan}
+        onChange={changeData}
+      />
+      <Checkbox
+        text="vegetarian"
+        className="diets-checkbox"
+        checked={formData.vegetarian}
+        onChange={changeData}
+      />
       <button type="submit" disabled={!isFilled}>
         Search recipes
       </button>
