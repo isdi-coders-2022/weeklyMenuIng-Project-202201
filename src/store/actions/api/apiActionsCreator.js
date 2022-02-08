@@ -12,6 +12,6 @@ export const setError = () => ({
   type: apiActionsTypes.setError,
 });
 
-export const setError = () => ({
+export const unsetError = () => ({
   type: apiActionsTypes.unsetError,
 });
