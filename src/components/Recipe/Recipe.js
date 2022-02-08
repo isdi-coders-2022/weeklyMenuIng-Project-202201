@@ -2,8 +2,9 @@ import Button from "../Button/Button";
 import styledComponents from "styled-components";
 
 const Container = styledComponents.div`
-color : #151f28;
+color : black;
 display:flex;
+flex-direction:column;
 flex-wrap: wrap
 justify-content:center;
 align-items:center;
@@ -11,15 +12,47 @@ border-radius:10px;
 background-color: #B3DEE2;
 width:90vw;`;
 
-const Recipe = ({ className, element }) => {
+const RecipeCard = ({ className, element }) => {
   return (
     <Container>
-      <div className={className}>
-        <img src={element.recipe.image} alt={element.recipe.label}></img>
+      <div
+        className="recipe-head"
+        style={{
+          background: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${element.recipe.image}) no-repeat center`,
+          backgroundSize: `cover`,
+          backgroundColor: "#0000006b",
+          color: "white",
+          backgroundImage: `cover`,
+          width: `100%`,
+          height: "50vh",
+          textAlign: `center`,
+        }}
+      >
         <h2>{element.recipe.label}</h2>
+      </div>
+      <span>{element.recipe.dietLabels}</span>
+      <div className="recipe-ingredients">
         {element.recipe.ingredientLines.map((ingredient) => {
           return <p className="ingredient">{ingredient}</p>;
         })}
+        <div className="recipe-digest">
+          <h3>{element.recipe.calories} Kcal</h3>
+          <ul>
+            <li>Fat: {element.recipe.digest[0].total} g</li>
+            <li>Protein: {element.recipe.digest[1].total} g</li>
+            <li>Carbs: {element.recipe.digest[2].total} g</li>
+          </ul>
+          <ul>
+            <li>Cholesterol: {element.recipe.totalNutrients.CHOLE.quantity}</li>
+            <li>Sodium: {element.recipe.totalNutrients.NA.quantity}</li>
+            <li>Calcium: {element.recipe.totalNutrients.CA.quantity}</li>
+            <li>Magnesium: {element.recipe.totalNutrients.MG.quantity}</li>
+            <li>Postasium: {element.recipe.totalNutrients.K.quantity}</li>
+            <li>Iron: {element.recipe.totalNutrients.FE.quantity}</li>
+          </ul>
+        </div>
+      </div>
+      <div className="recipe-buttons">
         <Button
           text="GO TO RECIPE"
           className="receipeUrl"
@@ -40,4 +73,4 @@ const Recipe = ({ className, element }) => {
   );
 };
 
-export default Recipe;
+export default RecipeCard;
