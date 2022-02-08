@@ -15,7 +15,7 @@ export const removeRecipeAction = (id) => ({
   id,
 });
 
-export const updateRecipe = (recipe) => ({
+export const updateRecipeAction = (recipe) => ({
   type: actionTypes.updateRecipe,
   recipe,
 });
