@@ -1,6 +1,5 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import Infoblock from "./components/Infoblock/Infoblock";
-import BurgerComponent from "./components/BurgerComponent/BurgerComponent";
 import Checkbox from "./components/Checkbox/Checkbox";
 import Button from "./components/Button/Button";
 import Recipe from "./components/Recipe/Recipe";
