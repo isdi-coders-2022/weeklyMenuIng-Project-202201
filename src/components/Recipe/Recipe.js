@@ -26,29 +26,57 @@ const RecipeCard = ({ className, element }) => {
           width: `100%`,
           height: "50vh",
           textAlign: `center`,
+          display: `flex`,
+          justifyContent: `center`,
+          alignItems: `center`,
         }}
       >
         <h2>{element.recipe.label}</h2>
       </div>
+
       <span>{element.recipe.dietLabels}</span>
-      <div className="recipe-ingredients">
-        {element.recipe.ingredientLines.map((ingredient) => {
-          return <p className="ingredient">{ingredient}</p>;
-        })}
-        <div className="recipe-digest">
-          <h3>{element.recipe.calories} Kcal</h3>
+      <div className="recipe-info">
+        <div className="recipe-ingredients">
+          {element.recipe.ingredientLines.map((ingredient) => {
+            return (
+              <p className="ingredient" key={ingredient}>
+                {ingredient}
+              </p>
+            );
+          })}
+        </div>
+        <div
+          className="recipe-digest"
+          style={{
+            display: `flex`,
+            justifyContent: `center`,
+            alignItems: `center`,
+          }}
+        >
+          <h3>{parseInt(element.recipe.calories)} Kcal</h3>
           <ul>
-            <li>Fat: {element.recipe.digest[0].total} g</li>
-            <li>Protein: {element.recipe.digest[1].total} g</li>
-            <li>Carbs: {element.recipe.digest[2].total} g</li>
+            <li>Fat: {parseInt(element.recipe.digest[0].total)} g</li>
+            <li>Protein: {parseInt(element.recipe.digest[1].total)} g</li>
+            <li>Carbs: {parseInt(element.recipe.digest[2].total)} g</li>
           </ul>
           <ul>
-            <li>Cholesterol: {element.recipe.totalNutrients.CHOLE.quantity}</li>
-            <li>Sodium: {element.recipe.totalNutrients.NA.quantity}</li>
-            <li>Calcium: {element.recipe.totalNutrients.CA.quantity}</li>
-            <li>Magnesium: {element.recipe.totalNutrients.MG.quantity}</li>
-            <li>Postasium: {element.recipe.totalNutrients.K.quantity}</li>
-            <li>Iron: {element.recipe.totalNutrients.FE.quantity}</li>
+            <li>
+              Cholesterol:{" "}
+              {parseInt(element.recipe.totalNutrients.CHOLE.quantity)}
+            </li>
+            <li>
+              Sodium: {parseInt(element.recipe.totalNutrients.NA.quantity)}
+            </li>
+            <li>
+              Calcium: {parseInt(element.recipe.totalNutrients.CA.quantity)}
+            </li>
+            <li>
+              Magnesium: {parseInt(element.recipe.totalNutrients.MG.quantity)}
+            </li>
+            <li>
+              Postasium: {parseInt(element.recipe.totalNutrients.K.quantity)}
+            </li>
+            <li>Iron: {parseInt(element.recipe.totalNutrients.FE.quantity)}</li>
           </ul>
         </div>
       </div>
