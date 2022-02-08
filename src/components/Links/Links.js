@@ -1,9 +1,6 @@
 import { Link } from "react-router-dom";
 
 const Links = () => {
-  const preventDefault = (event) => {
-    event.preventDefault();
-  };
   return (
     <ul>
       <li>
