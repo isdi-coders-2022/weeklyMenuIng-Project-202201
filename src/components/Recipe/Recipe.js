@@ -42,6 +42,14 @@ const RecipeCard = ({ className, element }) => {
             <li>Protein: {element.recipe.digest[1].total} g</li>
             <li>Carbs: {element.recipe.digest[2].total} g</li>
           </ul>
+          <ul>
+            <li>Cholesterol: {element.recipe.totalNutrients.CHOLE.quantity}</li>
+            <li>Sodium: {element.recipe.totalNutrients.NA.quantity}</li>
+            <li>Calcium: {element.recipe.totalNutrients.CA.quantity}</li>
+            <li>Magnesium: {element.recipe.totalNutrients.MG.quantity}</li>
+            <li>Postasium: {element.recipe.totalNutrients.K.quantity}</li>
+            <li>Iron: {element.recipe.totalNutrients.FE.quantity}</li>
+          </ul>
         </div>
       </div>
       <div className="recipe-buttons">
