@@ -52,7 +52,7 @@ const SearchRecipesForm = () => {
           type="text"
           id="ingredients"
           className="form-input"
-          value={formData.name}
+          value={formData.ingredients}
           onChange={changeData}
         />
       </div>
