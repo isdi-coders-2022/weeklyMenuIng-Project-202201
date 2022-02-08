@@ -22,9 +22,6 @@ function App() {
       <Header />
       <SearchRecipesForm />
       <Infoblock text="My Weekly Menu" />
-
-      <Checkbox className="julai" text="Friday" />
-
       <Button
         text="Add to my recipes"
         className="button"

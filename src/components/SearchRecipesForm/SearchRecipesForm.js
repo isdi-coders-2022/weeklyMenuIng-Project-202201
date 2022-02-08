@@ -26,10 +26,12 @@ const SearchRecipesForm = () => {
     });
   };
 
+  const filterResults = (data) => data;
+
   const onFormSubmit = (event) => {
     event.preventDefault();
     if (isFilled) {
-      // filterResults(formData);
+      filterResults(formData);
       resetForm();
     }
   };
