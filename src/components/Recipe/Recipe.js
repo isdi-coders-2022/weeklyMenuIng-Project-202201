@@ -19,6 +19,7 @@ const RecipeCard = ({ className, element }) => {
         className="recipe-head"
         style={{
           background: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${element.recipe.image}) no-repeat center`,
+          backgroundSize: `cover`,
           backgroundColor: "#0000006b",
           color: "white",
           backgroundImage: `cover`,
@@ -29,6 +30,7 @@ const RecipeCard = ({ className, element }) => {
       >
         <h2>{element.recipe.label}</h2>
       </div>
+      <span>{element.recipe.dietLabels}</span>
       <div className="recipe-ingredients">
         {element.recipe.ingredientLines.map((ingredient) => {
           return <p className="ingredient">{ingredient}</p>;
