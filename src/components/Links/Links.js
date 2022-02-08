@@ -4,24 +4,16 @@ const Links = () => {
   return (
     <ul>
       <li>
-        <Link to="/home" href="myweeklymenu">
-          My Weekly Menu
-        </Link>
+        <Link to="/home">My Weekly Menu</Link>
       </li>
       <li>
-        <Link to="/search" href="searchrecipes">
-          Search Recipes
-        </Link>
+        <Link to="/search">Search Recipes</Link>
       </li>
       <li>
-        <Link to="/home/new" href="createnewrecipe">
-          Create New Recipe
-        </Link>
+        <Link to="/home/new">Create New Recipe</Link>
       </li>
       <li>
-        <Link to="/about" href="about">
-          About
-        </Link>
+        <Link to="/about">About</Link>
       </li>
     </ul>
   );

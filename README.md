@@ -1,126 +1,37 @@
-# My Weekly Menu app
+# My Weekly Menu app (v 1.0)
 
-## Listado de componentes (V1 7feb)
+![Screenshot](myweeklymenu.png)
 
-## Lista de componentes:
+Web app para crear un menú semanal personalizado con recetas extraídas de la API Edamam y recetas nuevas creadas por el usuario.
 
-Button
+## Funcionalidades principales de la app:
 
-Header
+- ver listado de recetas de la API Edamam y filtrarlas por ingredientes y tipos de dieta.
 
-> Navbar
+- añadir recetas seleccionadas a mi lista de recetas
 
-> > Logo
+- borrar recetas de mi lista
 
-> > LinksNav
+- crear nuevas recetas
 
-> > BurguerIcon
+- ver un listado con mis recetas
 
-> Infoblock
+- editar recetas existentes en mi lista de recetas
 
-> MenuMobile
+- añadir recetas a un día de la semana para tener un menú semanal
 
-> > LinksNav
+- visualizar el menú semanal con las recetas añadidas en cada día de la semana
 
-Recipe
+- ver en la página de detalle de cada receta información sobre calorías, valores nutricionales, modo de preparación, imagen, etc...
 
-> RecipeDays
+## Scripts
 
-> Button (edit) (en funció del path)
+### Arrancar la app en modo desarollo: `npm start`
 
-> Button (toggle cor)
+### Testing:
 
-Week
+- Test sin coverage: `npm test`
 
-> Day
+- Test con coverage: `npm run test-coverage` (coverage en /src/\*_/_.{js,jsx})
 
-> > Recipes
-
-> > > Recipe
-
-SearchForm
-
-> SearchBar
-
-> Button (submit)
-
-> SearchFilters (checkboxes)
-
-RecipeForm (with 5 label/input)
-
-> Button (submit)
-
-## Page Struture
-
-- My Menu Page
-- Search Recies Page
-- Recipe Page
-- New Recipe Page
-- Edit Recipe Page
-- About Page
-
-# Capa de datos app
-
-## Datos de los cuales se alimentará la app:
-
-### Datos externos provenientes de dos API's:
-
-- Un objeto json con un array de objetos (recetas) de la API pública Edamam.
-
-- Un objeto json con un array de objetos (recetas) de la API en Heroku.
-
-- Un objeto json con un array de objetos (week) de la API en Heroku.
-
-## Datos que generará la app
-
-- [] _recipes_ (con los datos recibidos de la API pública)
-
-- [] _myRecipes_ (con los datos recibidos de la API Heroku)
-
-- booleano _mobileMenu_
-- booleano _isLoaded_
-- booleano _hasError_
-
-## Qué componente albergará los datos y en qué tipo de objeto
-
-- array _recipes_ --> [recipe, recipe....] --> variable de estado SÍ --> en context RecipeContext (contexto global de la app)
-
-> Modificaciones:
-
-> > sustituir array en cada carga y/o filtrado.
-
-- array _myRecipes_ --> [recipe, recipe, ...] --> variable de estado SÍ --> en context RecipeContext
-
-> Modificaciones:
-
-> > añadir recipe
-
-> > borrar recipe
-
-> > update recipe
-
-(sustituir myRecipes con un nuevo array myRecipes con el elemento nuevo, con el modificado o sin el borrado.)
-
-- booleano _mobileMenu_ --> variable de estado SÍ --> en Header
-
-Modificaciones:
-
-> > activar menuMobile
-
-> > descativar menuMobile
-
-- booleano _isLoaded_ --> variable de estado SÍ --> en APIContext
-
-Modificaciones:
-
-> > setear isLoaded a false (en el inicio de llamadas API)
-
-> > setear isLoaded a true (cuando llega la response en la request API)
-
-- booleano _hasError_ --> variable de estado SÍ --> en APIContext
-
-Modificaciones:
-
-> > setear hasError a false (en el inicio de llamadas API)
-
-> > setear hasError a true (cuando se produce un error en la request. NOTA: llamar desde el catch)
+### Build: `npm build`
