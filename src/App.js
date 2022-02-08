@@ -27,7 +27,7 @@ function App() {
         actionOnClick={() => window.alert("hola, soy un button!!")}
       />
 
-      <Recipe className="recipe" element={edamamReceipes[0]} />
+      <Recipe className="recipe" element={edamamReceipes[13]} />
 
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
