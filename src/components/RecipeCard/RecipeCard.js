@@ -30,23 +30,24 @@ const RecipeCard = ({ recipe: { recipe } }) => {
           flexDirection: `column`,
           justifyContent: `center`,
           alignItems: `center`,
+
         }}
       >
-        <h2>{recipe.label}</h2>
         <div
           className="recipe-digest"
           style={{
             display: `flex`,
+            flexDirection: `column`,
             justifyContent: `center`,
             alignItems: `center`,
           }}
         >
-          <h3>{`${parseInt(recipe.calories)} Kcal`}</h3>
-          <ul>
-            <li>{`Fat: ${parseInt(recipe.digest[0].total)} g`}</li>
-            <li>{`Protein: ${parseInt(recipe.digest[1].total)} g`}</li>
-            <li>{`Carbs: ${parseInt(recipe.digest[2].total)} g`}</li>
-          </ul>
+          <h2>{recipe.label}</h2>
+          <p>{`${parseInt(recipe.yield)} SERVINGS`}</p>
+          <h3>{`${parseInt(
+            parseInt(recipe.calories) / recipe.yield
+          )} Kcal`}</h3>
+          <p>{recipe.dietLabels}</p>
         </div>
         <Smtwtfs />
       </div>
