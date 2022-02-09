@@ -36,8 +36,12 @@ const HeaderContainer = styled.header`
   @media (max-width: 590px) {
     font-size: 13px;
   }
+
   @media (max-width: 560px) {
     font-size: 12px;
+  }
+  @media (max-width: 530px) {
+    justify-content: space-between;
   }
 `;
 
