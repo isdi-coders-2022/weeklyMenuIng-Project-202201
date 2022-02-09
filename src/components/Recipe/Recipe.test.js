@@ -17,18 +17,4 @@ describe("Given a Recipe component", () => {
       expect(recepta).toBeInTheDocument();
     });
   });
-
-  describe("When it's instantiated with an action", () => {
-    test("Then it should call an action function on click", () => {
-      const action = jest.fn();
-
-      render(<Recipe className={"whatever"} element={edamamRecipe} />);
-
-      const viewRecipeButton = screen.queryByText("view recipe source");
-
-      userEvent.click(viewRecipeButton);
-
-      expect(action).toHaveBeenCalled();
-    });
-  });
 });
