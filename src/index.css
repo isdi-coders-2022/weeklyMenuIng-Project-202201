@@ -148,3 +148,11 @@ input[type="checkbox"]:disabled {
   border-radius: 50%;
   border-style: solid;
 }
+
+.card-footer {
+  color: #da4474;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin: -5px 5px;
+}

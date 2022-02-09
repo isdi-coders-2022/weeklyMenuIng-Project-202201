@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import Smtwtfs from "../Smtwtfs/Smtwtfs";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 const Container = styled.div`
   color: black;
@@ -8,7 +10,7 @@ const Container = styled.div`
   flex-wrap: wrap;
   border-radius: 10px;
   background-color: #b3dee2;
-  width: 30vw;
+  width: 300px;
 `;
 
 const RecipeCard = ({ recipe: { recipe } }) => {
@@ -49,6 +51,9 @@ const RecipeCard = ({ recipe: { recipe } }) => {
           <p>{recipe.dietLabels}</p>
         </div>
         <Smtwtfs />
+        <div className="card-footer">
+          <FontAwesomeIcon icon={faHeart} className="heart-icon" size="2x" />
+        </div>
       </RecipeHead>
     </Container>
   );
