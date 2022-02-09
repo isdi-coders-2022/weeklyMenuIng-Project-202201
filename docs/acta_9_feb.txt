@@ -1,0 +1,64 @@
+MY WEEKLY MENU
+
+Acta daily 9 febrero 9:30h
+
+Presentes: Menchu, Alberto, Albert, Berenguer
+
+Alberto Vidal:
+
+Ayer:
+	•	Implementó los primeros elementos de la arquitectura FLUX al proyecto.
+	•	Creó los elementos necesarios y las estructuras de carpetas de actions, contexts y reducers.
+	•	Trabajó en el componente DayRecipe (que se usará dentro de un componente por hacer Week en la vista MyMenuPage)
+	•	Empezó implementación de reducers (principalmente el de API reducer, dejando para hoy el reducer de recipes)
+
+Hoy: 
+	•	Implementar Recipes reducer completo (con las actions create, update, delete, load; a la que se añadirá más adelante toggleRecipeDay (para gestionar true/false de una receta en día de semana)
+	•	Acabar reducer de API
+	•	Hacer análisis de Lighthouse
+
+Stoppers:
+	•	agotamiento de picar tanto código sobre las 20h :)
+
+Albert Domínguez:
+
+Ayer:
+	•	Crear e implementar componente Recipe (que se usará en la vista de detalle, tanto desde API local como de API Edamam)
+	•	Analizar en detalle el objeto recipe recibido de Edamam y decidir que propiedades usaremos en nuestros objetos en myRecipes (from Heroku) y recipes (from Edamam)
+	•	Documentación de los paths necesarios del objeto recipe
+	•	estilos de la vista detalle de la recipe
+
+Hoy:
+	•	Crear e implementar componente RecipeCard (versión reducida del componente Recipe)
+	•	Crear e implementar componente SMTWXFS (listado de dias que recibirán acción ToggleRecipeDay), con estilo condicional por valor true/false…
+
+Stoppers: 
+	•	mucho tiempo dedicado a problemas de CSS con background-img y overlay negro + texto….
+	•	problemas para realizar tests específicos (solución gracias a ayuda de Alberto)
+	•	quiere estudiar más sobre el funcionamiento del códigop del proyecto
+
+Se acuerda hablar más de code review de lo que vamos desarrolando en cada tarea del trello.
+
+
+Berenguer Pou:
+
+Ayer:
+	•	fijar diferentes hotfixes y bugfixes a petición de Mario y Menchu
+	•	fixear routing de react-routes en netlify
+	•	documentar bien la app en nueva carpeta /docs
+	•	documentar bien un readme.md de la app
+	•	crear e implementar comp. SearchRecipesForm con input text + checkbox filtros / Testeado / estilos básicos OK
+	•	añadir reglas exclusión de coverage para testing jest + sonarqube
+	•	crear y preparar métodos para fetchear API’s en un nuevo custom hook useAPI que se usará dentro de la arquitectura flux que está liderando Alberto
+
+Hoy:
+	•	crear función de filtrado de datos con los datos almacenados en formData en SerarchRecipesForm para filtrar los resultados en la página MyMenuPage (home)
+	•	mejorar coverage de testing. Crear nuevos test para los comps sin testear.
+	•	crear nueva action en recipeActionsCreator —> ToggleRecipeDay (para togglear si un recipe está añadida o no a un día semana)
+	•	(si tiempo—> probar llamadas a API ya con useAPI y los reducers de Recipe que está trabajando Alberto)
+	•	(si tiempo—> crear componentes Error y Loading, para mostrar errores (si hay en llamadas API) y spinners de carga, respectivamente)
+
+Stoppers:
+	•	hotfixing de varias PR por la mañana y configuración correcta de test coverage.
+	•	agotamiento sobre las 20h, casi imposible pensar e implementar nada más a esa hora :)
+
