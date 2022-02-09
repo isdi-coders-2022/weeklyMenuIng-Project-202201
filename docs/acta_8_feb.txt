@@ -1,0 +1,23 @@
+08/02/2022 9:05
+
+Asistentes al daily: Menchu, Alberto, Berenguer, Albert
+
+Ayer se definieron los componentes y la capa de datos entre los 3.
+
+Alberto hizo el componente burger, casi todo el header. 
+Estuvo haciendo pruebas para implementar el drag and drop.
+Hoy acabará el header y se pondrá con el flux. 
+
+-stopper: Entender funcionamiento de feature drag and drop
+
+
+Berenguer hizo el componente infoblock, test de componentes y coverage, 
+creación del routing y páginas, y montó la API local.
+Hoy va a dejar elementos estáticos testeados y funcionanado y va a implementar SearchRecipes con dos variables de estado 
+nuevas: ingredients [] y diets [] para gestionar la función de filtrado de myRecipes
+
+-stopper: manera de reportar coverage. Creación de carpeta con archivos html.
+
+Albert hizo el componente botón, el componente checkbox, empezó con el componente Recipe y pasó sonarqube.
+Hoy seguirá trabajando en el componente recipe y componente Days.
+stoppers: Repaso de temario. Falta de agilidad.
