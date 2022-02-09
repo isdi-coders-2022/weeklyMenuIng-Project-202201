@@ -49,7 +49,7 @@ const SearchRecipesForm = () => {
     >
       <div className="form-group">
         <label className="ingredients-label" htmlFor="ingredients">
-          Ingredients:{" "}
+          Ingredients:
         </label>
         <input
           type="text"
