@@ -29,4 +29,12 @@ describe("Given a SearchRecipesForm Component", () => {
       expect(searchRecipesForm).toMatchSnapshot();
     });
   });
+
+  describe("submit button", () => {
+    test("is disabled when instantiaded with empty text input", () => {
+      render(<SearchRecipesForm />);
+
+      expect(screen.getByText("Search recipes")).toBeDisabled();
+    });
+  });
 });
