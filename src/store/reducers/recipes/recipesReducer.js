@@ -5,17 +5,17 @@ const recipesReducer = (currentState, action) => {
 
   switch (action.type) {
     case actionTypes.createRecipe:
-      newState = [...currentState, action.recipe];
+      newState = [...currentState, { ...action.recipe }];
       break;
     case actionTypes.loadRecipes:
-      newState = [...currentState, action.recipes];
+      newState = [...currentState, { ...action.recipes }];
       break;
     case actionTypes.removeRecipe:
       newState = [...currentState].filter((recipe) => recipe.id !== action.id);
       break;
     case actionTypes.updateRecipe:
       newState = [...currentState].map((recipe) =>
-        recipe.id === action.recipe.id ? action.recipe : recipe
+        recipe.id === action.recipe.id ? { ...action.recipe } : { ...recipe }
       );
       break;
 
