@@ -52,7 +52,7 @@ const Logo = styled.img`
 `;
 
 const Header = () => {
-  const [isActive, setIsActive] = useState(true);
+  const [isActive, setIsActive] = useState(false);
 
   const toggleActive = () => {
     setIsActive(isActive ? false : true);
