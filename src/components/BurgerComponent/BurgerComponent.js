@@ -21,6 +21,10 @@ const BurgerContainer = styled.div`
   &.active .burger-bar:nth-child(3) {
     transform: rotate(-45deg) translate(7.5px, -${burgerHeight / 2 - 4.5}px);
   }
+
+  @media (min-width: 400px) {
+    display: none;
+  } ;
 `;
 
 const BurgerBar = styled.span`
