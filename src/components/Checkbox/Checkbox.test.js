@@ -1,4 +1,5 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import Checkbox from "./Checkbox";
 
 describe("Given a Checkbox component", () => {
@@ -14,12 +15,28 @@ describe("Given a Checkbox component", () => {
   });
   describe("When instantiated", () => {
     test("Then it should render a checkbox element", () => {
-      const text = "Friday";
+      const text = "";
       render(<Checkbox text={text} />);
 
       const displayedBox = screen.queryByRole("checkbox");
 
       expect(displayedBox).toBeInTheDocument();
+    });
+  });
+
+  describe("When instantiated with an onChange action", () => {
+    test("It should call action when clicked on it", () => {
+      const text = "";
+
+      const action = jest.fn();
+
+      render(<Checkbox text={text} onChange={action} />);
+
+      const checkbox = screen.queryByRole("checkbox");
+
+      userEvent.click(checkbox);
+
+      expect(action).toHaveBeenCalled();
     });
   });
 });
