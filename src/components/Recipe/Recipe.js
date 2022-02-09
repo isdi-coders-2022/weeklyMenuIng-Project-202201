@@ -1,5 +1,6 @@
 import Button from "../Button/Button";
 import styledComponents from "styled-components";
+import Smtwtfs from "../Smtwtfs/Smtwtfs";
 
 const Container = styledComponents.div`
 color : black;
@@ -75,6 +76,7 @@ const Recipe = ({ className, recipe: { recipe } }) => {
             <li>{`Iron: ${parseInt(recipe.totalNutrients.FE.quantity)}`}</li>
           </ul>
         </div>
+        <Smtwtfs />
       </div>
       <div className="recipe-buttons">
         <Button

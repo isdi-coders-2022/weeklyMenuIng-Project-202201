@@ -263,6 +263,45 @@ Array [
           </li>
         </ul>
       </div>
+      <ul
+        className="sc-furwcr emKPfK"
+      >
+        <li
+          className="day-letter-active su"
+        >
+          S
+        </li>
+        <li
+          className="day-letter mo"
+        >
+          M
+        </li>
+        <li
+          className="day-letter tu"
+        >
+          T
+        </li>
+        <li
+          className="day-letter we"
+        >
+          W
+        </li>
+        <li
+          className="day-letter th"
+        >
+          T
+        </li>
+        <li
+          className="day-letter fr"
+        >
+          F
+        </li>
+        <li
+          className="day-letter sa"
+        >
+          S
+        </li>
+      </ul>
     </div>
     <div
       className="recipe-buttons"
@@ -331,40 +370,40 @@ Array [
         </ul>
       </div>
       <ul
-        className="sc-furwcr rfphi"
+        className="sc-pVTFL jByvYV"
       >
         <li
-          className="Su"
+          className="day-letter-active su"
         >
           S
         </li>
         <li
-          className="Mo"
+          className="day-letter mo"
         >
           M
         </li>
         <li
-          className="Tu"
+          className="day-letter tu"
         >
           T
         </li>
         <li
-          className="We"
+          className="day-letter we"
         >
           W
         </li>
         <li
-          className="Th"
+          className="day-letter th"
         >
           T
         </li>
         <li
-          className="Fr"
+          className="day-letter fr"
         >
           F
         </li>
         <li
-          className="Sa"
+          className="day-letter sa"
         >
           S
         </li>
