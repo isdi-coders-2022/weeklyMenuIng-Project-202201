@@ -10,6 +10,8 @@ const FooterContainer = styled.footer`
     padding: 0;
     margin: 0;
     font-size: 1.2rem;
+    color: #151f28;
+
   }
 `;
 
