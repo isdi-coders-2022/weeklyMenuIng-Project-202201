@@ -1,5 +1,6 @@
 import Button from "../Button/Button";
 import styledComponents from "styled-components";
+import Smtwtfs from "../Smtwtfs/Smtwtfs";
 
 const Container = styledComponents.div`
 color : black;
@@ -38,7 +39,15 @@ const Recipe = (
         <h2>{recipe.label}</h2>
       </div>
 
-      <span>{recipe.dietLabels}</span>
+      <span
+        style={{
+          display: `flex`,
+          flexDirection: `column`,
+        }}
+      >
+        {recipe.dietLabels}
+        <p>{`${parseInt(recipe.yield)} SERVINGS`}</p>
+      </span>
       <div className="recipe-info">
         <div className="recipe-ingredients">
           {recipe.ingredientLines.map((ingredient) => {
@@ -57,7 +66,9 @@ const Recipe = (
             alignItems: `center`,
           }}
         >
-          <h3>{`${parseInt(recipe.calories)} Kcal`}</h3>
+          <h3>{`${parseInt(
+            parseInt(recipe.calories) / recipe.yield
+          )} Kcal`}</h3>
           <ul>
             <li>{`Fat: ${parseInt(recipe.digest[0].total)} g`}</li>
             <li>{`Protein: ${parseInt(recipe.digest[1].total)} g`}</li>
@@ -78,6 +89,7 @@ const Recipe = (
             <li>{`Iron: ${parseInt(recipe.totalNutrients.FE.quantity)}`}</li>
           </ul>
         </div>
+        <Smtwtfs />
       </div>
       <div className="recipe-buttons">
         <Button

@@ -1,14 +1,16 @@
-import styledComponents from "styled-components";
+import styled from "styled-components";
+import Smtwtfs from "../Smtwtfs/Smtwtfs";
 
-const Container = styledComponents.div`
-color : black;
-display:flex;
-flex-direction:column;
-flex-wrap: wrap;
+const Container = styled.div`
+  color: black;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 
-border-radius:10px;
-background-color: #B3DEE2;
-width:30vw;`;
+  border-radius: 10px;
+  background-color: #b3dee2;
+  width: 30vw;
+`;
 
 const RecipeCard = ({ recipe: { recipe } }) => {
   return (
@@ -25,26 +27,29 @@ const RecipeCard = ({ recipe: { recipe } }) => {
           height: "50vh",
           textAlign: `center`,
           display: `flex`,
+          flexDirection: `column`,
           justifyContent: `center`,
           alignItems: `center`,
+
         }}
       >
-        <h2>{recipe.label}</h2>
         <div
           className="recipe-digest"
           style={{
             display: `flex`,
+            flexDirection: `column`,
             justifyContent: `center`,
             alignItems: `center`,
           }}
         >
-          <h3>{`${parseInt(recipe.calories)} Kcal`}</h3>
-          <ul>
-            <li>{`Fat: ${parseInt(recipe.digest[0].total)} g`}</li>
-            <li>{`Protein: ${parseInt(recipe.digest[1].total)} g`}</li>
-            <li>{`Carbs: ${parseInt(recipe.digest[2].total)} g`}</li>
-          </ul>
+          <h2>{recipe.label}</h2>
+          <p>{`${parseInt(recipe.yield)} SERVINGS`}</p>
+          <h3>{`${parseInt(
+            parseInt(recipe.calories) / recipe.yield
+          )} Kcal`}</h3>
+          <p>{recipe.dietLabels}</p>
         </div>
+        <Smtwtfs />
       </div>
     </Container>
   );
