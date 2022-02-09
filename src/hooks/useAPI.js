@@ -13,10 +13,13 @@ import {
 } from "../store/actions/recipes/recipesActionsCreator";
 import ApiContext from "../store/contexts/ApiContext/ApiContext";
 import RecipesContext from "../store/contexts/RecipesContext/RecipesContext";
+import { v4 as uuidv4 } from "uuid";
 
 const useAPI = () => {
+  // TODO: PONER VARIABLES PARA CONSTRIUR URL Y PONER APIKEY Y API-ID EN .ENV
   //const apiURL = process.env.REACT_APP_API_URL;
-  const apiURL = "https://my-weekly-menu-api.herokuapp.com/myrecipes";
+  const apiURL =
+    "https://api.edamam.com/api/recipes/v2?type=public&q=chicken&app_id=dc6d4a3e&app_key=5139a87e32f135390c522c62e6f7f946";
   const { dispatch } = useContext(RecipesContext);
   const { dispatch: dispatchAPI } = useContext(ApiContext);
 
@@ -26,17 +29,51 @@ const useAPI = () => {
       dispatchAPI(unsetError());
       const response = await fetch(apiURL);
       const recipes = await response.json();
-      dispatch(loadRecipesAction(recipes));
+      // TODO: hacer un load específico para cada API!
+      dispatch(loadRecipesAction(recipes.hits));
     } catch (error) {
       dispatchAPI(setError());
     }
     dispatchAPI(unsetIsLoaded());
   }, [apiURL, dispatch, dispatchAPI]);
 
+  const addRecipeToMyListAPI = async (recipe) => {
+    const recipeWithId = {
+      ...recipe,
+      id: uuidv4(),
+      days: [{}, {}, {}, {}, {}, {}, {}],
+    };
+    try {
+      dispatchAPI(setIsLoaded());
+      dispatchAPI(unsetError());
+
+      // TODO: hacer bien esto con la apiURL...!Ahora a chapa!
+
+      // const response = await fetch(apiURL, {
+
+      const response = await fetch(
+        "https://my-weekly-menu-api.herokuapp.com/myrecipes",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(recipeWithId),
+        }
+      );
+      const newRecipe = await response.json();
+      dispatch(createRecipeAction(newRecipe));
+    } catch (error) {
+      dispatchAPI(setError());
+    }
+    dispatchAPI(unsetIsLoaded());
+  };
+
   const addRecipeAPI = async (recipe) => {
     try {
       dispatchAPI(setIsLoaded());
       dispatchAPI(unsetError());
+
       const response = await fetch(apiURL, {
         method: "POST",
         headers: {
@@ -94,6 +131,7 @@ const useAPI = () => {
     addRecipeAPI,
     deleteRecipeAPI,
     updateRecipeAPI,
+    addRecipeToMyListAPI,
   };
 };
 

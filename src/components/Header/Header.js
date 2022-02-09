@@ -1,5 +1,7 @@
+import { useState } from "react";
 import styled from "styled-components";
 import BurgerComponent from "../BurgerComponent/BurgerComponent";
+import FloatingMenu from "../FloatingMenu/FloatingMenu";
 import Links from "../Links/Links";
 import logo from "./logo.svg";
 
@@ -50,12 +52,21 @@ const Logo = styled.img`
 `;
 
 const Header = () => {
+  const [isActive, setIsActive] = useState(false);
+
+  const toggleActive = () => {
+    setIsActive(isActive ? false : true);
+  };
+
   return (
-    <HeaderContainer>
-      <Logo src={logo} alt="My weekly menu logo" />
-      <Links />
-      <BurgerComponent />
-    </HeaderContainer>
+    <>
+      <HeaderContainer>
+        <Logo src={logo} alt="My weekly menu logo" />
+        <Links />
+        <BurgerComponent actionOnClick={toggleActive} isActive={isActive} />
+      </HeaderContainer>
+      <FloatingMenu isActive={isActive} />
+    </>
   );
 };
 export default Header;
