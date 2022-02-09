@@ -1,11 +1,26 @@
 import {
+  loadRecipesAction,
   createRecipeAction,
   removeRecipeAction,
-  updateRecipe,
+  updateRecipeAction,
 } from "./recipesActionsCreator";
 import { actionTypes } from "./recipesActionsTypes";
 
 describe("Given a recipesActionsCreator set", () => {
+  describe("When the function loadRecipesAction is called", () => {
+    test("Then it should return an object with type load recipe and the object passed", () => {
+      const loadRecipesType = actionTypes.loadRecipes;
+      const mockObject = [
+        { recipe: { test: "test" } },
+        { recipe: { test: "test" } },
+      ];
+      const expectedAction = { type: loadRecipesType, recipes: mockObject };
+
+      const action = loadRecipesAction(mockObject);
+      expect(action).toEqual(expectedAction);
+    });
+  });
+
   describe("When the function createRecipeAction is called", () => {
     test("Then it should return an object with type create recipe and the object passed", () => {
       const createRecipeType = actionTypes.createRecipe;
@@ -28,13 +43,13 @@ describe("Given a recipesActionsCreator set", () => {
     });
   });
 
-  describe("When the function updateRecipe", () => {
+  describe("When the function updateRecipe is called", () => {
     test("Then it should return an object with type update recipe and the object passed", () => {
       const updateRecipeType = actionTypes.updateRecipe;
       const mockObject = { test: "test" };
       const expectedAction = { type: updateRecipeType, recipe: mockObject };
 
-      const action = updateRecipe(mockObject);
+      const action = updateRecipeAction(mockObject);
       expect(action).toEqual(expectedAction);
     });
   });
