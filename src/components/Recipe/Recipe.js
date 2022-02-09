@@ -53,30 +53,38 @@ const Recipe = ({ className, element }) => {
             alignItems: `center`,
           }}
         >
-          <h3>{parseInt(element.recipe.calories)} Kcal</h3>
+          <h3>{parseInt(element.recipe.calories)}Kcal</h3>
           <ul>
-            <li>Fat: {parseInt(element.recipe.digest[0].total)} g</li>
-            <li>Protein: {parseInt(element.recipe.digest[1].total)} g</li>
-            <li>Carbs: {parseInt(element.recipe.digest[2].total)} g</li>
+            <li>{`Fat: ${parseInt(element.recipe.digest[0].total)} g`}</li>
+            <li>{`Protein: ${parseInt(element.recipe.digest[1].total)} g`}</li>
+            <li>{`Carbs: ${parseInt(element.recipe.digest[2].total)} g`}</li>
           </ul>
           <ul>
             <li>
-              Cholesterol:{" "}
-              {parseInt(element.recipe.totalNutrients.CHOLE.quantity)}
+              {`Cholesterol:
+              ${parseInt(element.recipe.totalNutrients.CHOLE.quantity)}`}
             </li>
             <li>
-              Sodium: {parseInt(element.recipe.totalNutrients.NA.quantity)}
+              {`Sodium: ${parseInt(element.recipe.totalNutrients.NA.quantity)}`}
             </li>
             <li>
-              Calcium: {parseInt(element.recipe.totalNutrients.CA.quantity)}
+              {`Calcium: ${parseInt(
+                element.recipe.totalNutrients.CA.quantity
+              )}`}
             </li>
             <li>
-              Magnesium: {parseInt(element.recipe.totalNutrients.MG.quantity)}
+              {`Magnesium: ${parseInt(
+                element.recipe.totalNutrients.MG.quantity
+              )}`}
             </li>
             <li>
-              Postasium: {parseInt(element.recipe.totalNutrients.K.quantity)}
+              {`Postasium: ${parseInt(
+                element.recipe.totalNutrients.K.quantity
+              )}`}
             </li>
-            <li>Iron: {parseInt(element.recipe.totalNutrients.FE.quantity)}</li>
+            <li>{`Iron: ${parseInt(
+              element.recipe.totalNutrients.FE.quantity
+            )}`}</li>
           </ul>
         </div>
       </div>

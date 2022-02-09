@@ -1,0 +1,294 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given an App component Should match the snapshot 1`] = `
+Array [
+  <header
+    className="sc-eCImPb jtoXxn"
+  >
+    <img
+      alt="My weekly menu logo"
+      className="sc-jRQBWg jyxWn"
+      src="logo.svg"
+    />
+    <ul>
+      <li>
+        <a
+          href="/home"
+          onClick={[Function]}
+        >
+          My Weekly Menu
+        </a>
+      </li>
+      <li>
+        <a
+          href="/search"
+          onClick={[Function]}
+        >
+          Search Recipes
+        </a>
+      </li>
+      <li>
+        <a
+          href="/home/new"
+          onClick={[Function]}
+        >
+          Create New Recipe
+        </a>
+      </li>
+      <li>
+        <a
+          href="/about"
+          onClick={[Function]}
+        >
+          About
+        </a>
+      </li>
+    </ul>
+    <div
+      className="sc-dkPtRN esjSXk burger-container"
+      title="Navigation Menu"
+    >
+      <span
+        className="sc-hKwDye fjIhjE burger-bar"
+      />
+      <span
+        className="sc-hKwDye fjIhjE burger-bar"
+      />
+      <span
+        className="sc-hKwDye fjIhjE burger-bar"
+      />
+    </div>
+  </header>,
+  <form
+    autoComplete="off"
+    className="search-recipes-form"
+    noValidate={true}
+    onSubmit={[Function]}
+  >
+    <div
+      className="form-group"
+    >
+      <label
+        className="ingredients-label"
+        htmlFor="ingredients"
+      >
+        Ingredients:
+      </label>
+      <input
+        className="form-input-ingredients"
+        id="ingredients"
+        onChange={[Function]}
+        placeholder="write some ingredients..."
+        type="text"
+        value=""
+      />
+    </div>
+    <label
+      className="form-control"
+      htmlFor="no-sugar"
+    >
+      <input
+        checked={false}
+        className="diets-checkbox"
+        id="no-sugar"
+        onChange={[Function]}
+        type="checkbox"
+      />
+      no-sugar
+    </label>
+    <label
+      className="form-control"
+      htmlFor="high-protein"
+    >
+      <input
+        checked={false}
+        className="diets-checkbox"
+        id="high-protein"
+        onChange={[Function]}
+        type="checkbox"
+      />
+      high-protein
+    </label>
+    <label
+      className="form-control"
+      htmlFor="balanced"
+    >
+      <input
+        checked={false}
+        className="diets-checkbox"
+        id="balanced"
+        onChange={[Function]}
+        type="checkbox"
+      />
+      balanced
+    </label>
+    <label
+      className="form-control"
+      htmlFor="low-sodium"
+    >
+      <input
+        checked={false}
+        className="diets-checkbox"
+        id="low-sodium"
+        onChange={[Function]}
+        type="checkbox"
+      />
+      low-sodium
+    </label>
+    <label
+      className="form-control"
+      htmlFor="vegan"
+    >
+      <input
+        checked={false}
+        className="diets-checkbox"
+        id="vegan"
+        onChange={[Function]}
+        type="checkbox"
+      />
+      vegan
+    </label>
+    <label
+      className="form-control"
+      htmlFor="vegetarian"
+    >
+      <input
+        checked={false}
+        className="diets-checkbox"
+        id="vegetarian"
+        onChange={[Function]}
+        type="checkbox"
+      />
+      vegetarian
+    </label>
+    <button
+      disabled={true}
+      type="submit"
+    >
+      Search recipes
+    </button>
+  </form>,
+  <h1
+    className="sc-bdvvtL kVWPwq"
+  >
+    My Weekly Menu
+  </h1>,
+  <div
+    className="sc-gsDKAQ lbUEUY"
+  >
+    <div
+      className="recipe-head"
+      style={
+        Object {
+          "alignItems": "center",
+          "background": "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://www.edamam.com/web-img/adf/adf0d1e50d6ab82c373984230682fb3e.jpg) no-repeat center",
+          "backgroundColor": "#0000006b",
+          "backgroundImage": "cover",
+          "backgroundSize": "cover",
+          "color": "white",
+          "display": "flex",
+          "height": "50vh",
+          "justifyContent": "center",
+          "textAlign": "center",
+          "width": "100%",
+        }
+      }
+    >
+      <h2>
+        Chicken & peppers
+      </h2>
+    </div>
+    <span>
+      Low-Carb
+    </span>
+    <div
+      className="recipe-info"
+    >
+      <div
+        className="recipe-ingredients"
+      >
+        <p
+          className="ingredient"
+        >
+          4-6 chicken drumsticks
+        </p>
+        <p
+          className="ingredient"
+        >
+          2-3 large red capsicum (bell peppers), chopped
+        </p>
+      </div>
+      <div
+        className="recipe-digest"
+        style={
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "justifyContent": "center",
+          }
+        }
+      >
+        <h3>
+          1197
+          Kcal
+        </h3>
+        <ul>
+          <li>
+            Fat: 62 g
+          </li>
+          <li>
+            Protein: 25 g
+          </li>
+          <li>
+            Carbs: 124 g
+          </li>
+        </ul>
+        <ul>
+          <li>
+            Cholesterol:
+              611
+          </li>
+          <li>
+            Sodium: 721
+          </li>
+          <li>
+            Calcium: 81
+          </li>
+          <li>
+            Magnesium: 168
+          </li>
+          <li>
+            Postasium: 2268
+          </li>
+          <li>
+            Iron: 6
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      className="recipe-buttons"
+    >
+      <button
+        className="receipeUrl"
+        onClick={[Function]}
+      >
+        GO TO RECIPE
+      </button>
+      <button
+        className="button"
+        onClick={[Function]}
+      >
+        REMOVE
+      </button>
+    </div>
+  </div>,
+  <footer
+    className="sc-gKclnd bXrrxA"
+  >
+    <p>
+      My Weekly Menu
+    </p>
+  </footer>,
+]
+`;
