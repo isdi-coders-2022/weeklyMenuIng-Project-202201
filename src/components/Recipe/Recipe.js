@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from "uuid";
 import Button from "../Button/Button";
 import styledComponents from "styled-components";
 
@@ -12,10 +13,7 @@ border-radius:10px;
 background-color: #B3DEE2;
 width:90vw;`;
 
-const Recipe = (
-  { className, recipe: { recipe } },
-  actionOnClickAddToMyList
-) => {
+const Recipe = ({ className, recipe: { recipe }, actionOnClickAdd }) => {
   const viewOriginalSource = () => window.open(recipe.url, "_blank");
   return (
     <Container className={className}>
@@ -43,7 +41,7 @@ const Recipe = (
         <div className="recipe-ingredients">
           {recipe.ingredientLines.map((ingredient) => {
             return (
-              <p className="ingredient" key={ingredient}>
+              <p className="ingredient" key={uuidv4()}>
                 {ingredient}
               </p>
             );
@@ -89,7 +87,7 @@ const Recipe = (
         <Button
           text="Add to my list"
           className="button"
-          actionOnClick={() => actionOnClickAddToMyList()}
+          actionOnClick={actionOnClickAdd}
         />
       </div>
     </Container>
