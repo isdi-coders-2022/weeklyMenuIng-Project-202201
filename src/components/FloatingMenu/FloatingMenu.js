@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Links from "../Links/Links";
 
 const Menu = styled.div`
-  position: fixed;
+  position: absolute;
   top: 100px;
   left: 10px;
   right: 10px;
