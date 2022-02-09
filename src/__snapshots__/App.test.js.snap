@@ -280,6 +280,57 @@ Array [
       </button>
     </div>
   </div>,
+  <div
+    className="sc-iCfMLu eAywKE"
+  >
+    <div
+      className="recipe-head"
+      style={
+        Object {
+          "alignItems": "center",
+          "background": "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://www.edamam.com/web-img/4d9/4d9084cbc170789caa9e997108b595de.jpg) no-repeat center",
+          "backgroundColor": "#0000006b",
+          "backgroundImage": "cover",
+          "backgroundSize": "cover",
+          "color": "white",
+          "display": "flex",
+          "height": "50vh",
+          "justifyContent": "center",
+          "textAlign": "center",
+          "width": "100%",
+        }
+      }
+    >
+      <h2>
+        Catalan Chicken
+      </h2>
+      <div
+        className="recipe-digest"
+        style={
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "justifyContent": "center",
+          }
+        }
+      >
+        <h3>
+          3900 Kcal
+        </h3>
+        <ul>
+          <li>
+            Fat: 276 g
+          </li>
+          <li>
+            Protein: 64 g
+          </li>
+          <li>
+            Carbs: 266 g
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>,
   <footer
     className="sc-gKclnd bXrrxA"
   >
