@@ -28,6 +28,7 @@ const Menu = styled.div`
       text-decoration: none;
       color: #000;
       text-align: center;
+      padding: 15px 40px;
     }
   }
 
