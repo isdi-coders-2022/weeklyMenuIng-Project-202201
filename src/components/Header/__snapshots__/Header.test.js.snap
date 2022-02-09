@@ -45,7 +45,7 @@ Array [
       </li>
     </ul>
     <div
-      className="sc-bdvvtL dNkJcd burger-container active"
+      className="sc-bdvvtL hJvUau burger-container active"
       onClick={[Function]}
       title="Navigation Menu"
     >
@@ -61,7 +61,7 @@ Array [
     </div>
   </header>,
   <div
-    className="sc-dkPtRN jLfOoA"
+    className="sc-dkPtRN gYgfNm"
   >
     <ul>
       <li>
