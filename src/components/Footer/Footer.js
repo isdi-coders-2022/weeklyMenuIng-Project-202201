@@ -11,6 +11,7 @@ const FooterContainer = styled.footer`
     margin: 0;
     font-size: 1.2rem;
     color: #151f28;
+
   }
 `;
 
