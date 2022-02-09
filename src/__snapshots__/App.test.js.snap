@@ -278,6 +278,12 @@ Array [
       >
         remove recipe
       </button>
+      <button
+        className="button"
+        onClick={[Function]}
+      >
+        Add to my list
+      </button>
     </div>
   </div>,
   <footer

@@ -9,13 +9,14 @@ import {
   loadRecipesAction,
   createRecipeAction,
   removeRecipeAction,
-  updateRecipe,
+  updateRecipeAction,
 } from "../store/actions/recipes/recipesActionsCreator";
 import ApiContext from "../store/contexts/ApiContext/ApiContext";
 import RecipesContext from "../store/contexts/RecipesContext/RecipesContext";
 
 const useAPI = () => {
-  const apiURL = process.env.REACT_APP_API_URL;
+  //const apiURL = process.env.REACT_APP_API_URL;
+  const apiURL = "https://my-weekly-menu-api.herokuapp.com/myrecipes";
   const { dispatch } = useContext(RecipesContext);
   const { dispatch: dispatchAPI } = useContext(ApiContext);
 
@@ -63,7 +64,7 @@ const useAPI = () => {
         body: JSON.stringify(recipe),
       });
       const updatedRecipe = await response.json();
-      dispatch(updateRecipe(updatedRecipe));
+      dispatch(updateRecipeAction(updatedRecipe));
     } catch (error) {
       dispatchAPI(setError());
     }
