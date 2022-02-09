@@ -12,7 +12,7 @@ border-radius:10px;
 background-color: #B3DEE2;
 width:90vw;`;
 
-const RecipeCard = ({ className, element }) => {
+const Recipe = ({ element }) => {
   return (
     <Container>
       <div
@@ -95,4 +95,4 @@ const RecipeCard = ({ className, element }) => {
   );
 };
 
-export default RecipeCard;
+export default Recipe;

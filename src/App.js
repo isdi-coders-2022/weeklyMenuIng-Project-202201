@@ -11,6 +11,7 @@ import AboutPage from "./pages/AboutPage";
 import Header from "./components/Header/Header";
 import SearchRecipesForm from "./components/SearchRecipesForm/SearchRecipesForm";
 import Footer from "./components/Footer/Footer";
+import RecipeCard from "./components/RecipeCard/RecipeCard";
 
 const edamamJSON = require("./edamamResponse.json");
 const edamamReceipes = edamamJSON.hits;
@@ -22,6 +23,7 @@ function App() {
       <SearchRecipesForm />
       <Infoblock text="My Weekly Menu" />
       <Recipe className="recipe" element={edamamReceipes[15]} />
+      <RecipeCard element={edamamReceipes[3]} />
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home">
