@@ -17,11 +17,17 @@ const RecipeCard = ({ recipe: { recipe } }) => {
       url(${recipe.image}) no-repeat center;
     background-size: cover;
     background-color: #0000006b;
+    border-radius: 10px;
     color: white;
     width: 100%;
     height: 50vh;
     display: flex;
     flex-direction: column;
+    &:hover {
+      background: url(${recipe.image}) no-repeat center;
+      background-size: cover;
+      text-shadow: 2px 0 2px black;
+    }
   `;
   return (
     <Container>
