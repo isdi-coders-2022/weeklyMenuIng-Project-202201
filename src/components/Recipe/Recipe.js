@@ -54,21 +54,25 @@ const Recipe = ({ className, recipe: { recipe } }) => {
             alignItems: `center`,
           }}
         >
-          <h3>{parseInt(recipe.calories)} Kcal</h3>
+          <h3>{`${parseInt(recipe.calories)} Kcal`}</h3>
           <ul>
-            <li>Fat: {parseInt(recipe.digest[0].total)} g</li>
-            <li>Protein: {parseInt(recipe.digest[1].total)} g</li>
-            <li>Carbs: {parseInt(recipe.digest[2].total)} g</li>
+            <li>{`Fat: ${parseInt(recipe.digest[0].total)} g`}</li>
+            <li>{`Protein: ${parseInt(recipe.digest[1].total)} g`}</li>
+            <li>{`Carbs: ${parseInt(recipe.digest[2].total)} g`}</li>
           </ul>
           <ul>
             <li>
-              Cholesterol: {parseInt(recipe.totalNutrients.CHOLE.quantity)}
+              {`Cholesterol: ${parseInt(recipe.totalNutrients.CHOLE.quantity)}`}
             </li>
-            <li>Sodium: {parseInt(recipe.totalNutrients.NA.quantity)}</li>
-            <li>Calcium: {parseInt(recipe.totalNutrients.CA.quantity)}</li>
-            <li>Magnesium: {parseInt(recipe.totalNutrients.MG.quantity)}</li>
-            <li>Postasium: {parseInt(recipe.totalNutrients.K.quantity)}</li>
-            <li>Iron: {parseInt(recipe.totalNutrients.FE.quantity)}</li>
+            <li>{`Sodium: ${parseInt(recipe.totalNutrients.NA.quantity)}`}</li>
+            <li>{`Calcium: ${parseInt(recipe.totalNutrients.CA.quantity)}`}</li>
+            <li>{`Magnesium: ${parseInt(
+              recipe.totalNutrients.MG.quantity
+            )}`}</li>
+            <li>{`Postasium: ${parseInt(
+              recipe.totalNutrients.K.quantity
+            )}`}</li>
+            <li>{`Iron: ${parseInt(recipe.totalNutrients.FE.quantity)}`}</li>
           </ul>
         </div>
       </div>
