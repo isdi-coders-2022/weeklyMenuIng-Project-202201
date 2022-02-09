@@ -13,7 +13,10 @@ border-radius:10px;
 background-color: #B3DEE2;
 width:90vw;`;
 
-const Recipe = ({ className, recipe: { recipe } }) => {
+const Recipe = (
+  { className, recipe: { recipe } },
+  actionOnClickAddToMyList
+) => {
   const viewOriginalSource = () => window.open(recipe.url, "_blank");
   return (
     <Container className={className}>
@@ -85,6 +88,11 @@ const Recipe = ({ className, recipe: { recipe } }) => {
           actionOnClick={viewOriginalSource}
         />
         <Button text="remove recipe" className="button" />
+        <Button
+          text="Add to my list"
+          className="button"
+          actionOnClick={() => actionOnClickAddToMyList()}
+        />
       </div>
     </Container>
   );
