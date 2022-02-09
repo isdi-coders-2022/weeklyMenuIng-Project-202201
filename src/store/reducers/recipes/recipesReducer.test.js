@@ -2,6 +2,7 @@ import {
   createRecipeAction,
   loadRecipesAction,
   removeRecipeAction,
+  updateRecipeAction,
 } from "../../actions/recipes/recipesActionsCreator";
 import recipesReducer from "./recipesReducer";
 
@@ -73,6 +74,7 @@ describe("Given a recipesReducer", () => {
       expect(newState).toEqual(expectedNewState);
     });
   });
+
   describe("When it's called with an action type loadRecipes and provide no recipes", () => {
     test("Then it should return a new state equal to currentState", () => {
       const currentState = [];
@@ -82,6 +84,55 @@ describe("Given a recipesReducer", () => {
       const newState = recipesReducer(currentState, action);
 
       expect(newState).toEqual(expectedNewState);
+    });
+  });
+
+  describe("When it's called with an action type update recipe and provide a recipe with maching id", () => {
+    test("then it should return a new state with the same amount of recipes", () => {
+      const currentState = [
+        { label: "coffe", id: 1 },
+        { label: "salmon", id: 2 },
+      ];
+      const recipe = { label: "latte", id: 1 };
+      const action = updateRecipeAction(recipe);
+      const expectedLength = 2;
+
+      const newState = recipesReducer(currentState, action);
+
+      expect(newState.length).toBe(expectedLength);
+    });
+
+    test("then it should return a new state with the updated recipe and without the outdated recipe", () => {
+      const currentState = [
+        { label: "coffe", id: 1 },
+        { label: "salmon", id: 2 },
+      ];
+      const newRecipe = { label: "latte", id: 1 };
+      const outdatedRecipe = { label: "coffe", id: 1 };
+      const action = updateRecipeAction(newRecipe);
+
+      const newState = recipesReducer(currentState, action);
+
+      expect(
+        newState.some(
+          (recipe) => JSON.stringify(recipe) === JSON.stringify(newRecipe)
+        ) &&
+          !newState.some(
+            (recipe) =>
+              JSON.stringify(recipe) === JSON.stringify(outdatedRecipe)
+          )
+      ).toBe(true);
+    });
+  });
+  describe("When it's called with an action type update recipe and provide a recipe with no matching id", () => {
+    test("Then it should return a new state equal to currentstate", () => {
+      const currentState = [{ label: "rice", id: 3 }];
+      const newRecipe = [{ label: "carrot", id: 2 }];
+      const action = updateRecipeAction(newRecipe);
+
+      const newState = recipesReducer(currentState, action);
+
+      expect(newState).toEqual(currentState);
     });
   });
 });
