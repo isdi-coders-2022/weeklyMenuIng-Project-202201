@@ -19,3 +19,8 @@ export const updateRecipeAction = (recipe) => ({
   type: actionTypes.updateRecipe,
   recipe,
 });
+
+export const addRecipeToMyListAction = (recipe) => ({
+  type: actionTypes.addRecipeToMyList,
+  recipe,
+});
