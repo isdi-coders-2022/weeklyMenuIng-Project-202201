@@ -280,7 +280,6 @@ Array [
       </button>
       <button
         className="button"
-        onClick={[Function]}
       >
         Add to my list
       </button>
