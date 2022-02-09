@@ -9,18 +9,22 @@ const BurgerContainer = styled.div`
   height: ${burgerHeight}px;
   width: min-content;
   justify-content: space-between;
-  &:hover .burger-bar:nth-child(2),
+
   &.active .burger-bar:nth-child(2) {
     opacity: 0;
   }
-  &:hover .burger-bar:nth-child(1),
+
   &.active .burger-bar:nth-child(1) {
     transform: rotate(45deg) translate(7.5px, ${burgerHeight / 2 - 4.5}px);
   }
-  &:hover .burger-bar:nth-child(3),
+
   &.active .burger-bar:nth-child(3) {
     transform: rotate(-45deg) translate(7.5px, -${burgerHeight / 2 - 4.5}px);
   }
+
+  @media (min-width: 530px) {
+    display: none;
+  } ;
 `;
 
 const BurgerBar = styled.span`

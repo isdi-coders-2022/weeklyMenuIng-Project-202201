@@ -1,6 +1,8 @@
 import { v4 as uuidv4 } from "uuid";
 import Button from "../Button/Button";
 import styledComponents from "styled-components";
+import Smtwtfs from "../Smtwtfs/Smtwtfs";
+import styled from "styled-components";
 
 const Container = styledComponents.div`
 color : black;
@@ -15,28 +17,35 @@ width:90vw;`;
 
 const Recipe = ({ className, recipe: { recipe }, actionOnClickAdd }) => {
   const viewOriginalSource = () => window.open(recipe.url, "_blank");
+  const RecipeHead = styled.div`
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+      url(${recipe.image}) no-repeat center;
+    background-size: cover;
+    background-color: #0000006b;
+    border-radius: 10px 10px 0px 0px;
+    color: white;
+    width: 100%;
+    height: 50vh;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  `;
   return (
     <Container className={className}>
-      <div
-        className="recipe-head"
+      <RecipeHead>
+        <h2>{recipe.label}</h2>
+      </RecipeHead>
+
+      <span
         style={{
-          background: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${recipe.image}) no-repeat center`,
-          backgroundSize: `cover`,
-          backgroundColor: "#0000006b",
-          color: "white",
-          backgroundImage: `cover`,
-          width: `100%`,
-          height: "50vh",
-          textAlign: `center`,
           display: `flex`,
-          justifyContent: `center`,
-          alignItems: `center`,
+          flexDirection: `column`,
         }}
       >
-        <h2>{recipe.label}</h2>
-      </div>
-
-      <span>{recipe.dietLabels}</span>
+        {recipe.dietLabels}
+        <p>{`${parseInt(recipe.yield)} SERVINGS`}</p>
+      </span>
       <div className="recipe-info">
         <div className="recipe-ingredients">
           {recipe.ingredientLines.map((ingredient) => {
@@ -55,7 +64,9 @@ const Recipe = ({ className, recipe: { recipe }, actionOnClickAdd }) => {
             alignItems: `center`,
           }}
         >
-          <h3>{`${parseInt(recipe.calories)} Kcal`}</h3>
+          <h3>{`${parseInt(
+            parseInt(recipe.calories) / recipe.yield
+          )} Kcal`}</h3>
           <ul>
             <li>{`Fat: ${parseInt(recipe.digest[0].total)} g`}</li>
             <li>{`Protein: ${parseInt(recipe.digest[1].total)} g`}</li>
@@ -76,6 +87,7 @@ const Recipe = ({ className, recipe: { recipe }, actionOnClickAdd }) => {
             <li>{`Iron: ${parseInt(recipe.totalNutrients.FE.quantity)}`}</li>
           </ul>
         </div>
+        <Smtwtfs />
       </div>
       <div className="recipe-buttons">
         <Button

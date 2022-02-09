@@ -1,61 +1,102 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Given a Header Component When it's rendered Then it should match the snapshot 1`] = `
-<header
-  className="sc-dkPtRN hHLIyU"
->
-  <img
-    alt="My weekly menu logo"
-    className="sc-hKwDye dEzyiQ"
-    src="logo.svg"
-  />
-  <ul>
-    <li>
-      <a
-        href="/home"
-        onClick={[Function]}
-      >
-        My Weekly Menu
-      </a>
-    </li>
-    <li>
-      <a
-        href="/search"
-        onClick={[Function]}
-      >
-        Search Recipes
-      </a>
-    </li>
-    <li>
-      <a
-        href="/home/new"
-        onClick={[Function]}
-      >
-        Create New Recipe
-      </a>
-    </li>
-    <li>
-      <a
-        href="/about"
-        onClick={[Function]}
-      >
-        About
-      </a>
-    </li>
-  </ul>
-  <div
-    className="sc-bdvvtL FHVtl burger-container"
-    title="Navigation Menu"
+Array [
+  <header
+    className="sc-hKwDye eIVOiK"
   >
-    <span
-      className="sc-gsDKAQ bFRFTX burger-bar"
+    <img
+      alt="My weekly menu logo"
+      className="sc-eCImPb czJMsU"
+      src="logo.svg"
     />
-    <span
-      className="sc-gsDKAQ bFRFTX burger-bar"
-    />
-    <span
-      className="sc-gsDKAQ bFRFTX burger-bar"
-    />
-  </div>
-</header>
+    <ul>
+      <li>
+        <a
+          href="/home"
+          onClick={[Function]}
+        >
+          My Weekly Menu
+        </a>
+      </li>
+      <li>
+        <a
+          href="/search"
+          onClick={[Function]}
+        >
+          Search Recipes
+        </a>
+      </li>
+      <li>
+        <a
+          href="/home/new"
+          onClick={[Function]}
+        >
+          Create New Recipe
+        </a>
+      </li>
+      <li>
+        <a
+          href="/about"
+          onClick={[Function]}
+        >
+          About
+        </a>
+      </li>
+    </ul>
+    <div
+      className="sc-bdvvtL hJvUau burger-container active"
+      onClick={[Function]}
+      title="Navigation Menu"
+    >
+      <span
+        className="sc-gsDKAQ bFRFTX burger-bar"
+      />
+      <span
+        className="sc-gsDKAQ bFRFTX burger-bar"
+      />
+      <span
+        className="sc-gsDKAQ bFRFTX burger-bar"
+      />
+    </div>
+  </header>,
+  <div
+    className="sc-dkPtRN gYgfNm"
+  >
+    <ul>
+      <li>
+        <a
+          href="/home"
+          onClick={[Function]}
+        >
+          My Weekly Menu
+        </a>
+      </li>
+      <li>
+        <a
+          href="/search"
+          onClick={[Function]}
+        >
+          Search Recipes
+        </a>
+      </li>
+      <li>
+        <a
+          href="/home/new"
+          onClick={[Function]}
+        >
+          Create New Recipe
+        </a>
+      </li>
+      <li>
+        <a
+          href="/about"
+          onClick={[Function]}
+        >
+          About
+        </a>
+      </li>
+    </ul>
+  </div>,
+]
 `;
