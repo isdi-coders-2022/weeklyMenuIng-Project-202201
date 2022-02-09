@@ -82,14 +82,13 @@ const Recipe = ({ className, element }) => {
       </div>
       <div className="recipe-buttons">
         <Button
-          text="GO TO RECIPE"
+          text="view recipe source"
           className="receipeUrl"
-          actionOnClick={(event) => {
-            event.preventDefault();
-            window.location.href = element.recipe.url;
+          actionOnClick={() => {
+            window.open(element.recipe.url, "_blank");
           }}
         />
-        <Button text="REMOVE" className="button" actionOnClick={() => null} />
+        <Button text="remove recipe" className="button" actionOnClick={null} />
       </div>
     </Container>
   );
