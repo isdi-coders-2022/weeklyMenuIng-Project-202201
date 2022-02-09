@@ -22,8 +22,10 @@ function App() {
       <Header />
       <SearchRecipesForm />
       <Infoblock text="My Weekly Menu" />
+
       <Recipe className="recipe" element={edamamReceipes[15]} />
       <RecipeCard element={edamamReceipes[3]} />
+
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home">

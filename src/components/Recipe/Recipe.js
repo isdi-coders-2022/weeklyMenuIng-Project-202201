@@ -12,13 +12,14 @@ border-radius:10px;
 background-color: #B3DEE2;
 width:90vw;`;
 
-const Recipe = ({ className, element }) => {
+const Recipe = ({ className, recipe: { recipe } }) => {
+  const viewOriginalSource = () => window.open(recipe.url, "_blank");
   return (
-    <Container>
+    <Container className={className}>
       <div
         className="recipe-head"
         style={{
-          background: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${element.recipe.image}) no-repeat center`,
+          background: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${recipe.image}) no-repeat center`,
           backgroundSize: `cover`,
           backgroundColor: "#0000006b",
           color: "white",
@@ -31,13 +32,13 @@ const Recipe = ({ className, element }) => {
           alignItems: `center`,
         }}
       >
-        <h2>{element.recipe.label}</h2>
+        <h2>{recipe.label}</h2>
       </div>
 
-      <span>{element.recipe.dietLabels}</span>
+      <span>{recipe.dietLabels}</span>
       <div className="recipe-info">
         <div className="recipe-ingredients">
-          {element.recipe.ingredientLines.map((ingredient) => {
+          {recipe.ingredientLines.map((ingredient) => {
             return (
               <p className="ingredient" key={ingredient}>
                 {ingredient}
@@ -53,43 +54,31 @@ const Recipe = ({ className, element }) => {
             alignItems: `center`,
           }}
         >
-          <h3>{parseInt(element.recipe.calories)} Kcal</h3>
+          <h3>{parseInt(recipe.calories)} Kcal</h3>
           <ul>
-            <li>Fat: {parseInt(element.recipe.digest[0].total)} g</li>
-            <li>Protein: {parseInt(element.recipe.digest[1].total)} g</li>
-            <li>Carbs: {parseInt(element.recipe.digest[2].total)} g</li>
+            <li>Fat: {parseInt(recipe.digest[0].total)} g</li>
+            <li>Protein: {parseInt(recipe.digest[1].total)} g</li>
+            <li>Carbs: {parseInt(recipe.digest[2].total)} g</li>
           </ul>
           <ul>
             <li>
-              Cholesterol:{" "}
-              {parseInt(element.recipe.totalNutrients.CHOLE.quantity)}
+              Cholesterol: {parseInt(recipe.totalNutrients.CHOLE.quantity)}
             </li>
-            <li>
-              Sodium: {parseInt(element.recipe.totalNutrients.NA.quantity)}
-            </li>
-            <li>
-              Calcium: {parseInt(element.recipe.totalNutrients.CA.quantity)}
-            </li>
-            <li>
-              Magnesium: {parseInt(element.recipe.totalNutrients.MG.quantity)}
-            </li>
-            <li>
-              Postasium: {parseInt(element.recipe.totalNutrients.K.quantity)}
-            </li>
-            <li>Iron: {parseInt(element.recipe.totalNutrients.FE.quantity)}</li>
+            <li>Sodium: {parseInt(recipe.totalNutrients.NA.quantity)}</li>
+            <li>Calcium: {parseInt(recipe.totalNutrients.CA.quantity)}</li>
+            <li>Magnesium: {parseInt(recipe.totalNutrients.MG.quantity)}</li>
+            <li>Postasium: {parseInt(recipe.totalNutrients.K.quantity)}</li>
+            <li>Iron: {parseInt(recipe.totalNutrients.FE.quantity)}</li>
           </ul>
         </div>
       </div>
       <div className="recipe-buttons">
         <Button
-          text="GO TO RECIPE"
+          text="view recipe source"
           className="receipeUrl"
-          actionOnClick={(event) => {
-            event.preventDefault();
-            window.location.href = element.recipe.url;
-          }}
+          actionOnClick={viewOriginalSource}
         />
-        <Button text="REMOVE" className="button" actionOnClick={() => null} />
+        <Button text="remove recipe" className="button" />
       </div>
     </Container>
   );

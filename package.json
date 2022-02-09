@@ -6,7 +6,9 @@
     "collectCoverageFrom": [
       "src/**/*.js",
       "!src/index.js",
-      "!src/setupTests.js"
+      "!src/setupTests.js",
+      "!src/**/ApiContext.js",
+      "!src/**/RecipesContext.js"
     ],
     "coverageReporters": [
       "json",
