@@ -1,14 +1,16 @@
-import styledComponents from "styled-components";
+import styled from "styled-components";
+import Smtwtfs from "../Smtwtfs/Smtwtfs";
 
-const Container = styledComponents.div`
-color : black;
-display:flex;
-flex-direction:column;
-flex-wrap: wrap;
+const Container = styled.div`
+  color: black;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 
-border-radius:10px;
-background-color: #B3DEE2;
-width:30vw;`;
+  border-radius: 10px;
+  background-color: #b3dee2;
+  width: 30vw;
+`;
 
 const RecipeCard = ({ recipe: { recipe } }) => {
   return (
@@ -25,6 +27,7 @@ const RecipeCard = ({ recipe: { recipe } }) => {
           height: "50vh",
           textAlign: `center`,
           display: `flex`,
+          flexDirection: `column`,
           justifyContent: `center`,
           alignItems: `center`,
         }}
@@ -45,6 +48,7 @@ const RecipeCard = ({ recipe: { recipe } }) => {
             <li>{`Carbs: ${parseInt(recipe.digest[2].total)} g`}</li>
           </ul>
         </div>
+        <Smtwtfs />
       </div>
     </Container>
   );

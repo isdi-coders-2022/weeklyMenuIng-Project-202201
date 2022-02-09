@@ -281,7 +281,7 @@ Array [
     </div>
   </div>,
   <div
-    className="sc-iCfMLu eAywKE"
+    className="sc-iCfMLu dTvxUC"
   >
     <div
       className="recipe-head"
@@ -294,6 +294,7 @@ Array [
           "backgroundSize": "cover",
           "color": "white",
           "display": "flex",
+          "flexDirection": "column",
           "height": "50vh",
           "justifyContent": "center",
           "textAlign": "center",
@@ -329,6 +330,45 @@ Array [
           </li>
         </ul>
       </div>
+      <ul
+        className="sc-furwcr rfphi"
+      >
+        <li
+          className="Su"
+        >
+          S
+        </li>
+        <li
+          className="Mo"
+        >
+          M
+        </li>
+        <li
+          className="Tu"
+        >
+          T
+        </li>
+        <li
+          className="We"
+        >
+          W
+        </li>
+        <li
+          className="Th"
+        >
+          T
+        </li>
+        <li
+          className="Fr"
+        >
+          F
+        </li>
+        <li
+          className="Sa"
+        >
+          S
+        </li>
+      </ul>
     </div>
   </div>,
   <footer
