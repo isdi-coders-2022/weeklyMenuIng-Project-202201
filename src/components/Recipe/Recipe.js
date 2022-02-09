@@ -12,7 +12,7 @@ border-radius:10px;
 background-color: #B3DEE2;
 width:90vw;`;
 
-const Recipe = ({ element }) => {
+const Recipe = ({ className, element }) => {
   return (
     <Container>
       <div
