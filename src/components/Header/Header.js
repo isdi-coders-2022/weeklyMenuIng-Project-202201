@@ -8,21 +8,40 @@ const HeaderContainer = styled.header`
   height: 100px;
   align-items: center;
   background-color: #b3dee2;
-  justify-content: space-between;
+  justify-content: space-around;
 
   & ul {
     display: flex;
-    width: 70%;
+    width: 100%;
+    margin: 100px 0 10px 0;
     justify-content: space-between;
     align-items: center;
     padding: 0;
     list-style: none;
-    margin: 0;
+    margin: 0 10px;
 
     & li a {
       text-decoration: none;
       color: #000;
+      margin: 0 8px;
     }
+    @media (max-width: 530px) {
+      display: none;
+    }
+  }
+
+  @media (max-width: 650px) {
+    font-size: 14px;
+  }
+  @media (max-width: 590px) {
+    font-size: 13px;
+  }
+
+  @media (max-width: 560px) {
+    font-size: 12px;
+  }
+  @media (max-width: 530px) {
+    justify-content: space-between;
   }
 `;
 
