@@ -1,9 +1,18 @@
 import RecipesContext from "./RecipesContext";
+import { useReducer } from "react";
+import recipesReducer from "../../reducers/recipes/recipesReducer";
 
 const RecipesContextProvider = ({ children }) => {
-  const data = ["mockData"];
+  const [recipes, dispatch] = useReducer(recipesReducer, []);
   return (
-    <RecipesContext.Provider value={data}>{children}</RecipesContext.Provider>
+    <RecipesContext.Provider
+      value={{
+        recipes,
+        dispatch,
+      }}
+    >
+      {children}
+    </RecipesContext.Provider>
   );
 };
 

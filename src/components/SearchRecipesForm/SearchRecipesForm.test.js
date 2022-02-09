@@ -20,14 +20,14 @@ describe("Given a SearchRecipesForm Component", () => {
 
       expect(numOfCheckboxes).toBe(expectedNumberOfCheckboxes);
     });
+  });
 
-    test("Then it should match the snapshot", () => {
-      const searchRecipesForm = TestRenderer.create(
-        <SearchRecipesForm />
-      ).toJSON();
+  test("Then it should match the snapshot", () => {
+    const searchRecipesForm = TestRenderer.create(
+      <SearchRecipesForm />
+    ).toJSON();
 
-      expect(searchRecipesForm).toMatchSnapshot();
-    });
+    expect(searchRecipesForm).toMatchSnapshot();
   });
 
   describe("submit button", () => {
