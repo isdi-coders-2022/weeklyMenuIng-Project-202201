@@ -10,6 +10,7 @@ import SearchRecipesPage from "./pages/SearchRecipesPage";
 import AboutPage from "./pages/AboutPage";
 import Header from "./components/Header/Header";
 import SearchRecipesForm from "./components/SearchRecipesForm/SearchRecipesForm";
+import Footer from "./components/Footer/Footer";
 
 const edamamJSON = require("./edamamResponse.json");
 const edamamReceipes = edamamJSON.hits;
@@ -36,6 +37,7 @@ function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+      <Footer />
     </>
   );
 }
