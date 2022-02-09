@@ -26,7 +26,7 @@ describe("Given a Infoblock component", () => {
 
   describe("When it's rendered", () => {
     test("Then it should match the snapshot", () => {
-      const info = TestRenderer.create(<Infoblock />).toJSON();
+      const info = TestRenderer.create(<Infoblock text="snapshot" />).toJSON();
 
       expect(info).toMatchSnapshot();
     });
