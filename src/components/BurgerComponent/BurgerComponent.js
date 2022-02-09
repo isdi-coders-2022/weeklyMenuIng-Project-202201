@@ -22,7 +22,7 @@ const BurgerContainer = styled.div`
     transform: rotate(-45deg) translate(7.5px, -${burgerHeight / 2 - 4.5}px);
   }
 
-  @media (min-width: 400px) {
+  @media (min-width: 530px) {
     display: none;
   } ;
 `;

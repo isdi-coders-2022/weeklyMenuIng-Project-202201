@@ -31,7 +31,7 @@ const Menu = styled.div`
     }
   }
 
-  @media (min-width: 400px) {
+  @media (min-width: 530px) {
     display: none;
   }
 `;
