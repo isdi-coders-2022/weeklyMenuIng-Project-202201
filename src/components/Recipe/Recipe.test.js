@@ -9,8 +9,8 @@ describe("Given a Recipe component", () => {
   const expectedTitle = edamamRecipe.recipe.label;
 
   describe("When instantiated with a recipe", () => {
-    test("Then it should render an element with text in recipe.label", () => {
-      render(<Recipe className={"whatever"} element={edamamRecipe} />);
+    test("Then it should render an recipe with text in recipe.label", () => {
+      render(<Recipe className={"whatever"} recipe={edamamRecipe} />);
 
       const recepta = screen.queryByText(expectedTitle);
 
