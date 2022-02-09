@@ -8,7 +8,7 @@ describe("Given a RecipeCard component", () => {
 
   describe("When instantiated with an edamam object as props", () => {
     test("Then it should render an element with the recipe label as title", () => {
-      render(<RecipeCard className={"whatever"} recipe={edamamRecipe} />);
+      render(<RecipeCard className={"whatever"} element={edamamRecipe} />);
 
       const recepta = screen.queryByText(edamamRecipe.recipe.label);
 
