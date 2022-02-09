@@ -4,7 +4,6 @@ exports[`Given a SearchRecipesForm Component When it's rendered Then it should m
 <form
   autoComplete="off"
   className="search-recipes-form"
-  data-testid="search-recipes-form"
   noValidate={true}
   onSubmit={[Function]}
 >
