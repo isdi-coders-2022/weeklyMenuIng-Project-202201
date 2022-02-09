@@ -23,6 +23,9 @@ const HeaderContainer = styled.header`
       text-decoration: none;
       color: #000;
     }
+    @media (max-width: 400px) {
+      display: none;
+    }
   }
 `;
 
