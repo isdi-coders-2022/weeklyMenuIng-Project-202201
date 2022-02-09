@@ -1,6 +1,7 @@
 import Button from "../Button/Button";
 import styledComponents from "styled-components";
 import Smtwtfs from "../Smtwtfs/Smtwtfs";
+import styled from "styled-components";
 
 const Container = styledComponents.div`
 color : black;
@@ -18,26 +19,25 @@ const Recipe = (
   actionOnClickAddToMyList
 ) => {
   const viewOriginalSource = () => window.open(recipe.url, "_blank");
+  const RecipeHead = styled.div`
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+      url(${recipe.image}) no-repeat center;
+    background-size: cover;
+    background-color: #0000006b;
+    border-radius: 10px 10px 0px 0px;
+    color: white;
+    width: 100%;
+    height: 50vh;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  `;
   return (
     <Container className={className}>
-      <div
-        className="recipe-head"
-        style={{
-          background: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${recipe.image}) no-repeat center`,
-          backgroundSize: `cover`,
-          backgroundColor: "#0000006b",
-          color: "white",
-          backgroundImage: `cover`,
-          width: `100%`,
-          height: "50vh",
-          textAlign: `center`,
-          display: `flex`,
-          justifyContent: `center`,
-          alignItems: `center`,
-        }}
-      >
+      <RecipeHead>
         <h2>{recipe.label}</h2>
-      </div>
+      </RecipeHead>
 
       <span
         style={{
