@@ -1,35 +1,35 @@
 import styled from "styled-components";
 
 const DayRecipeCard = styled.li`
-  border-radius: 4px;
-  height: 30px;
-  min-width: 250px;
-  max-width: 300px;
+  box-sizing: border-box;
+  max-height: 100px;
+  margin: 10px;
   position: relative;
-
-  & img {
-    object-fit: cover;
-    object-position: center;
-    width: 100%;
-    border-radius: inherit;
+  border-radius: 4px;
+  & span {
+    background-color: #fffe;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+    display: block;
+    position: absolute;
+    width: 50%;
+    top: 0;
+    bottom: 0;
   }
 `;
 
-const TitleContainer = styled.div`
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: fit-content;
-  background-color: rgba(255, 255, 255, 0.9);
-  z-index: 2;
+const Image = styled.img`
+  object-fit: cover;
+  object-position: center;
+  max-height: inherit;
+  width: 100%;
 `;
 const DayRecipe = ({ recipe: { recipe } }) => {
   return (
     <DayRecipeCard>
-      <TitleContainer>
-        <p>{recipe.label}</p>
-      </TitleContainer>
-      <img src={recipe.image} alt={recipe.label} />
+      <span>{recipe.label}</span>
+      <Image src={recipe.image} alt={recipe.label} />
     </DayRecipeCard>
   );
 };

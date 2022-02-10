@@ -10,6 +10,7 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Loading from "./components/Loading/Loading";
 import ErrorMsg from "./components/ErrorMsg/ErrorMsg";
+import Week from "./components/Week/Week";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Loading />
       <Header />
       <ErrorMsg />
+      <Week />
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home">
