@@ -1,9 +1,5 @@
 import { render, screen } from "@testing-library/react";
 import Smtwtfs from "../Smtwtfs/Smtwtfs";
-import userEvent from "@testing-library/user-event";
-import MyRecipesContext from "../../store/contexts/MyRecipesContext/MyRecipesContext";
-import { findRenderedDOMComponentWithClass } from "react-dom/test-utils";
-import { Component } from "react";
 
 describe("Given a Smtetfs component", () => {
   const edamamJSON = require("./edamamResponse.json");
