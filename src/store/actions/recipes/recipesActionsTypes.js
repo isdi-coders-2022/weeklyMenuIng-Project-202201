@@ -5,4 +5,5 @@ export const actionTypes = {
   removeRecipe: "remove-recipe",
   updateRecipe: "update-recipe",
   addRecipeToMyList: "add-recipe-to-my-list",
+  dragRecipe: "drag-recipe",
 };

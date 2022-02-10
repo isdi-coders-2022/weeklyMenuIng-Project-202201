@@ -29,3 +29,9 @@ export const addRecipeToMyListAction = (recipe) => ({
   type: actionTypes.addRecipeToMyList,
   recipe,
 });
+
+export const dragRecipeAction = (source, destination) => ({
+  type: "drag-recipe",
+  source,
+  destination,
+});
