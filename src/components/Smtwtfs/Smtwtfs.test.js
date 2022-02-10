@@ -1,5 +1,9 @@
 import { render, screen } from "@testing-library/react";
 import Smtwtfs from "../Smtwtfs/Smtwtfs";
+import userEvent from "@testing-library/user-event";
+import MyRecipesContext from "../../store/contexts/MyRecipesContext/MyRecipesContext";
+import { findRenderedDOMComponentWithClass } from "react-dom/test-utils";
+import { Component } from "react";
 
 describe("Given a Smtetfs component", () => {
   const edamamJSON = require("./edamamResponse.json");
@@ -14,13 +18,11 @@ describe("Given a Smtetfs component", () => {
     { index: null, day: "friday", active: false, initial: "F" },
     { index: null, day: "saturday", active: false, initial: "S" },
   ];
-
-  describe("When instantiated with an edamam object as props", () => {
-    test("Then it should render an element with the recipe label as title", () => {
-      render(<Smtwtfs smtwtfs={days} recipe={edamamRecipe} />);
-
-      const diaS = screen.queryByText("M");
-      expect(diaS).toBeInTheDocument();
+  render(<Smtwtfs smtwtfs={days} recipe={edamamRecipe} />);
+  describe("When instantiated with an edamam object and days array as props", () => {
+    test("Then it should render a li element with M as text", () => {
+      const diaM = screen.queryByText("M");
+      expect(diaM).toBeInTheDocument();
     });
   });
 });
