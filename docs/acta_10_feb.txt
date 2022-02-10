@@ -1,0 +1,54 @@
+Acta 10 feb 9:30h
+
+Alberto Vidal:
+
+Ayer:
+- menú flotante para mobile (mismo comp que desktop pero renderizado de otro modo)
+- variables estado menú isActive
+-testeo de los reducers
+-testeo de los componentes no testeados
+
+Stoppers:
+-testeo del cusatom hook useAPI que nos penaliza mucho en el coverage (mirar cómo testear llamadas asíncronas)
+
+Hoy:
+- gestón de datos en propiedad day de las recipes para gestionar el Drag and Drop que habrá en la páginal principal en el componente week.
+- desarrollar el Drag and Drop (feature estrella) en la home page
+-hacer que el click en links apague el menú flotante
+-testear componentes sin coverage completo
+
+
+Albert Domínguez:
+
+Ayer:
+-styled components en Recipe y RecipeCard
+-cxreacióin del componente SMTWXFS para albergar/mostrar datos que una receta está añadida a un dia de la semana o no.
+
+Stoppers: creación de styled components dentro o fuera de componentes react para poder pasar props! (hoy se soluciona, con Berenguer vemos cómo pasar props y declarar el sttyled.comp fuera del componente react
+
+Hoy:
+- gestionar click action para cada dia de la semana en el componente SMTWXFS
+- añadir acciones add/remove de una Recipe para llamar a la action add/remove del custom hook useAPI (acciones add to my list y remove from my list)
+- hacer conditional rendering para mostrar o no SMTWXFS en recipeCard (enfuncón de si estamos en home o en search page)
+- estilos de la página de detalle (Recipe comp)
+
+
+Berenguer Pou:
+
+Ayer:
+- llamadas de test e implementación a API pública y a Heroku con el custom hook useAPI y los reducers
+- Componente RecipesList y estilos de RecipesList para mostrar grid en flexbox con las RecipeCards
+- implermentar la creación de ids únicas con el módulo uuid() para cada recipe y para cada elemento nuevo en cualquier mapeo de rendering
+- implementar acción addRecipeToMyList en RecipesReducer y método addToMyList en custom hook useAPI para postear una recipe de recipes (de vista resultados API pública) —> a myWeeklyMenuApi en Heroku.
+- creación de key days con array de datos (vacíos de momento) para gestionar después la vista semana que prepara Alberto.
+
+
+Stoppers: testeo de eventos en formularios, cómo afrontar el testeo del custom hook….
+
+Hoy: 
+
+- implementar funcionalidad contra API del formulario de busqueda por ingfrediente
+- implementar el filtrado acumulativo por checkboxes dietas sobre los resultados recibidos (testeo en local sobre recipes) Conditoinal rendering o actualización de variable estado recipes???
+- trabajar con Albert en pair programming en add/remove recipe, en toogleDay para una recipe
+-crear componente Loading (para mostrar pantalla de carga/spinner)
+-crear componente Error (para mostrar posibles errores de llamadas API)
