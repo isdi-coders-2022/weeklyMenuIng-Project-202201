@@ -37,10 +37,10 @@ const Menu = styled.div`
   }
 `;
 
-const FloatingMenu = ({ isActive }) => {
+const FloatingMenu = ({ isActive, actionOnClick }) => {
   return isActive ? (
     <Menu>
-      <Links />
+      <Links actionOnClick={actionOnClick} />
     </Menu>
   ) : (
     ""
