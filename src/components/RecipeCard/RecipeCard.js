@@ -32,7 +32,7 @@ const RecipeHead = styled.div`
   }
 `;
 
-const RecipeCard = ({ recipe: { recipe }, actionOnClickAdd }) => {
+const RecipeCard = ({ recipe: { recipe, days }, actionOnClickAdd }) => {
   const [isMine, setIsMine] = useState(false);
   const toggleMine = () => setIsMine(!isMine);
   return (
@@ -55,7 +55,7 @@ const RecipeCard = ({ recipe: { recipe }, actionOnClickAdd }) => {
           </p>
         </div>
         <section className="card-bottom">
-          <Smtwtfs />
+          <Smtwtfs smtwtfs={days} recipe={recipe} />
           <div className="heart-container">
             <button
               className={`heart-button ${isMine ? "heart-button--active" : ""}`}

@@ -82,7 +82,15 @@ const useAPI = () => {
     const recipeWithId = {
       ...recipe,
       id: uuidv4(),
-      days: [{}, {}, {}, {}, {}, {}, {}],
+      days: [
+        { index: null, day: "sunday", active: false, initial: "S" },
+        { index: null, day: "monday", active: false, initial: "M" },
+        { index: null, day: "tuesday", active: false, initial: "T" },
+        { index: null, day: "wednesday", active: false, initial: "W" },
+        { index: null, day: "thursday", active: false, initial: "T" },
+        { index: null, day: "friday", active: false, initial: "F" },
+        { index: null, day: "saturday", active: false, initial: "S" },
+      ],
     };
     try {
       dispatchAPI(setIsLoaded());

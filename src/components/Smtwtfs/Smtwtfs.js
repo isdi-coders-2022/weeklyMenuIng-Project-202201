@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useReducer, useState } from "react";
 import styled from "styled-components";
+import { toggleDay } from "../../store/actions/myRecpes/myRecipesActionsCreator";
+import myRecipesReducer from "../../store/reducers/myRecypes/myRcipesReducer";
 
 const DayList = styled.ul`
   width: 100%;
@@ -12,33 +14,17 @@ const DayList = styled.ul`
   padding: 0;
 `;
 
-const Smtwtfs = () => {
-  const [weekDays, setWeekDays] = useState([
-    { day: "sunday", active: false, initial: "S" },
-    { day: "monday", active: false, initial: "M" },
-    { day: "tuesday", active: false, initial: "T" },
-    { day: "wednesday", active: false, initial: "W" },
-    { day: "thursday", active: false, initial: "T" },
-    { day: "friday", active: false, initial: "F" },
-    { day: "saturday", active: false, initial: "S" },
-  ]);
-  const changeState = (day) => {
-    const newState = [...weekDays];
-    newState[day] = toggleActive(newState[day]);
-    setWeekDays(newState);
-  };
-  const toggleActive = (day) => {
-    return { ...day, active: !day.active };
-  };
+const Smtwtfs = ({ smtwtfs, recipe }) => {
+  const [, dispatch] = useReducer(myRecipesReducer);
   return (
     <DayList>
-      {weekDays.map((day, index) => {
+      {smtwtfs.map((day, index) => {
         return (
           <li
             key={index}
             className={`day-letter ${day.active ? "day-letter--active" : ""}`}
             onClick={() => {
-              changeState(index);
+              dispatch(toggleDay(recipe, index));
             }}
           >
             {day.initial}

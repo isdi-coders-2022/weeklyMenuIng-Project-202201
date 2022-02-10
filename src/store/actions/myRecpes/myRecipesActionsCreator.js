@@ -19,3 +19,9 @@ export const updateRecipeAction = (recipe) => ({
   type: actionTypes.updateRecipe,
   recipe,
 });
+
+export const toggleDay = (id, day) => ({
+  type: actionTypes.toggleDay,
+  id,
+  day,
+});
