@@ -2,12 +2,16 @@ import { render, screen } from "@testing-library/react";
 import ApiContextProvider from "../../store/contexts/ApiContext/ApiContextProvider";
 import RecipesContextProvider from "../../store/contexts/RecipesContext/RecipesContextProvider";
 import RecipesList from "./RecipesList";
+import { server } from "../../mocks/server";
 
+beforeAll(() => server.listen());
+
+afterEach(() => server.resetHandlers());
+
+afterAll(() => server.close());
 describe("Given a recipesList component", () => {
   describe("When it's rendered", () => {
     test("Then it should render the recipes receibed via context", async () => {
-      const expectedNumberOfRecipes = 2;
-
       render(
         <ApiContextProvider>
           <RecipesContextProvider>
@@ -16,9 +20,9 @@ describe("Given a recipesList component", () => {
         </ApiContextProvider>
       );
 
-      const recipes = screen.queryAllByRole("");
+      const recipes = await screen.findAllByRole("list");
 
-      expect(recipes.length).toBe(expectedNumberOfRecipes);
+      expect(recipes).not.toBeNull();
     });
   });
 });
