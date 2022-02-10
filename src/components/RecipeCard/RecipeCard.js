@@ -56,7 +56,11 @@ const RecipeCard = ({ recipe, isMyList = false }) => {
           </p>
         </div>
         <section className="card-bottom">
-          <Smtwtfs />
+          {recipe.days ? (
+            <Smtwtfs smtwtfs={recipe.days} recipe={recipe.id} />
+          ) : (
+            ""
+          )}
           <div className="heart-container">
             <button
               className={`heart-button ${isMine ? "heart-button--active" : ""}`}

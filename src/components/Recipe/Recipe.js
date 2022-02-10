@@ -30,7 +30,11 @@ const RecipeHead = styled.div`
   align-items: center;
 `;
 
-const Recipe = ({ className, recipe: { recipe }, actionOnClickAdd }) => {
+const Recipe = ({
+  className,
+  recipe: { recipe, days, id },
+  actionOnClickAdd,
+}) => {
   const viewOriginalSource = () => window.open(recipe.url, "_blank");
 
   return (
@@ -91,7 +95,7 @@ const Recipe = ({ className, recipe: { recipe }, actionOnClickAdd }) => {
             <li>{`Iron: ${parseInt(recipe.totalNutrients.FE.quantity)}`}</li>
           </ul>
         </div>
-        <Smtwtfs />
+        {days ? <Smtwtfs recipe={id} smtwtfs={days} /> : ""}
       </div>
       <div className="recipe-buttons">
         <Button
