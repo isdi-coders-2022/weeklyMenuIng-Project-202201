@@ -4,6 +4,7 @@ import { useContext } from "react";
 import RecipesContext from "../../store/contexts/RecipesContext/RecipesContext";
 import useAPI from "../../hooks/useAPI";
 import RecipeCard from "../RecipeCard/RecipeCard";
+import Button from "../Button/Button";
 
 const RecipesGrid = styled.ul`
   display: flex;
@@ -14,21 +15,34 @@ const RecipesGrid = styled.ul`
 `;
 
 const RecipesList = ({ myList = false }) => {
-  const { recipes, myRecipes } = useContext(RecipesContext);
-  const { addRecipeToMyListAPI } = useAPI();
-
-  const recipeItems = myList ? myRecipes : recipes;
+  const { recipes, myRecipes, nextEndPoint } = useContext(RecipesContext);
+  const { addRecipeToMyListAPI, loadMoreRecipesAPI } = useAPI();
+  const recipesObject = myList ? myRecipes : recipes;
 
   return (
-    <RecipesGrid>
-      {recipeItems.map((recipe) => (
-        <RecipeCard
-          key={uuidv4()}
-          recipe={recipe}
-          actionOnClickAdd={() => addRecipeToMyListAPI(recipe)}
+    <>
+      {recipes.length > 0 && (
+        <p className="search-results-msg">{`Showing ${recipes.length} recipes`}</p>
+      )}
+      <RecipesGrid>
+        {recipesObject.map((recipe) => (
+          <RecipeCard
+            key={uuidv4()}
+            recipe={recipe}
+            actionOnClickAdd={() => addRecipeToMyListAPI(recipe)}
+          />
+        ))}
+      </RecipesGrid>
+      {recipes.length > 0 && (
+        <Button
+          text="Load more"
+          className="button"
+          actionOnClick={() => {
+            loadMoreRecipesAPI(nextEndPoint);
+          }}
         />
-      ))}
-    </RecipesGrid>
+      )}
+    </>
   );
 };
 
