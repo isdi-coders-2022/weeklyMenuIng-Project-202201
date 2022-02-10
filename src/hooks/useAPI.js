@@ -8,21 +8,25 @@ import {
 import {
   loadRecipesAction,
   loadMoreRecipesAction,
+  createRecipeAction as addRecipeToMyListAction,
+} from "../store/actions/recipes/recipesActionsCreator";
+import {
+  loadRecipesAction as loadMyRecipesAction,
   createRecipeAction,
   removeRecipeAction,
   updateRecipeAction,
-} from "../store/actions/recipes/recipesActionsCreator";
+} from "../store/actions/myRecipes/myRecipesActionsCreator";
 import ApiContext from "../store/contexts/ApiContext/ApiContext";
 import RecipesContext from "../store/contexts/RecipesContext/RecipesContext";
+import MyRecipesContext from "../store/contexts/MyRecipesContext/MyRecipesContext";
 import { v4 as uuidv4 } from "uuid";
 
 // TODO: PONER VARIABLES PARA CONSTRIUR URL Y PONER APIKEY Y API-ID EN .ENV
 //const apiURL = process.env.REACT_APP_API_URL;
 
 const useAPI = () => {
-  const apiURL =
-    "https://api.edamam.com/api/recipes/v2?type=public&q=chicken&app_id=dc6d4a3e&app_key=5139a87e32f135390c522c62e6f7f946";
   const { dispatch, setNextEndpoint } = useContext(RecipesContext);
+  const { dispatch: dispatchMy } = useContext(MyRecipesContext);
   const { dispatch: dispatchAPI } = useContext(ApiContext);
 
   const loadRecipesAPI = useCallback(
@@ -68,15 +72,16 @@ const useAPI = () => {
     try {
       dispatchAPI(setIsLoaded());
       dispatchAPI(unsetError());
-      const response = await fetch(apiURL);
-      const recipes = await response.json();
-      // TODO: hacer un load específico para cada API!
-      dispatch(loadRecipesAction(recipes));
+      const response = await fetch(
+        "https://my-weekly-menu-api.herokuapp.com/myrecipes/"
+      );
+      const myRecipes = await response.json();
+      dispatchMy(loadMyRecipesAction(myRecipes));
     } catch (error) {
       dispatchAPI(setError());
     }
     dispatchAPI(unsetIsLoaded());
-  }, [apiURL, dispatch, dispatchAPI]);
+  }, [dispatchMy, dispatchAPI]);
 
   const addRecipeToMyListAPI = async (recipe) => {
     const recipeWithId = {
@@ -93,7 +98,7 @@ const useAPI = () => {
       // const response = await fetch(apiURL, {
 
       const response = await fetch(
-        "https://my-weekly-menu-api.herokuapp.com/myrecipes",
+        "https://my-weekly-menu-api.herokuapp.com/myrecipes/",
         {
           method: "POST",
           headers: {
@@ -103,7 +108,7 @@ const useAPI = () => {
         }
       );
       const newRecipe = await response.json();
-      dispatch(createRecipeAction(newRecipe));
+      dispatch(addRecipeToMyListAction(newRecipe));
     } catch (error) {
       dispatchAPI(setError());
     }
@@ -111,19 +116,27 @@ const useAPI = () => {
   };
 
   const addRecipeAPI = async (recipe) => {
+    const recipeWithId = {
+      ...recipe,
+      id: uuidv4(),
+      days: [{}, {}, {}, {}, {}, {}, {}],
+    };
     try {
       dispatchAPI(setIsLoaded());
       dispatchAPI(unsetError());
 
-      const response = await fetch(apiURL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(recipe),
-      });
+      const response = await fetch(
+        "https://my-weekly-menu-api.herokuapp.com/myrecipes/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(recipeWithId),
+        }
+      );
       const newRecipe = await response.json();
-      dispatch(createRecipeAction(newRecipe));
+      dispatchMy(createRecipeAction(newRecipe));
     } catch (error) {
       dispatchAPI(setError());
     }
@@ -134,15 +147,18 @@ const useAPI = () => {
     try {
       dispatchAPI(setIsLoaded());
       dispatchAPI(unsetError());
-      const response = await fetch(apiURL, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(recipe),
-      });
+      const response = await fetch(
+        `https://my-weekly-menu-api.herokuapp.com/myrecipes/${recipe.id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(recipe),
+        }
+      );
       const updatedRecipe = await response.json();
-      dispatch(updateRecipeAction(updatedRecipe));
+      dispatchMy(updateRecipeAction(updatedRecipe));
     } catch (error) {
       dispatchAPI(setError());
     }
@@ -153,11 +169,14 @@ const useAPI = () => {
     dispatchAPI(setIsLoaded());
     try {
       dispatchAPI(unsetError());
-      const response = await fetch(`${apiURL}${id}`, {
-        method: "DELETE",
-      });
+      const response = await fetch(
+        `https://my-weekly-menu-api.herokuapp.com/myrecipes/${id}`,
+        {
+          method: "DELETE",
+        }
+      );
       if (response.ok) {
-        dispatch(removeRecipeAction(id));
+        dispatchMy(removeRecipeAction(id));
       } else {
         throw new Error();
       }

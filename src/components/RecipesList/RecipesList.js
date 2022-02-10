@@ -2,6 +2,7 @@ import { v4 as uuidv4 } from "uuid";
 import styled from "styled-components";
 import { useContext } from "react";
 import RecipesContext from "../../store/contexts/RecipesContext/RecipesContext";
+import MyRecipesContext from "../../store/contexts/MyRecipesContext/MyRecipesContext";
 import useAPI from "../../hooks/useAPI";
 import RecipeCard from "../RecipeCard/RecipeCard";
 import Button from "../Button/Button";
@@ -15,7 +16,8 @@ const RecipesGrid = styled.ul`
 `;
 
 const RecipesList = ({ myList = false }) => {
-  const { recipes, myRecipes, nextEndPoint } = useContext(RecipesContext);
+  const { recipes, nextEndPoint } = useContext(RecipesContext);
+  const { myRecipes } = useContext(MyRecipesContext);
   const { addRecipeToMyListAPI, loadMoreRecipesAPI } = useAPI();
   const recipesObject = myList ? myRecipes : recipes;
 
