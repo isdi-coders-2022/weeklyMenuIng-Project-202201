@@ -1,6 +1,18 @@
 import MyRecipesContext from "./MyRecipesContext";
+import { useReducer } from "react";
+import myRecipesReducer from "../../reducers/myRecipes/myRecipesReducer";
 
 const MyRecipesContextProvider = ({ children }) => {
-  return <MyRecipesContext.Provider>{children}</MyRecipesContext.Provider>;
+  const [myRecipes, dispatch] = useReducer(myRecipesReducer, []);
+  return (
+    <MyRecipesContext.Provider
+      value={{
+        myRecipes,
+        dispatch,
+      }}
+    >
+      {children}
+    </MyRecipesContext.Provider>
+  );
 };
 export default MyRecipesContextProvider;

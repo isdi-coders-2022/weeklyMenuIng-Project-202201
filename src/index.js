@@ -6,15 +6,18 @@ import "@fontsource/montserrat";
 import { BrowserRouter } from "react-router-dom";
 import RecipesContextProvider from "./store/contexts/RecipesContext/RecipesContextProvider";
 import APIContextProvider from "./store/contexts/ApiContext/ApiContextProvider";
+import MyRecipesContextProvider from "./store/contexts/MyRecipesContext/MyRecipesContextProvider";
 
 ReactDOM.render(
   <React.StrictMode>
     <APIContextProvider>
-      <RecipesContextProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </RecipesContextProvider>
+      <MyRecipesContextProvider>
+        <RecipesContextProvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </RecipesContextProvider>
+      </MyRecipesContextProvider>
     </APIContextProvider>
   </React.StrictMode>,
   document.getElementById("root")

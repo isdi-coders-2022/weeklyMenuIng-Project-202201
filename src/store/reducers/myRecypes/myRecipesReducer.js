@@ -1,4 +1,4 @@
-import { actionTypes } from "../../actions/myRecpes/myRecipesActionsTypes";
+import { actionTypes } from "../../actions/myRecipes/myRecipesActionsTypes";
 
 const myRecipesReducer = (currentState, action) => {
   let newState;
@@ -10,7 +10,7 @@ const myRecipesReducer = (currentState, action) => {
         : [...currentState];
       break;
     case actionTypes.loadRecipes:
-      newState = action.recipes ? [...action.recipes.hits] : [...currentState];
+      newState = action.recipes ? [...action.recipes] : [...currentState];
       break;
     case actionTypes.removeRecipe:
       newState = [...currentState].filter((recipe) => recipe.id !== action.id);

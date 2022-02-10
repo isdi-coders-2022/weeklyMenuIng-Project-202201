@@ -19,15 +19,15 @@ const RecipesList = ({ myList = false }) => {
   const { recipes, nextEndPoint } = useContext(RecipesContext);
   const { myRecipes } = useContext(MyRecipesContext);
   const { addRecipeToMyListAPI, loadMoreRecipesAPI } = useAPI();
-  const recipesObject = myList ? myRecipes : recipes;
+  const recipesList = myList ? myRecipes : recipes;
 
   return (
     <>
-      {recipes.length > 0 && (
+      {recipesList.length > 0 && (
         <p className="search-results-msg">{`Showing ${recipes.length} recipes`}</p>
       )}
       <RecipesGrid>
-        {recipesObject.map((recipe) => (
+        {recipesList.map((recipe) => (
           <RecipeCard
             key={uuidv4()}
             recipe={recipe}
