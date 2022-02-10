@@ -1,6 +1,5 @@
 import { render, screen } from "@testing-library/react";
 import Recipe from "./Recipe";
-import userEvent from "@testing-library/user-event";
 
 describe("Given a Recipe component", () => {
   const edamamJSON = require("./edamamResponse.json");
@@ -10,7 +9,7 @@ describe("Given a Recipe component", () => {
 
   describe("When instantiated with a recipe", () => {
     test("Then it should render an recipe with text in recipe.label", () => {
-      render(<Recipe className={"whatever"} recipe={edamamRecipe} />);
+      render(<Recipe recipe={edamamRecipe} />);
 
       const recepta = screen.queryByText(expectedTitle);
 

@@ -1,4 +1,6 @@
+import Infoblock from "../components/Infoblock/Infoblock";
+
 const NewRecipePage = () => {
-  return <h1>New Recipe Page</h1>;
+  return <Infoblock text="Create new recipe" />;
 };
 export default NewRecipePage;
