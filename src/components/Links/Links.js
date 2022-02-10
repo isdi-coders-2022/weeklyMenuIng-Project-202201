@@ -1,19 +1,27 @@
 import { Link } from "react-router-dom";
 
-const Links = () => {
+const Links = ({ actionOnClick }) => {
   return (
     <ul>
       <li>
-        <Link to="/home">My Weekly Menu</Link>
+        <Link onClick={actionOnClick} to="/home">
+          My Weekly Menu
+        </Link>
       </li>
       <li>
-        <Link to="/search">Search Recipes</Link>
+        <Link onClick={actionOnClick} to="/search">
+          Search Recipes
+        </Link>
       </li>
       <li>
-        <Link to="/home/new">Create New Recipe</Link>
+        <Link onClick={actionOnClick} to="/home/new">
+          Create New Recipe
+        </Link>
       </li>
       <li>
-        <Link to="/about">About</Link>
+        <Link onClick={actionOnClick} to="/about">
+          About
+        </Link>
       </li>
     </ul>
   );
