@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { v4 } from "uuid";
 import Smtwtfs from "../Smtwtfs/Smtwtfs";
 
 const Container = styled.article`
@@ -41,18 +42,18 @@ const RecipeCard = ({ recipe: { recipe }, actionOnClickAdd }) => {
             alignItems: `center`,
           }}
         >
-          <h2 className="recipe-title">
-            {recipe.dietLabels.map((label) => {
-              return <span className="diet-labels__item">{label}</span>;
-            })}
-          </h2>
+          <h2 className="recipe-title">{recipe.label}</h2>
           <p>{`${parseInt(recipe.yield)} servings`}</p>
           <h3 className="recipe-calories">{`${parseInt(
             parseInt(recipe.calories) / recipe.yield
           )} Kcal`}</h3>
           <p className="recipe-digest__diet-labels">
             {recipe.dietLabels.map((label) => {
-              return <span className="diet-labels__item">{label}</span>;
+              return (
+                <span className="diet-labels__item" key={v4()}>
+                  {label}
+                </span>
+              );
             })}
           </p>
         </div>
