@@ -58,6 +58,10 @@ const Header = () => {
     setIsActive(isActive ? false : true);
   };
 
+  const setUnactive = () => {
+    setIsActive(false);
+  };
+
   return (
     <>
       <HeaderContainer>
@@ -65,7 +69,7 @@ const Header = () => {
         <Links />
         <BurgerComponent actionOnClick={toggleActive} isActive={isActive} />
       </HeaderContainer>
-      <FloatingMenu isActive={isActive} />
+      <FloatingMenu isActive={isActive} actionOnClick={setUnactive} />
     </>
   );
 };
