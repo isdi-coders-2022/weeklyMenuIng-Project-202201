@@ -41,12 +41,20 @@ const RecipeCard = ({ recipe: { recipe }, actionOnClickAdd }) => {
             alignItems: `center`,
           }}
         >
-          <h2 className="recipe-title">{recipe.label}</h2>
+          <h2 className="recipe-title">
+            {recipe.dietLabels.map((label) => {
+              return <span className="diet-labels__item">{label}</span>;
+            })}
+          </h2>
           <p>{`${parseInt(recipe.yield)} servings`}</p>
           <h3 className="recipe-calories">{`${parseInt(
             parseInt(recipe.calories) / recipe.yield
           )} Kcal`}</h3>
-          <p className="recipe-digest__diet-labels">{recipe.dietLabels}</p>
+          <p className="recipe-digest__diet-labels">
+            {recipe.dietLabels.map((label) => {
+              return <span className="diet-labels__item">{label}</span>;
+            })}
+          </p>
         </div>
         <Smtwtfs />
       </RecipeHead>
