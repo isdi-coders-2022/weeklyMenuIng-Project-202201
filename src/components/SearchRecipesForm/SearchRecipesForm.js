@@ -9,17 +9,7 @@ const SearchRecipesForm = () => {
     ingredients: "",
   };
 
-  const noDietFilters = {
-    "no-sugar": false,
-    "high-protein": false,
-    balanced: false,
-    "low-sodium": false,
-    vegan: false,
-    vegetarian: false,
-  };
-
   const [formData, setFormData] = useState(blankIngredientsField);
-  // const [filtersData, setFiltersData] = useState(noDietFilters);
 
   const changeData = (event) => {
     setFormData({
@@ -27,8 +17,6 @@ const SearchRecipesForm = () => {
       [event.target.id]: event.target.value,
     });
   };
-
-  // const filterResults = (data) => data;
 
   const onFormSubmit = (event) => {
     event.preventDefault();
