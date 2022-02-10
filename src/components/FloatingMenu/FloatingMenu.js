@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Links from "../Links/Links";
 
 const Menu = styled.div`
-  position: fixed;
+  position: absolute;
   top: 100px;
   left: 10px;
   right: 10px;
@@ -37,10 +37,10 @@ const Menu = styled.div`
   }
 `;
 
-const FloatingMenu = ({ isActive }) => {
+const FloatingMenu = ({ isActive, actionOnClick }) => {
   return isActive ? (
     <Menu>
-      <Links />
+      <Links actionOnClick={actionOnClick} />
     </Menu>
   ) : (
     ""

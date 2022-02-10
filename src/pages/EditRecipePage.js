@@ -1,4 +1,6 @@
+import Infoblock from "../components/Infoblock/Infoblock";
+
 const EditRecipePage = () => {
-  return <h1>Edit Recipe Page</h1>;
+  return <Infoblock text="Edit Recipe" />;
 };
 export default EditRecipePage;

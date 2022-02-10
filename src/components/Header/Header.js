@@ -52,10 +52,14 @@ const Logo = styled.img`
 `;
 
 const Header = () => {
-  const [isActive, setIsActive] = useState(true);
+  const [isActive, setIsActive] = useState(false);
 
   const toggleActive = () => {
     setIsActive(isActive ? false : true);
+  };
+
+  const setUnactive = () => {
+    setIsActive(false);
   };
 
   return (
@@ -65,7 +69,7 @@ const Header = () => {
         <Links />
         <BurgerComponent actionOnClick={toggleActive} isActive={isActive} />
       </HeaderContainer>
-      <FloatingMenu isActive={isActive} />
+      <FloatingMenu isActive={isActive} actionOnClick={setUnactive} />
     </>
   );
 };

@@ -1,4 +1,6 @@
+import Infoblock from "../components/Infoblock/Infoblock";
+
 const AboutPage = () => {
-  return <h1>About Page</h1>;
+  return <Infoblock text="About" />;
 };
 export default AboutPage;

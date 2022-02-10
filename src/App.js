@@ -1,6 +1,4 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import Infoblock from "./components/Infoblock/Infoblock";
-import Recipe from "./components/Recipe/Recipe";
 import NewRecipePage from "./pages/NewRecipePage";
 import EditRecipePage from "./pages/EditRecipePage";
 import MyMenuPage from "./pages/MyMenuPage";
@@ -9,21 +7,12 @@ import RecipePage from "./pages/RecipePage";
 import SearchRecipesPage from "./pages/SearchRecipesPage";
 import AboutPage from "./pages/AboutPage";
 import Header from "./components/Header/Header";
-import SearchRecipesForm from "./components/SearchRecipesForm/SearchRecipesForm";
 import Footer from "./components/Footer/Footer";
-import RecipeCard from "./components/RecipeCard/RecipeCard";
-
-const edamamJSON = require("./edamamResponse.json");
-const edamamReceipes = edamamJSON.hits;
 
 function App() {
   return (
     <>
       <Header />
-      <SearchRecipesForm />
-      <Infoblock text="My Weekly Menu" />
-      <Recipe className="recipe" recipe={edamamReceipes[15]} />
-      <RecipeCard recipe={edamamReceipes[3]} />
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home">

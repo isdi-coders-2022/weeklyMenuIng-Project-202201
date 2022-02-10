@@ -1,6 +1,7 @@
 import useAPI from "../hooks/useAPI";
 import { useEffect } from "react";
 import RecipesList from "../components/RecipesList/RecipesList";
+import SearchRecipesForm from "../components/SearchRecipesForm/SearchRecipesForm";
 
 const SearchRecipesPage = () => {
   const { loadRecipesAPI } = useAPI();
@@ -11,6 +12,7 @@ const SearchRecipesPage = () => {
 
   return (
     <>
+      <SearchRecipesForm />
       <RecipesList />
     </>
   );

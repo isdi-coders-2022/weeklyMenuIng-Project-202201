@@ -45,7 +45,7 @@ Array [
       </li>
     </ul>
     <div
-      className="sc-bdvvtL hJvUau burger-container active"
+      className="sc-bdvvtL hJvUau burger-container"
       onClick={[Function]}
       title="Navigation Menu"
     >
@@ -60,43 +60,6 @@ Array [
       />
     </div>
   </header>,
-  <div
-    className="sc-dkPtRN gYgfNm"
-  >
-    <ul>
-      <li>
-        <a
-          href="/home"
-          onClick={[Function]}
-        >
-          My Weekly Menu
-        </a>
-      </li>
-      <li>
-        <a
-          href="/search"
-          onClick={[Function]}
-        >
-          Search Recipes
-        </a>
-      </li>
-      <li>
-        <a
-          href="/home/new"
-          onClick={[Function]}
-        >
-          Create New Recipe
-        </a>
-      </li>
-      <li>
-        <a
-          href="/about"
-          onClick={[Function]}
-        >
-          About
-        </a>
-      </li>
-    </ul>
-  </div>,
+  "",
 ]
 `;
