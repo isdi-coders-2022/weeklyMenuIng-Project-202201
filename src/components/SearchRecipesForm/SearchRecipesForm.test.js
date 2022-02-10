@@ -1,6 +1,5 @@
 import { render, screen } from "@testing-library/react";
 import SearchRecipesForm from "./SearchRecipesForm";
-import TestRenderer from "react-test-renderer";
 import ApiContextProvider from "../../store/contexts/ApiContext/ApiContextProvider";
 import RecipesContextProvider from "../../store/contexts/RecipesContext/RecipesContextProvider";
 
@@ -37,17 +36,15 @@ describe("Given a SearchRecipesForm Component", () => {
     });
   });
 
-  test("Then it should match the snapshot", () => {
-    const searchRecipesForm = TestRenderer.create(
-      <SearchRecipesForm />
-    ).toJSON();
-
-    expect(searchRecipesForm).toMatchSnapshot();
-  });
-
   describe("submit button", () => {
     test("is disabled when instantiaded with empty text input", () => {
-      render(<SearchRecipesForm />);
+      render(
+        <ApiContextProvider>
+          <RecipesContextProvider>
+            <SearchRecipesForm />
+          </RecipesContextProvider>
+        </ApiContextProvider>
+      );
 
       expect(screen.getByText("Search recipes")).toBeDisabled();
     });
