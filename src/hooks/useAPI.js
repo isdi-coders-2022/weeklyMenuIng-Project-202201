@@ -7,6 +7,7 @@ import {
 } from "../store/actions/api/apiActionsCreator";
 import {
   loadRecipesAction,
+  loadMoreRecipesAction,
   createRecipeAction,
   removeRecipeAction,
   updateRecipeAction,
@@ -15,22 +16,62 @@ import ApiContext from "../store/contexts/ApiContext/ApiContext";
 import RecipesContext from "../store/contexts/RecipesContext/RecipesContext";
 import { v4 as uuidv4 } from "uuid";
 
+// TODO: PONER VARIABLES PARA CONSTRIUR URL Y PONER APIKEY Y API-ID EN .ENV
+//const apiURL = process.env.REACT_APP_API_URL;
+
 const useAPI = () => {
-  // TODO: PONER VARIABLES PARA CONSTRIUR URL Y PONER APIKEY Y API-ID EN .ENV
-  //const apiURL = process.env.REACT_APP_API_URL;
   const apiURL =
     "https://api.edamam.com/api/recipes/v2?type=public&q=chicken&app_id=dc6d4a3e&app_key=5139a87e32f135390c522c62e6f7f946";
-  const { dispatch } = useContext(RecipesContext);
+  const { dispatch, setNextEndpoint } = useContext(RecipesContext);
   const { dispatch: dispatchAPI } = useContext(ApiContext);
 
-  const loadRecipesAPI = useCallback(async () => {
+  const loadRecipesAPI = useCallback(
+    async (ingredientsQuery) => {
+      const APIendpointURL = `https://api.edamam.com/api/recipes/v2?type=public&q=${ingredientsQuery}&app_id=dc6d4a3e&app_key=5139a87e32f135390c522c62e6f7f946`;
+      try {
+        dispatchAPI(setIsLoaded());
+        dispatchAPI(unsetError());
+        const response = await fetch(APIendpointURL);
+        const recipes = await response.json();
+        if (recipes._links.next.href) {
+          setNextEndpoint(recipes._links.next.href);
+        }
+        dispatch(loadRecipesAction(recipes));
+      } catch (error) {
+        dispatchAPI(setError());
+      }
+      dispatchAPI(unsetIsLoaded());
+    },
+    [dispatch, dispatchAPI, setNextEndpoint]
+  );
+
+  const loadMoreRecipesAPI = useCallback(
+    async (nextEndpoint) => {
+      try {
+        dispatchAPI(setIsLoaded());
+        dispatchAPI(unsetError());
+        const response = await fetch(nextEndpoint);
+        const recipes = await response.json();
+        if (recipes._links.next.href) {
+          setNextEndpoint(recipes._links.next.href);
+        }
+        dispatch(loadMoreRecipesAction(recipes));
+      } catch (error) {
+        dispatchAPI(setError());
+      }
+      dispatchAPI(unsetIsLoaded());
+    },
+    [dispatch, dispatchAPI, setNextEndpoint]
+  );
+
+  const loadMyRecipesAPI = useCallback(async () => {
     try {
       dispatchAPI(setIsLoaded());
       dispatchAPI(unsetError());
       const response = await fetch(apiURL);
       const recipes = await response.json();
       // TODO: hacer un load específico para cada API!
-      dispatch(loadRecipesAction(recipes.hits));
+      dispatch(loadRecipesAction(recipes));
     } catch (error) {
       dispatchAPI(setError());
     }
@@ -128,6 +169,8 @@ const useAPI = () => {
 
   return {
     loadRecipesAPI,
+    loadMoreRecipesAPI,
+    loadMyRecipesAPI,
     addRecipeAPI,
     deleteRecipeAPI,
     updateRecipeAPI,

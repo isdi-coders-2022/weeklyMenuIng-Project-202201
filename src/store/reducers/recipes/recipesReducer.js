@@ -11,7 +11,12 @@ const recipesReducer = (currentState, action) => {
       break;
     case actionTypes.loadRecipes:
       action.recipes
-        ? (newState = [...currentState, [...action.recipes]].flat())
+        ? (newState = [...action.recipes.hits])
+        : (newState = [...currentState]);
+      break;
+    case actionTypes.loadMoreRecipes:
+      action.recipes
+        ? (newState = [...currentState, [...action.recipes.hits]].flat())
         : (newState = [...currentState]);
       break;
     case actionTypes.removeRecipe:

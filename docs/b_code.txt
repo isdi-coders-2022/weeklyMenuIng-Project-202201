@@ -1,0 +1,11 @@
+// TODO:
+  let dietFilters = {
+    "no-sugar": false,
+    "high-protein": false,
+    balanced: false,
+    "low-sodium": false,
+    vegan: false,
+    vegetarian: false,
+  }; 
+
+dietFilters = 3

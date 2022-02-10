@@ -5,6 +5,11 @@ export const loadRecipesAction = (recipes) => ({
   recipes,
 });
 
+export const loadMoreRecipesAction = (recipes) => ({
+  type: actionTypes.loadMoreRecipes,
+  recipes,
+});
+
 export const createRecipeAction = (recipe) => ({
   type: actionTypes.createRecipe,
   recipe,
