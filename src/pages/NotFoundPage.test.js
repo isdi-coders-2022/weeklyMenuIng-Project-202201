@@ -3,8 +3,9 @@ import NotFoundPage from "./NotFoundPage";
 
 describe("Given a notFoundPage component", () => {
   describe("When it's rendered", () => {
-    test("Then it should show the text Haiouuu!!! Nothing here. Page not found", () => {
-      const expectedText = "Haiouuu!!! Nothing here. Page not found";
+    test("Then it should show the text Haiouuu!!! Nothing here. No food, no beer, no page!", () => {
+      const expectedText =
+        "Haiouuu!!! Nothing here. No food, no beer, no page!";
 
       render(<NotFoundPage />);
 

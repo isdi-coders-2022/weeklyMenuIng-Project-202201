@@ -1,39 +1,41 @@
 import { v4 as uuidv4 } from "uuid";
 import Button from "../Button/Button";
-import styledComponents from "styled-components";
-import Smtwtfs from "../Smtwtfs/Smtwtfs";
 import styled from "styled-components";
+import Smtwtfs from "../Smtwtfs/Smtwtfs";
 
-const Container = styledComponents.div`
-color : black;
-display:flex;
-flex-direction:column;
-flex-wrap: wrap
-justify-content:center;
-align-items:center;
-border-radius:10px;
-background-color: #B3DEE2;
-width:90vw;`;
+const Container = styled.article`
+  color: black;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background-color: #b3dee2;
+  width: 100%;
+`;
+
+const RecipeHead = styled.div`
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url(${(props) => props.image}) no-repeat center;
+  background-size: cover;
+  background-color: #0000006b;
+  border-radius: 10px 10px 0px 0px;
+  color: white;
+  width: 100%;
+  height: 50vh;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 const Recipe = ({ className, recipe: { recipe }, actionOnClickAdd }) => {
   const viewOriginalSource = () => window.open(recipe.url, "_blank");
-  const RecipeHead = styled.div`
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-      url(${recipe.image}) no-repeat center;
-    background-size: cover;
-    background-color: #0000006b;
-    border-radius: 10px 10px 0px 0px;
-    color: white;
-    width: 100%;
-    height: 50vh;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  `;
+
   return (
     <Container className={className}>
-      <RecipeHead>
+      <RecipeHead image={recipe.image}>
         <h2>{recipe.label}</h2>
       </RecipeHead>
 
@@ -44,7 +46,7 @@ const Recipe = ({ className, recipe: { recipe }, actionOnClickAdd }) => {
         }}
       >
         {recipe.dietLabels}
-        <p>{`${parseInt(recipe.yield)} SERVINGS`}</p>
+        <p>{`${parseInt(recipe.yield)} servings`}</p>
       </span>
       <div className="recipe-info">
         <div className="recipe-ingredients">

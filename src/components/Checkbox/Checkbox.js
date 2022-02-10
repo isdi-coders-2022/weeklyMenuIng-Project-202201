@@ -1,4 +1,4 @@
-const Checkbox = ({ text, className, checked = false, onChange }) => {
+const Checkbox = ({ text, className, checked, onChange }) => {
   return (
     <>
       <label className="form-control" htmlFor={text}>

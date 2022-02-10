@@ -1,4 +1,18 @@
+import useAPI from "../hooks/useAPI";
+import { useEffect } from "react";
+import RecipesList from "../components/RecipesList/RecipesList";
+
 const MyMenuPage = () => {
-  return <h1>My Weekly Menu Page (homepage)</h1>;
+  const { loadRecipesAPI } = useAPI();
+
+  useEffect(() => {
+    loadRecipesAPI();
+  }, [loadRecipesAPI]);
+
+  return (
+    <>
+      <RecipesList />
+    </>
+  );
 };
 export default MyMenuPage;
