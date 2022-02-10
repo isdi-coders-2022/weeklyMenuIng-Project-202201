@@ -140,12 +140,28 @@ input[type="checkbox"]:disabled {
   border-style: solid;
 }
 
+.recipe-digest {
+  height: 65%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.recipe-calories {
+  margin: 0;
+}
+
+.card-bottom {
+  margin-top: 30px;
+  height: 20%;
+}
 .recipe-digest__diet-labels {
   text-transform: uppercase;
 }
 
 .recipe-title {
   text-align: center;
+  padding: -30px;
 }
 
 .recipe-calories {
@@ -159,4 +175,24 @@ input[type="checkbox"]:disabled {
 
 .diet-labels__item {
   padding: 10px;
+}
+
+.heart-container {
+  display: flex;
+  align-self: flex-end;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.heart-button {
+  background-color: rgba(0, 0, 0, 0);
+  width: auto;
+  height: auto;
+}
+
+.heart-button svg path {
+  margin: 20px;
+  color: rgba(0, 0, 0, 0);
+  stroke: white;
+  stroke-width: 70px;
 }
