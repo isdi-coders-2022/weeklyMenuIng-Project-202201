@@ -4,6 +4,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import { v4 } from "uuid";
 import Smtwtfs from "../Smtwtfs/Smtwtfs";
+import useAPI from "../../hooks/useAPI";
 
 const Container = styled.article`
   color: black;
@@ -15,9 +16,10 @@ const Container = styled.article`
 `;
 
 const RecipeHead = styled.div`
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url(${(props) => props.image}) no-repeat center;
+  background: url(${(props) => props.image}) no-repeat center;
+  filter: grayscale(0.8);
   background-size: cover;
+  text-shadow: 2px 0 2px black;
   background-color: #0000006b;
   border-radius: 10px;
   color: white;
@@ -25,16 +27,25 @@ const RecipeHead = styled.div`
   height: 50vh;
   display: flex;
   flex-direction: column;
+  transition: all 0.2s;
   &:hover {
-    background: url(${(props) => props.image}) no-repeat center;
-    background-size: cover;
-    text-shadow: 2px 0 2px black;
+    filter: grayscale(0);
   }
 `;
 
-const RecipeCard = ({ recipe: { recipe, days, id }, actionOnClickAdd }) => {
+const RecipeCard = ({ recipe: { recipe, days, id }, isMyList = false }) => {
   const [isMine, setIsMine] = useState(false);
-  const toggleMine = () => setIsMine(!isMine);
+  const { addRecipeToMyListAPI, deleteRecipeAPI } = useAPI();
+
+  const toggleMine = () => {
+    if (!isMine) {
+      addRecipeToMyListAPI({ recipe, days, id });
+    } else {
+      deleteRecipeAPI(id);
+    }
+    setIsMine(!isMine);
+  };
+
   return (
     <Container>
       <RecipeHead image={recipe.image}>
@@ -56,16 +67,20 @@ const RecipeCard = ({ recipe: { recipe, days, id }, actionOnClickAdd }) => {
         </div>
         <section className="card-bottom">
           {days ? <Smtwtfs smtwtfs={days} recipe={id} /> : ""}
-          <div className="heart-container">
-            <button
-              className={`heart-button ${isMine ? "heart-button--active" : ""}`}
-              onClick={() => {
-                toggleMine();
-              }}
-            >
-              <FontAwesomeIcon icon={faHeart} />
-            </button>
-          </div>
+          {!isMyList && (
+            <div className="heart-container">
+              <button
+                className={`heart-button ${
+                  isMine ? "heart-button--active" : ""
+                }`}
+                onClick={() => {
+                  toggleMine();
+                }}
+              >
+                <FontAwesomeIcon icon={faHeart} />
+              </button>
+            </div>
+          )}
         </section>
       </RecipeHead>
     </Container>

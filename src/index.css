@@ -5,6 +5,13 @@ body {
   background-color: #fdf6fe;
 }
 
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
 #root {
   min-height: 100vh;
 }
