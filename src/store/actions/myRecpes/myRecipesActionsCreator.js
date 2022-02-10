@@ -1,4 +1,4 @@
-import { actionTypes } from "./recipesActionsTypes";
+import { actionTypes } from "./myRecipesActionsTypes";
 
 export const loadRecipesAction = (recipes) => ({
   type: actionTypes.loadRecipes,
