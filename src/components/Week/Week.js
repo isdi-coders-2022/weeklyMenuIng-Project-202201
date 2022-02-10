@@ -1,10 +1,12 @@
-import { prettyDOM } from "@testing-library/dom";
 import React from "react";
+import { useReducer } from "react";
 import { Draggable } from "react-beautiful-dnd";
 import { Droppable } from "react-beautiful-dnd";
 import { DragDropContext } from "react-beautiful-dnd";
 import styled from "styled-components";
 import { v4 } from "uuid";
+import { dragRecipeAction } from "../../store/actions/recipes/recipesActionsCreator";
+import recipesReducer from "../../store/reducers/recipes/recipesReducer";
 import DayRecipe from "../DayRecipe/DayRecipe";
 
 const WeekContainer = styled.div`
@@ -23,7 +25,7 @@ const Day = styled.ul`
   background-color: aliceblue;
 `;
 
-const recipes = [
+const recipesArray = [
   {
     recipe: {
       label: "chicken",
@@ -216,10 +218,13 @@ const recipes = [
 ];
 
 const Week = () => {
+  const [recipes, dispatch] = useReducer(recipesReducer, recipesArray);
+  const handleDragEnd = ({ source, destination }) =>
+    dispatch(dragRecipeAction(source, destination));
   return (
-    <DragDropContext>
+    <DragDropContext onDragEnd={handleDragEnd}>
       <WeekContainer>
-        <Droppable droppableId="recipes">
+        <Droppable droppableId="0">
           {(provided) => (
             <Day {...provided.droppableProps} ref={provided.innerRef}>
               {recipes.map((recipe) => {

@@ -26,6 +26,14 @@ const recipesReducer = (currentState, action) => {
       );
       break;
 
+    case actionTypes.dragRecipe:
+      const { source, destination } = action;
+      newState = [...currentState];
+      if (!destination) break;
+      const aux = newState.filter(
+        ({ days }) => destination.index === days[destination.droppableId]
+      );
+      break;
     default:
       newState = [...currentState];
       break;
