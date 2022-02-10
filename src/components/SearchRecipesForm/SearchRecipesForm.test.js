@@ -1,20 +1,35 @@
 import { render, screen } from "@testing-library/react";
 import SearchRecipesForm from "./SearchRecipesForm";
 import TestRenderer from "react-test-renderer";
+import ApiContextProvider from "../../store/contexts/ApiContext/ApiContextProvider";
+import RecipesContextProvider from "../../store/contexts/RecipesContext/RecipesContextProvider";
 
 describe("Given a SearchRecipesForm Component", () => {
   describe("When it's rendered", () => {
     test("Then a form should be displayed", () => {
-      render(<SearchRecipesForm />);
-
-      const formInput = screen.queryByLabelText("Ingredients:");
+      render(
+        <ApiContextProvider>
+          <RecipesContextProvider>
+            <SearchRecipesForm />
+          </RecipesContextProvider>
+        </ApiContextProvider>
+      );
+      const formInput = screen.queryByPlaceholderText(
+        "write some ingredients..."
+      );
 
       expect(formInput).toBeInTheDocument();
     });
 
     test("Then a form should display 6 checkboxes", () => {
       const expectedNumberOfCheckboxes = 6;
-      render(<SearchRecipesForm />);
+      render(
+        <ApiContextProvider>
+          <RecipesContextProvider>
+            <SearchRecipesForm />
+          </RecipesContextProvider>
+        </ApiContextProvider>
+      );
 
       const numOfCheckboxes = screen.queryAllByRole("checkbox").length;
 
