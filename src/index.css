@@ -156,3 +156,7 @@ input[type="checkbox"]:disabled {
   text-align: center;
   padding: 20px;
 }
+
+.diet-labels__item {
+  padding: 10px;
+}

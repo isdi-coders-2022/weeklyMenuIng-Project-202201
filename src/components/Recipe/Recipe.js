@@ -45,7 +45,9 @@ const Recipe = ({ className, recipe: { recipe }, actionOnClickAdd }) => {
           flexDirection: `column`,
         }}
       >
-        {recipe.dietLabels}
+        {recipe.dietLabels.map((label) => {
+          return <span className="diet-labels__item">{label}</span>;
+        })}
         <p>{`${parseInt(recipe.yield)} servings`}</p>
       </span>
       <div className="recipe-info">
