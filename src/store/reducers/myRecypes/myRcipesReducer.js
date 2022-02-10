@@ -1,6 +1,6 @@
-import { actionTypes } from "../../actions/recipes/recipesActionsTypes";
+import { actionTypes } from "../../actions/myRecpes/myRecipesActionsTypes";
 
-const recipesReducer = (currentState, action) => {
+const myRecipesReducer = (currentState, action) => {
   let newState;
 
   switch (action.type) {
@@ -29,4 +29,4 @@ const recipesReducer = (currentState, action) => {
   return newState;
 };
 
-export default recipesReducer;
+export default myRecipesReducer;
