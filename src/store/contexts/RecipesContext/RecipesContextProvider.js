@@ -1,10 +1,11 @@
 import RecipesContext from "./RecipesContext";
-import { useReducer } from "react";
+import { useReducer, useState } from "react";
 import recipesReducer from "../../reducers/recipes/recipesReducer";
 
 const RecipesContextProvider = ({ children }) => {
   const [recipes, dispatch] = useReducer(recipesReducer, []);
   const [myRecipes, dispatchMyRecipes] = useReducer(recipesReducer, []);
+  const [nextEndPoint, setNextEndpoint] = useState("");
   return (
     <RecipesContext.Provider
       value={{
@@ -12,6 +13,8 @@ const RecipesContextProvider = ({ children }) => {
         dispatch,
         myRecipes,
         dispatchMyRecipes,
+        nextEndPoint,
+        setNextEndpoint,
       }}
     >
       {children}

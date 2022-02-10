@@ -1,9 +1,15 @@
 import { useState } from "react";
 import Checkbox from "../Checkbox/Checkbox";
+import useAPI from "../../hooks/useAPI";
 
 const SearchRecipesForm = () => {
-  const blankFields = {
+  const { loadRecipesAPI } = useAPI();
+
+  const blankIngredientsField = {
     ingredients: "",
+  };
+
+  const noDietFilters = {
     "no-sugar": false,
     "high-protein": false,
     balanced: false,
@@ -12,30 +18,28 @@ const SearchRecipesForm = () => {
     vegetarian: false,
   };
 
-  const [formData, setFormData] = useState(blankFields);
+  const [formData, setFormData] = useState(blankIngredientsField);
+  // const [filtersData, setFiltersData] = useState(noDietFilters);
 
   const changeData = (event) => {
     setFormData({
       ...formData,
-      [event.target.id]:
-        event.target.type === "checkbox"
-          ? event.target.checked
-          : event.target.value,
+      [event.target.id]: event.target.value,
     });
   };
 
-  const filterResults = (data) => data;
+  // const filterResults = (data) => data;
 
   const onFormSubmit = (event) => {
     event.preventDefault();
     if (isFilled) {
-      filterResults(formData);
+      loadRecipesAPI(formData.ingredients);
       resetForm();
     }
   };
 
   const resetForm = () => {
-    setFormData(blankFields);
+    setFormData(blankIngredientsField);
   };
 
   const isFilled = formData.ingredients !== "";

@@ -30,7 +30,6 @@ exports[`Given a SearchRecipesForm Component Then it should match the snapshot 1
     htmlFor="no-sugar"
   >
     <input
-      checked={false}
       className="diets-checkbox"
       id="no-sugar"
       onChange={[Function]}
@@ -43,7 +42,6 @@ exports[`Given a SearchRecipesForm Component Then it should match the snapshot 1
     htmlFor="high-protein"
   >
     <input
-      checked={false}
       className="diets-checkbox"
       id="high-protein"
       onChange={[Function]}
@@ -56,7 +54,6 @@ exports[`Given a SearchRecipesForm Component Then it should match the snapshot 1
     htmlFor="balanced"
   >
     <input
-      checked={false}
       className="diets-checkbox"
       id="balanced"
       onChange={[Function]}
@@ -69,7 +66,6 @@ exports[`Given a SearchRecipesForm Component Then it should match the snapshot 1
     htmlFor="low-sodium"
   >
     <input
-      checked={false}
       className="diets-checkbox"
       id="low-sodium"
       onChange={[Function]}
@@ -82,7 +78,6 @@ exports[`Given a SearchRecipesForm Component Then it should match the snapshot 1
     htmlFor="vegan"
   >
     <input
-      checked={false}
       className="diets-checkbox"
       id="vegan"
       onChange={[Function]}
@@ -95,7 +90,6 @@ exports[`Given a SearchRecipesForm Component Then it should match the snapshot 1
     htmlFor="vegetarian"
   >
     <input
-      checked={false}
       className="diets-checkbox"
       id="vegetarian"
       onChange={[Function]}

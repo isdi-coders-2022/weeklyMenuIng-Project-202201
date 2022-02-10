@@ -4,6 +4,23 @@ body {
   color: #00acbb;
   background-color: #fdf6fe;
 }
+
+#root {
+  min-height: 100vh;
+}
+
+.search-results-msg {
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
 button {
   font-family: "Montserrat", sans-serif;
   border-style: none;
