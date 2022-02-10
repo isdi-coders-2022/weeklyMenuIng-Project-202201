@@ -186,13 +186,17 @@ input[type="checkbox"]:disabled {
 
 .heart-button {
   background-color: rgba(0, 0, 0, 0);
+  color: rgba(0, 0, 0, 0);
+  stroke: white;
+  stroke-width: 70px;
   width: auto;
   height: auto;
 }
 
-.heart-button svg path {
-  margin: 20px;
-  color: rgba(0, 0, 0, 0);
-  stroke: white;
-  stroke-width: 70px;
+.heart-button--active {
+  margin: 0;
+  color: #e7084f;
+  background-color: rgba(0, 0, 0, 0);
+  width: auto;
+  height: auto;
 }

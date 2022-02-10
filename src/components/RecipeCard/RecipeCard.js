@@ -1,5 +1,6 @@
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useState } from "react";
 import styled from "styled-components";
 import { v4 } from "uuid";
 import Smtwtfs from "../Smtwtfs/Smtwtfs";
@@ -32,6 +33,8 @@ const RecipeHead = styled.div`
 `;
 
 const RecipeCard = ({ recipe: { recipe }, actionOnClickAdd }) => {
+  const [isMine, setIsMine] = useState(false);
+  const toggleMine = () => setIsMine(!isMine);
   return (
     <Container>
       <RecipeHead image={recipe.image}>
@@ -54,7 +57,12 @@ const RecipeCard = ({ recipe: { recipe }, actionOnClickAdd }) => {
         <section className="card-bottom">
           <Smtwtfs />
           <div className="heart-container">
-            <button className="heart-button">
+            <button
+              className={`heart-button ${isMine ? "heart-button--active" : ""}`}
+              onClick={() => {
+                toggleMine();
+              }}
+            >
               <FontAwesomeIcon icon={faHeart} />
             </button>
           </div>
