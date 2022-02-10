@@ -10,7 +10,7 @@ describe("Given a RecipeCard component", () => {
     test("Then it should render an element with the recipe label as title", () => {
       render(<RecipeCard recipe={edamamRecipe} />);
 
-      const recepta = screen.queryByText(edamamRecipe.recipe.label);
+      const recepta = screen.queryByText(edamamRecipe.label);
 
       expect(recepta).toBeInTheDocument();
     });
