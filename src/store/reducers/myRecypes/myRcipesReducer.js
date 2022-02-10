@@ -23,10 +23,9 @@ const myRecipesReducer = (currentState, action) => {
     case actionTypes.toggleDay:
       const { id, day } = action;
       newState = [...currentState].map((recipe) => {
-        return (recipe.days[day] =
-          recipe.id === id
-            ? { ...recipe.days[day], active: !day.active }
-            : { ...recipe.days[day] });
+        return recipe.id === id
+          ? { ...recipe.days[day], active: !day.active }
+          : { ...recipe.days[day] };
       });
 
       break;

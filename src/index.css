@@ -173,6 +173,7 @@ input[type="checkbox"]:disabled {
 }
 .recipe-calories {
   margin: 0;
+  font-weight: 900;
 }
 
 .card-bottom {
@@ -186,10 +187,6 @@ input[type="checkbox"]:disabled {
 .recipe-title {
   text-align: center;
   padding: -30px;
-}
-
-.recipe-calories {
-  font-weight: 900;
 }
 
 .not-found {
