@@ -128,27 +128,6 @@ input[type="checkbox"]:disabled {
   cursor: not-allowed;
 }
 
-.day-letter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 30px;
-  height: 30px;
-}
-.day-letter-active {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  border-style: solid;
-}
-.day-letter:hover {
-  border-radius: 50%;
-  border-style: solid;
-}
-
 .card-footer {
   color: #da4474;
   display: flex;

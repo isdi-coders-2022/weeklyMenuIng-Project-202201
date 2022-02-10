@@ -1,10 +1,9 @@
 import { v4 as uuidv4 } from "uuid";
 import Button from "../Button/Button";
-import styledComponents from "styled-components";
 import Smtwtfs from "../Smtwtfs/Smtwtfs";
 import styled from "styled-components";
 
-const Container = styledComponents.div`
+const Container = styled.div`
 color : black;
 display:flex;
 flex-direction:column;
