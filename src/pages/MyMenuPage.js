@@ -3,15 +3,17 @@ import { useEffect } from "react";
 import RecipesList from "../components/RecipesList/RecipesList";
 
 const MyMenuPage = () => {
-  const { loadRecipesAPI } = useAPI();
+  const { loadMyRecipesAPI } = useAPI();
 
   useEffect(() => {
-    loadRecipesAPI();
-  }, [loadRecipesAPI]);
+    loadMyRecipesAPI();
+  }, [loadMyRecipesAPI]);
 
   return (
     <>
-      <RecipesList />
+      <main className="main">
+        <RecipesList myList={true} />
+      </main>
     </>
   );
 };

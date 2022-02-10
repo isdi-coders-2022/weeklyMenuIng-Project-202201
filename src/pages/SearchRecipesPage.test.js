@@ -1,7 +1,8 @@
 import { render, screen } from "@testing-library/react";
 
 import ApiContextProvider from "../store/contexts/ApiContext/ApiContextProvider";
-import MyRecipesContextProvider from "../store/contexts/RecipesContext/RecipesContextProvider";
+import RecipesContextProvider from "../store/contexts/RecipesContext/RecipesContextProvider";
+import MyRecipesContextProvider from "../store/contexts/MyRecipesContext/MyRecipesContextProvider";
 import SearchRecipesPage from "./SearchRecipesPage";
 
 describe("Given a SearchRecipesPage page", () => {
@@ -10,7 +11,9 @@ describe("Given a SearchRecipesPage page", () => {
       render(
         <ApiContextProvider>
           <MyRecipesContextProvider>
-            <SearchRecipesPage />
+            <RecipesContextProvider>
+              <SearchRecipesPage />
+            </RecipesContextProvider>
           </MyRecipesContextProvider>
         </ApiContextProvider>
       );

@@ -2,15 +2,18 @@ import { render, screen } from "@testing-library/react";
 import SearchRecipesForm from "./SearchRecipesForm";
 import ApiContextProvider from "../../store/contexts/ApiContext/ApiContextProvider";
 import RecipesContextProvider from "../../store/contexts/RecipesContext/RecipesContextProvider";
+import MyRecipesContextProvider from "../../store/contexts/MyRecipesContext/MyRecipesContextProvider";
 
 describe("Given a SearchRecipesForm Component", () => {
   describe("When it's rendered", () => {
     test("Then a form should be displayed", () => {
       render(
         <ApiContextProvider>
-          <RecipesContextProvider>
-            <SearchRecipesForm />
-          </RecipesContextProvider>
+          <MyRecipesContextProvider>
+            <RecipesContextProvider>
+              <SearchRecipesForm />
+            </RecipesContextProvider>
+          </MyRecipesContextProvider>
         </ApiContextProvider>
       );
       const formInput = screen.queryByPlaceholderText(
@@ -24,9 +27,11 @@ describe("Given a SearchRecipesForm Component", () => {
       const expectedNumberOfCheckboxes = 6;
       render(
         <ApiContextProvider>
-          <RecipesContextProvider>
-            <SearchRecipesForm />
-          </RecipesContextProvider>
+          <MyRecipesContextProvider>
+            <RecipesContextProvider>
+              <SearchRecipesForm />
+            </RecipesContextProvider>
+          </MyRecipesContextProvider>
         </ApiContextProvider>
       );
 
@@ -40,9 +45,11 @@ describe("Given a SearchRecipesForm Component", () => {
     test("is disabled when instantiaded with empty text input", () => {
       render(
         <ApiContextProvider>
-          <RecipesContextProvider>
-            <SearchRecipesForm />
-          </RecipesContextProvider>
+          <MyRecipesContextProvider>
+            <RecipesContextProvider>
+              <SearchRecipesForm />
+            </RecipesContextProvider>
+          </MyRecipesContextProvider>
         </ApiContextProvider>
       );
 
