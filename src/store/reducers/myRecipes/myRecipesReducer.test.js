@@ -3,7 +3,7 @@ import {
   loadRecipesAction,
   removeRecipeAction,
   updateRecipeAction,
-} from "../../actions/myRecipes/myRecipesActionsCreator";
+} from "../../actions/myRecpes/myRecipesActionsCreator";
 import myRecipesReducer from "./myRecipesReducer";
 
 describe("Given a recipesReducer", () => {
@@ -65,9 +65,9 @@ describe("Given a recipesReducer", () => {
   describe("When it's called with an action type loadRecipes and provide an array of recipes", () => {
     test("Then it should return a new state with all the recipes that came inside the action", () => {
       const currentState = [];
-      const recipes = { hits: [{ label: "chicken" }, { label: "macarroni" }] };
+      const recipes = [{ label: "chicken" }, { label: "macarroni" }];
       const action = loadRecipesAction(recipes);
-      const expectedNewState = [...recipes.hits];
+      const expectedNewState = [...recipes];
 
       const newState = myRecipesReducer(currentState, action);
 

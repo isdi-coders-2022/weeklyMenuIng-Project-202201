@@ -28,11 +28,7 @@ const RecipesList = ({ myList = false }) => {
       )}
       <RecipesGrid>
         {recipesList.map((recipe) => (
-          <RecipeCard
-            key={uuidv4()}
-            recipe={recipe}
-            actionOnClickAdd={() => addRecipeToMyListAPI(recipe)}
-          />
+          <RecipeCard key={uuidv4()} recipe={recipe} isMyList={myList} />
         ))}
       </RecipesGrid>
       {recipes.length > 0 && (

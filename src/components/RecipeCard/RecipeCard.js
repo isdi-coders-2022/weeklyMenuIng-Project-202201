@@ -32,20 +32,21 @@ const RecipeHead = styled.div`
   }
 `;
 
-const RecipeCard = ({ recipe: { recipe }, actionOnClickAdd }) => {
+const RecipeCard = ({ recipe, isMyList = false }) => {
+  const recipeItem = isMyList ? recipe : recipe.recipe;
   const [isMine, setIsMine] = useState(false);
   const toggleMine = () => setIsMine(!isMine);
   return (
     <Container>
-      <RecipeHead image={recipe.image}>
+      <RecipeHead image={recipeItem.image}>
         <div className="recipe-digest">
-          <h2 className="recipe-title">{recipe.label}</h2>
-          <p>{`${parseInt(recipe.yield)} servings`}</p>
+          <h2 className="recipe-title">{recipeItem.label}</h2>
+          <p>{`${parseInt(recipeItem.yield)} servings`}</p>
           <h3 className="recipe-calories">{`${parseInt(
-            parseInt(recipe.calories) / recipe.yield
+            parseInt(recipeItem.calories) / recipeItem.yield
           )} Kcal`}</h3>
           <p className="recipe-digest__diet-labels">
-            {recipe.dietLabels.map((label) => {
+            {recipeItem.dietLabels.map((label) => {
               return (
                 <span className="diet-labels__item" key={v4()}>
                   {label}
