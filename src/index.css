@@ -1,3 +1,9 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: "Montserrat", sans-serif;
@@ -10,22 +16,43 @@ body {
   flex-direction: column;
   align-items: center;
   margin-bottom: 25px;
+  min-height: calc(100vh-200px);
 }
 
-#root {
-  min-height: 100vh;
+input {
+  padding: 0.5rem;
+  font-size: 16px;
+  width: 100%;
+  display: block;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+input:focus {
+  border-color: #007eff;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+    0 0 0 3px rgba(0, 126, 255, 0.1);
+  outline: none;
+}
+
+input.error {
+  border-color: red;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.input-feedback {
+  color: red;
+  margin-top: 0.25rem;
 }
 
 .search-results-msg {
   font-size: 1.2em;
   text-align: center;
-}
-
-.main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 25px;
 }
 
 button {
@@ -42,17 +69,6 @@ button {
 button:disabled {
   cursor: default;
   opacity: 50%;
-}
-
-:root {
-  --form-control-color: #e27396;
-  --form-control-disabled: #959495;
-}
-
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
 }
 
 .ingredients-label {
