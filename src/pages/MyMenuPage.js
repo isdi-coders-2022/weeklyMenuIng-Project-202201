@@ -11,9 +11,7 @@ const MyMenuPage = () => {
 
   return (
     <>
-      <main className="main">
-        <RecipesList myList={true} />
-      </main>
+      <RecipesList myList={true} />
     </>
   );
 };
