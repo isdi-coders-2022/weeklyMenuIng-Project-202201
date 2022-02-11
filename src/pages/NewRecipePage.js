@@ -1,6 +1,14 @@
+import CreateRecipeForm from "../components/CreateRecipeForm/CreateRecipeForm";
 import Infoblock from "../components/Infoblock/Infoblock";
 
 const NewRecipePage = () => {
-  return <Infoblock text="Create new recipe" />;
+  return (
+    <>
+      <main className="main">
+        <Infoblock text="Create new recipe" />
+        <CreateRecipeForm />
+      </main>
+    </>
+  );
 };
 export default NewRecipePage;

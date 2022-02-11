@@ -16,8 +16,8 @@ const Container = styled.article`
 `;
 
 const RecipeHead = styled.div`
-  background: url(${(props) => props.image}) no-repeat center;
-  filter: grayscale(0.8);
+  background: linear-gradient(rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5) 100%),
+    url(${(props) => props.image}) no-repeat center;
   background-size: cover;
   text-shadow: 2px 0 2px black;
   background-color: #0000006b;
@@ -29,7 +29,6 @@ const RecipeHead = styled.div`
   flex-direction: column;
   transition: all 0.2s;
   &:hover {
-    filter: grayscale(0);
   }
 `;
 
