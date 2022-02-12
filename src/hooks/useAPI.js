@@ -8,7 +8,6 @@ import {
 import {
   loadRecipesAction,
   loadMoreRecipesAction,
-  createRecipeAction as addRecipeToMyListAction,
 } from "../store/actions/recipes/recipesActionsCreator";
 import {
   loadRecipesAction as loadMyRecipesAction,
@@ -109,7 +108,7 @@ const useAPI = () => {
         }
       );
       const newRecipe = await response.json();
-      dispatch(addRecipeToMyListAction(newRecipe));
+      dispatchMy(createRecipeAction(newRecipe));
     } catch (error) {
       dispatchAPI(setError());
     }
