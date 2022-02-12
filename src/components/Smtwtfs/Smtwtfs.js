@@ -1,7 +1,7 @@
 import { useReducer } from "react";
 import styled from "styled-components";
-import { toggleDay } from "../../store/actions/myRecpes/myRecipesActionsCreator";
-import myRecipesReducer from "../../store/reducers/myRecypes/myRcipesReducer";
+import { toggleDay } from "../../store/actions/myRecipes/myRecipesActionsCreator";
+import myRecipesReducer from "../../store/reducers/myRecipes/myRcipesReducer";
 
 const DayList = styled.ul`
   width: 100%;
