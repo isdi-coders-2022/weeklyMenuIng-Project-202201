@@ -1,4 +1,4 @@
-import { actionTypes } from "../../actions/myRecpes/myRecipesActionsTypes";
+import { actionTypes } from "../../actions/myRecipes/myRecipesActionsTypes";
 
 const myRecipesReducer = (currentState, action) => {
   let newState;

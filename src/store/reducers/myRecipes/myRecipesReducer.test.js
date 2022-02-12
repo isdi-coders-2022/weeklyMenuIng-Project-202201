@@ -3,7 +3,7 @@ import {
   loadRecipesAction,
   removeRecipeAction,
   updateRecipeAction,
-} from "../../actions/myRecpes/myRecipesActionsCreator";
+} from "../../actions/myRecipes/myRecipesActionsCreator";
 import myRecipesReducer from "./myRcipesReducer";
 
 describe("Given a recipesReducer", () => {
