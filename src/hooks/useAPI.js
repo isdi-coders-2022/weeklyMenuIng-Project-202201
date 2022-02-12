@@ -14,7 +14,7 @@ import {
   createRecipeAction,
   removeRecipeAction,
   updateRecipeAction,
-} from "../store/actions/myRecpes/myRecipesActionsCreator";
+} from "../store/actions/myRecipes/myRecipesActionsCreator";
 import ApiContext from "../store/contexts/ApiContext/ApiContext";
 import RecipesContext from "../store/contexts/RecipesContext/RecipesContext";
 import MyRecipesContext from "../store/contexts/MyRecipesContext/MyRecipesContext";
