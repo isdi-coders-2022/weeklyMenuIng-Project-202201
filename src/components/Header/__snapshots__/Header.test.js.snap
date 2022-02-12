@@ -29,7 +29,7 @@ Array [
       </li>
       <li>
         <a
-          href="/home/new"
+          href="/recipe/new"
           onClick={[Function]}
         >
           Create New Recipe
