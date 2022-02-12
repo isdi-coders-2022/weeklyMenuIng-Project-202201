@@ -63,7 +63,7 @@ button {
   cursor: pointer;
   font-size: 1.2rem;
   background-color: #151f28;
-  color: white;
+  color: #b3dfe2;
 }
 
 button:disabled {
@@ -178,6 +178,12 @@ input[type="checkbox"]:disabled {
 .day-letter--active {
   border-radius: 50%;
   border-style: solid;
+}
+.recipe-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 90%;
 }
 
 .recipe-digest {
