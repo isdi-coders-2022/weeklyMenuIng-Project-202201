@@ -1,9 +1,9 @@
 import { render, screen } from "@testing-library/react";
-
 import ApiContextProvider from "../store/contexts/ApiContext/ApiContextProvider";
 import RecipesContextProvider from "../store/contexts/RecipesContext/RecipesContextProvider";
 import MyRecipesContextProvider from "../store/contexts/MyRecipesContext/MyRecipesContextProvider";
 import SearchRecipesPage from "./SearchRecipesPage";
+import { BrowserRouter } from "react-router-dom";
 
 describe("Given a SearchRecipesPage page", () => {
   describe("When it's rendered", () => {
@@ -12,7 +12,9 @@ describe("Given a SearchRecipesPage page", () => {
         <ApiContextProvider>
           <MyRecipesContextProvider>
             <RecipesContextProvider>
-              <SearchRecipesPage />
+              <BrowserRouter>
+                <SearchRecipesPage />
+              </BrowserRouter>
             </RecipesContextProvider>
           </MyRecipesContextProvider>
         </ApiContextProvider>

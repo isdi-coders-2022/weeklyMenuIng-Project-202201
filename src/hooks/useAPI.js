@@ -18,7 +18,6 @@ import {
 import ApiContext from "../store/contexts/ApiContext/ApiContext";
 import RecipesContext from "../store/contexts/RecipesContext/RecipesContext";
 import MyRecipesContext from "../store/contexts/MyRecipesContext/MyRecipesContext";
-import { v4 as uuidv4 } from "uuid";
 
 const useAPI = () => {
   const { dispatch, setNextEndpoint } = useContext(RecipesContext);
@@ -86,9 +85,11 @@ const useAPI = () => {
   }, [dispatchMy, dispatchAPI]);
 
   const addRecipeToMyListAPI = async (recipe) => {
+    const uri = recipe.recipe.uri;
+    const newId = uri.slice(uri.lastIndexOf("_") + 1);
     const recipeWithId = {
       ...recipe,
-      id: uuidv4(),
+      id: newId,
       days: [
         { index: null, day: "sunday", active: false, initial: "S" },
         { index: null, day: "monday", active: false, initial: "M" },

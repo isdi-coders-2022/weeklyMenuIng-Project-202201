@@ -3,6 +3,7 @@ import ApiContextProvider from "../store/contexts/ApiContext/ApiContextProvider"
 import RecipesContextProvider from "../store/contexts/RecipesContext/RecipesContextProvider";
 import MyMenuPage from "./MyMenuPage";
 import MyRecipesContextProvider from "../store/contexts/MyRecipesContext/MyRecipesContextProvider";
+import { BrowserRouter } from "react-router-dom";
 
 describe("Given a my menu page", () => {
   describe("When it's rendered", () => {
@@ -11,7 +12,9 @@ describe("Given a my menu page", () => {
         <ApiContextProvider>
           <MyRecipesContextProvider>
             <RecipesContextProvider>
-              <MyMenuPage />
+              <BrowserRouter>
+                <MyMenuPage />
+              </BrowserRouter>
             </RecipesContextProvider>
           </MyRecipesContextProvider>
         </ApiContextProvider>

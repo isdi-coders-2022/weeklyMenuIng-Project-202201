@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from "uuid";
 import Button from "../Button/Button";
 import styled from "styled-components";
 import Smtwtfs from "../Smtwtfs/Smtwtfs";
@@ -58,7 +57,7 @@ const Recipe = ({
         <div className="recipe-ingredients">
           {recipe.ingredientLines.map((ingredient) => {
             return (
-              <p className="ingredient" key={uuidv4()}>
+              <p className="ingredient" key={`${recipe.label}${ingredient}`}>
                 {ingredient}
               </p>
             );
