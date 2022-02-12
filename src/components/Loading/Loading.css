@@ -18,7 +18,7 @@
   vertical-align: middle;
   position: relative;
 }
-.pre-loader .inner .wrap {
+.pre-loader .inner svg.wrap {
   position: absolute;
   font-size: 100px;
   -webkit-animation: spinner-spin 1.2s infinite linear;
