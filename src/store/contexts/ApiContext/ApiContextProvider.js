@@ -4,8 +4,9 @@ import ApiContext from "./ApiContext";
 
 const ApiContextProvider = ({ children }) => {
   const [apiState, dispatch] = useReducer(apiReducer, {
-    isLoaded: true,
+    isLoaded: false,
     hasError: false,
+    errorMsg: "",
   });
 
   return (

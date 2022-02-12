@@ -12,11 +12,15 @@ const apiReducer = (currentApiState, action) => {
       break;
 
     case apiActionsTypes.setError:
-      newApiState = { ...currentApiState, hasError: true };
+      newApiState = {
+        ...currentApiState,
+        hasError: true,
+        errorMsg: action.errorMsg,
+      };
       break;
 
     case apiActionsTypes.unsetError:
-      newApiState = { ...currentApiState, hasError: false };
+      newApiState = { ...currentApiState, hasError: false, errorMsg: "" };
       break;
     default:
       newApiState = { ...currentApiState };
