@@ -12,10 +12,17 @@ const SearchRecipesForm = () => {
   const [formData, setFormData] = useState(blankIngredientsField);
 
   const changeData = (event) => {
-    setFormData({
-      ...formData,
-      [event.target.id]: event.target.value,
-    });
+    setFormData(
+      event.target.type === "text"
+        ? {
+            ...formData,
+            [event.target.id]: event.target.value,
+          }
+        : {
+            ...formData,
+            [event.target.id]: event.target.checked,
+          }
+    );
   };
 
   const onFormSubmit = (event) => {
