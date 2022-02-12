@@ -14,7 +14,7 @@ const Links = ({ actionOnClick }) => {
         </Link>
       </li>
       <li>
-        <Link onClick={actionOnClick} to="/home/new">
+        <Link onClick={actionOnClick} to="/recipe/new">
           Create New Recipe
         </Link>
       </li>
