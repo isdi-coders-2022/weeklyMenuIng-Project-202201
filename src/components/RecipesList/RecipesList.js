@@ -31,7 +31,7 @@ const RecipesList = ({ myList = false }) => {
           <RecipeCard key={uuidv4()} recipe={recipe} isMyList={myList} />
         ))}
       </RecipesGrid>
-      {!myList && recipes.length > 0 && (
+      {!myList && nextEndPoint && (
         <Button
           text="Load more"
           className="button"

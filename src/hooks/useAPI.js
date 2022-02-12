@@ -28,17 +28,20 @@ const useAPI = () => {
   const loadRecipesAPI = useCallback(
     async (ingredientsQuery) => {
       const APIendpointURL = `https://api.edamam.com/api/recipes/v2?type=public&q=${ingredientsQuery}&app_id=dc6d4a3e&app_key=5139a87e32f135390c522c62e6f7f946`;
+      let response = {};
       try {
         dispatchAPI(setIsLoaded());
         dispatchAPI(unsetError());
-        const response = await fetch(APIendpointURL);
+        response = await fetch(APIendpointURL);
         const recipes = await response.json();
-        if (recipes._links.next.href) {
+        if (recipes._links.next?.href) {
           setNextEndpoint(recipes._links.next.href);
+        } else {
+          setNextEndpoint(null);
         }
         dispatch(loadRecipesAction(recipes));
       } catch (error) {
-        dispatchAPI(setError());
+        dispatchAPI(setError(error));
       }
       dispatchAPI(unsetIsLoaded());
     },
@@ -47,17 +50,20 @@ const useAPI = () => {
 
   const loadMoreRecipesAPI = useCallback(
     async (nextEndpoint) => {
+      let response = {};
       try {
         dispatchAPI(setIsLoaded());
         dispatchAPI(unsetError());
-        const response = await fetch(nextEndpoint);
+        response = await fetch(nextEndpoint);
         const recipes = await response.json();
-        if (recipes._links.next.href) {
+        if (recipes._links.next?.href) {
           setNextEndpoint(recipes._links.next.href);
+        } else {
+          setNextEndpoint(null);
         }
         dispatch(loadMoreRecipesAction(recipes));
       } catch (error) {
-        dispatchAPI(setError());
+        dispatchAPI(setError(error));
       }
       dispatchAPI(unsetIsLoaded());
     },

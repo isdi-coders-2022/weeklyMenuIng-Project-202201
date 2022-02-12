@@ -8,8 +8,9 @@ export const unsetIsLoaded = () => ({
   type: apiActionsTypes.unsetIsLoaded,
 });
 
-export const setError = () => ({
+export const setError = (errorMsg) => ({
   type: apiActionsTypes.setError,
+  errorMsg,
 });
 
 export const unsetError = () => ({
