@@ -1,27 +1,8 @@
+import { faCutlery, faCircleNotch } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext } from "react";
 import ApiContext from "../../store/contexts/ApiContext/ApiContext";
-import styled from "styled-components";
-
-const LoadingSplashContainer = styled.div`
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: #e27396;
-  z-index: 99;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const LoadingText = styled.h1`
-  color: #ffffff;
-  font-size: 3em;
-  font-weight: bold;
-  text-align: center;
-  padding: 30px;
-`;
+import "./Loading.css";
 
 const Loading = () => {
   const {
@@ -31,11 +12,20 @@ const Loading = () => {
   return (
     <>
       {isLoaded && (
-        <LoadingSplashContainer>
-          <LoadingText>
-            Loading Recipes... (sustituir por spinner too guapo, eh...)
-          </LoadingText>
-        </LoadingSplashContainer>
+        <div className="pre-loader">
+          <div className="outer">
+            <div className="inner">
+              <FontAwesomeIcon icon={faCircleNotch} className="wrap" />
+              <div className="inside">
+                <div className="outer">
+                  <div className="inner">
+                    <FontAwesomeIcon icon={faCutlery} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       )}
     </>
   );
