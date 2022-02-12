@@ -8,10 +8,12 @@ import SearchRecipesPage from "./pages/SearchRecipesPage";
 import AboutPage from "./pages/AboutPage";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+import Loading from "./components/Loading/Loading";
 
 function App() {
   return (
     <>
+      <Loading />
       <Header />
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
