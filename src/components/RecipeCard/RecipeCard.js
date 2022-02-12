@@ -2,7 +2,6 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import styled from "styled-components";
-import { v4 } from "uuid";
 import Smtwtfs from "../Smtwtfs/Smtwtfs";
 import useAPI from "../../hooks/useAPI";
 
@@ -13,6 +12,7 @@ const Container = styled.article`
   border-radius: 10px;
   background-color: #b3dee2;
   width: 300px;
+  cursor: pointer;
 `;
 
 const RecipeHead = styled.div`
@@ -32,7 +32,11 @@ const RecipeHead = styled.div`
   }
 `;
 
-const RecipeCard = ({ recipe: { recipe, days, id }, isMyList = false }) => {
+const RecipeCard = ({
+  recipe: { recipe, days, id },
+  isMyList = false,
+  actionOnClick,
+}) => {
   const [isMine, setIsMine] = useState(false);
   const { addRecipeToMyListAPI, deleteRecipeAPI } = useAPI();
 
@@ -46,7 +50,14 @@ const RecipeCard = ({ recipe: { recipe, days, id }, isMyList = false }) => {
   };
 
   return (
-    <Container>
+    <Container
+      onClick={() => {
+        actionOnClick(
+          isMyList ? "local" : "edamam",
+          isMyList ? id : recipe.uri.slice(recipe.uri.lastIndexOf("_") + 1)
+        );
+      }}
+    >
       <RecipeHead image={recipe.image}>
         <div className="recipe-digest">
           <h2 className="recipe-title">{recipe.label}</h2>
@@ -59,7 +70,10 @@ const RecipeCard = ({ recipe: { recipe, days, id }, isMyList = false }) => {
           <p className="recipe-digest__diet-labels">
             {recipe.dietLabels.map((label) => {
               return (
-                <span className="diet-labels__item" key={v4()}>
+                <span
+                  className="diet-labels__item"
+                  key={`${recipe.label}${label}`}
+                >
                   {label}
                 </span>
               );
