@@ -17,5 +17,18 @@ describe("Given a Week component", () => {
 
       expect(lists.length).toBe(expectedNumberOfLists);
     });
+
+    test("Then it should check if day is active", () => {
+      const expectedActiveDays = [];
+
+      render(
+        <MyRecipesContextProvider>
+          <Week />
+        </MyRecipesContextProvider>
+      );
+
+      const activeDays = screen.queryAllByRole("listitem");
+      expect(activeDays).toEqual(expectedActiveDays);
+    });
   });
 });
