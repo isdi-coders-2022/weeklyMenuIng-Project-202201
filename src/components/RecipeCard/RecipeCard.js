@@ -61,10 +61,12 @@ const RecipeCard = ({
       <RecipeHead image={recipe.image}>
         <div className="recipe-digest">
           <h2 className="recipe-title">{recipe.label}</h2>
-          <p>{`${parseInt(recipe.yield)} servings`}</p>
-          <h3 className="recipe-calories">{`${parseInt(
-            parseInt(recipe.calories) / recipe.yield
-          )} Kcal`}</h3>
+          {recipe.yield && <p>{`${parseInt(recipe.yield)} servings`}</p>}
+          {recipe.calories && (
+            <h3 className="recipe-calories">{`${parseInt(
+              parseInt(recipe.calories) / recipe.yield
+            )} Kcal`}</h3>
+          )}
           <p className="recipe-digest__diet-labels">
             {recipe.dietLabels.map((label) => {
               return (
@@ -79,7 +81,7 @@ const RecipeCard = ({
           </p>
         </div>
         <section className="card-bottom">
-          {days ? <Smtwtfs smtwtfs={days} recipe={id} /> : ""}
+          {days ? <Smtwtfs smtwtfs={days} recipe={id} /> : null}
           {!isMyList && (
             <div className="heart-container">
               <button

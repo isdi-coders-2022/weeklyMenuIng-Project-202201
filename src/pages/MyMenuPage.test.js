@@ -19,7 +19,7 @@ describe("Given a my menu page", () => {
           </MyRecipesContextProvider>
         </ApiContextProvider>
       );
-      const list = screen.queryByRole("list");
+      const list = screen.queryAllByRole("list");
 
       expect(list).not.toBeNull();
     });

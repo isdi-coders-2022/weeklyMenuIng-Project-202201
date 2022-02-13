@@ -1,0 +1,37 @@
+.about-main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.page-logo {
+  width: 300px;
+  border-style: solid;
+  border-width: 0px 3px 0px 0px;
+  border-color: #00acbb;
+}
+.about-container {
+  display: flex;
+  flex-direction: row;
+}
+.about-names {
+  display: flex;
+  text-align: end;
+  align-items: center;
+  border-style: solid;
+  border-width: 0px 3px 0px 0px;
+  padding: 10px;
+}
+.about-names ul {
+  list-style: none;
+}
+.github-logo {
+  width: 100px;
+}
+.about-repo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}

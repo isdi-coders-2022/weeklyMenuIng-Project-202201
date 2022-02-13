@@ -12,14 +12,5 @@ describe("Given a DayRecipe component", () => {
 
       expect(label).toBeInTheDocument();
     });
-    test("Then it should render the recipe image", () => {
-      const mockObject = { recipe: { label: "spagetti", image: "urltoimg" } };
-
-      render(<DayRecipe recipe={mockObject} />);
-
-      const image = screen.queryByAltText(mockObject.recipe.label);
-
-      expect(image).toBeInTheDocument();
-    });
   });
 });
