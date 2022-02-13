@@ -1,10 +1,7 @@
 import React, { useContext } from "react";
-import { Draggable } from "react-beautiful-dnd";
-import { Droppable } from "react-beautiful-dnd";
-import { DragDropContext } from "react-beautiful-dnd";
+import { Draggable, Droppable, DragDropContext } from "react-beautiful-dnd";
 import styled from "styled-components";
 import { v4 } from "uuid";
-import { dragRecipeAction } from "../../store/actions/recipes/recipesActionsCreator";
 import MyRecipesContext from "../../store/contexts/MyRecipesContext/MyRecipesContext";
 import DayRecipe from "../DayRecipe/DayRecipe";
 
