@@ -44,6 +44,24 @@ describe("Given a Header Component", () => {
       expect(burger).toHaveClass("active");
     });
   });
+
+  describe("Wher it's rendered and cilcked on the burger menu and then on the floating menu", () => {
+    test("Then the burger menu should not have class active", () => {
+      render(
+        <BrowserRouter>
+          <Header />
+        </BrowserRouter>
+      );
+
+      const burger = screen.queryByTitle("Navigation Menu");
+      userEvent.click(burger);
+      const floatingMenu = screen.queryByTitle("Floating Navigation");
+      userEvent.click(floatingMenu);
+
+      expect(floatingMenu).not.toHaveClass("active");
+    });
+  });
+
   describe("Wher it's rendered and cilcked two times on the burger menu", () => {
     test("Then the burger menu should not have class active", () => {
       render(
