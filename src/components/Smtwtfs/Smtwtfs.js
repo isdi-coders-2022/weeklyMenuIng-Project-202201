@@ -23,7 +23,8 @@ const Smtwtfs = ({ smtwtfs, recipe }) => {
           <li
             key={`${recipe.label}${index}`}
             className={`day-letter ${day.active ? "day-letter--active" : ""}`}
-            onClick={() => {
+            onClick={(event) => {
+              event.stopPropagation();
               dispatch(toggleDay(recipe, index));
             }}
           >
