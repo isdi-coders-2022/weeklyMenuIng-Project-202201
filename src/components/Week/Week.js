@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { useReducer } from "react";
 import { Draggable } from "react-beautiful-dnd";
 import { Droppable } from "react-beautiful-dnd";
 import { DragDropContext } from "react-beautiful-dnd";
@@ -7,7 +6,6 @@ import styled from "styled-components";
 import { v4 } from "uuid";
 import { dragRecipeAction } from "../../store/actions/recipes/recipesActionsCreator";
 import MyRecipesContext from "../../store/contexts/MyRecipesContext/MyRecipesContext";
-import recipesReducer from "../../store/reducers/recipes/recipesReducer";
 import DayRecipe from "../DayRecipe/DayRecipe";
 
 const WeekContainer = styled.div`
@@ -22,13 +20,12 @@ const Day = styled.ul`
   list-style: none;
   padding: 0;
   width: 100%;
-  margin: 1rem;
+  margin: 0;
   background-color: aliceblue;
 `;
 
 const Week = () => {
-  const { myRecipes: recipes, dispatch } = useContext(MyRecipesContext);
-
+  const { myRecipes, dispatch } = useContext(MyRecipesContext);
   const handleDragEnd = ({ source, destination }) =>
     dispatch(dragRecipeAction(source, destination));
   return (
@@ -37,8 +34,8 @@ const Week = () => {
         <Droppable droppableId="0">
           {(provided) => (
             <Day {...provided.droppableProps} ref={provided.innerRef}>
-              {recipes.map((recipe) => {
-                if (recipe.days[0]) {
+              {myRecipes.map((recipe) => {
+                if (recipe.days[0].active) {
                   return (
                     <Draggable
                       key={recipe.id}
@@ -64,48 +61,48 @@ const Week = () => {
           )}
         </Droppable>
         <Day>
-          {recipes.map((recipe) => {
-            if (recipe.days[0]) {
+          {myRecipes.map((recipe) => {
+            if (recipe.days[1].active) {
               return <DayRecipe recipe={recipe} key={v4()} />;
             }
             return "";
           })}
         </Day>
         <Day>
-          {recipes.map((recipe) => {
-            if (recipe.days[0]) {
+          {myRecipes.map((recipe) => {
+            if (recipe.days[2].active) {
               return <DayRecipe recipe={recipe} key={v4()} />;
             }
             return "";
           })}
         </Day>
         <Day>
-          {recipes.map((recipe) => {
-            if (recipe.days[0]) {
+          {myRecipes.map((recipe) => {
+            if (recipe.days[3].active) {
               return <DayRecipe recipe={recipe} key={v4()} />;
             }
             return "";
           })}
         </Day>
         <Day>
-          {recipes.map((recipe) => {
-            if (recipe.days[0]) {
+          {myRecipes.map((recipe) => {
+            if (recipe.days[4].active) {
               return <DayRecipe recipe={recipe} key={v4()} />;
             }
             return "";
           })}
         </Day>
         <Day>
-          {recipes.map((recipe) => {
-            if (recipe.days[0]) {
+          {myRecipes.map((recipe) => {
+            if (recipe.days[5].active) {
               return <DayRecipe recipe={recipe} key={v4()} />;
             }
             return "";
           })}
         </Day>
         <Day>
-          {recipes.map((recipe) => {
-            if (recipe.days[0]) {
+          {myRecipes.map((recipe) => {
+            if (recipe.days[6].active) {
               return <DayRecipe recipe={recipe} key={v4()} />;
             }
             return "";

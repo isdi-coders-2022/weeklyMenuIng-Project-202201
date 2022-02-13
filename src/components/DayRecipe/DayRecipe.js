@@ -2,34 +2,27 @@ import styled from "styled-components";
 
 const DayRecipeCard = styled.li`
   box-sizing: border-box;
-  max-height: 100px;
+  height: 80px;
   margin: 10px;
   position: relative;
   border-radius: 4px;
-  & span {
-    background-color: #fffe;
+  background-color: #fffe;
+  display: table;
+
+  & p {
+    font-size: 13px;
     height: 100px;
+    text-justify: inter-cluster;
     text-align: center;
-    line-height: 100px;
-    display: block;
-    position: absolute;
-    width: 50%;
-    top: 0;
-    bottom: 0;
+    display: table-cell;
+    vertical-align: middle;
   }
 `;
 
-const Image = styled.img`
-  object-fit: cover;
-  object-position: center;
-  max-height: inherit;
-  width: 100%;
-`;
 const DayRecipe = ({ recipe: { recipe } }) => {
   return (
     <DayRecipeCard>
-      <span>{recipe.label}</span>
-      <Image src={recipe.image} alt={recipe.label} />
+      <p>{recipe.label}</p>
     </DayRecipeCard>
   );
 };
