@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import MyRecipesContextProvider from "../../store/contexts/MyRecipesContext/MyRecipesContextProvider";
 import Week from "./Week";
 
 describe("Given a Week component", () => {
@@ -6,7 +7,11 @@ describe("Given a Week component", () => {
     test("Then it should render 7 lists", () => {
       const expectedNumberOfLists = 7;
 
-      render(<Week />);
+      render(
+        <MyRecipesContextProvider>
+          <Week />
+        </MyRecipesContextProvider>
+      );
 
       const lists = screen.queryAllByRole("list");
 
