@@ -36,7 +36,7 @@ const Week = () => {
           return null;
         })}
       </Day>
-      =
+
       <Day>
         {myRecipes.map((recipe) => {
           if (recipe.days[1].active) {
