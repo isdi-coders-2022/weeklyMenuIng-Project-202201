@@ -169,8 +169,8 @@ const Recipe = ({
             <li>{`Iron: ${parseInt(recipe.totalNutrients.FE.quantity)}`}</li>
           </List>
         </div>
-        {api === "local" && <Smtwtfs smtwtfs={days} recipe={recipe} />}
       </div>
+      {api === "local" && <Smtwtfs smtwtfs={days} recipe={recipe} />}
       <RecipeButtons>
         {api === "local" && (
           <>
