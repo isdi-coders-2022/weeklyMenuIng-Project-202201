@@ -37,16 +37,35 @@ const CreateRecipeForm = () => {
     <>
       <form className="form-recipe">
         <div className="form-block">
-          <label htmlFor="name">Recipe name: </label>
-          <input type="text" name="label" id="label" onChange={handleChange} />
-        </div>
-        <div className="form-block">
-          <label htmlFor="image">Image URL: </label>
-          <input type="url" name="image" id="image" onChange={handleChange} />
-        </div>
-        <div className="form-block">
-          <label htmlFor="image">Number of servings: </label>
+          <label title="name" htmlFor="name">
+            {"Recipe name: "}
+          </label>
           <input
+            type="text"
+            name="label"
+            id="label"
+            onChange={handleChange}
+            placeholder="Your recipe name"
+          />
+        </div>
+        <div className="form-block">
+          <label title="image" htmlFor="image">
+            {"Image URL: "}
+          </label>
+          <input
+            placeholder="Your recipe image"
+            type="url"
+            name="image"
+            id="image"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-block">
+          <label title="yield" htmlFor="yield">
+            {"Number of servings: "}
+          </label>
+          <input
+            placeholder="For how many people"
             type="number"
             name="yield"
             id="yield"
@@ -54,8 +73,11 @@ const CreateRecipeForm = () => {
           />
         </div>
         <div className="form-block">
-          <label htmlFor="image">Diet labels: </label>
+          <label title="dietLabels" htmlFor="dietLabels">
+            {"Diet labels: "}
+          </label>
           <input
+            placeholder="Ex: low-sodium, vegan"
             type="text"
             name="dietLabels"
             id="dietLabels"
