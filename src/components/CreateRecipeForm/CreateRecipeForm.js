@@ -6,7 +6,7 @@ const CreateRecipeForm = () => {
 
   const initialFormData = Object.freeze({
     label: "",
-    image: "",
+    image: "https://desenio.es/bilder/artiklar/zoom/8684_2.jpg?imgwidth=435",
     yield: "",
     dietLabels: "",
   });
@@ -59,6 +59,7 @@ const CreateRecipeForm = () => {
             id="image"
             onChange={handleChange}
           />
+          <img src={formData.image} width={300} alt={formData.label} />
         </div>
         <div className="form-block">
           <label title="yield" htmlFor="yield">
