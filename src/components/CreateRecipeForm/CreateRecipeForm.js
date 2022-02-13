@@ -28,7 +28,7 @@ const CreateRecipeForm = () => {
         label: formData.label,
         image: formData.image,
         yield: formData.yield,
-        dietLabels: [formData.dietLabels],
+        dietLabels: [...formData.dietLabels.split(",")],
       },
     });
   };
