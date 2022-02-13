@@ -26,7 +26,7 @@ const useAPI = () => {
 
   const loadRecipesAPI = useCallback(
     async (ingredientsQuery) => {
-      const APIendpointURL = `https://api.edamam.com/api/recipes/v2?type=public&q=${ingredientsQuery}&app_id=dc6d4a3e&app_key=5139a87e32f135390c522c62e6f7f946`;
+      const APIendpointURL = `${process.env.REACT_APP_EDAMAM_API_URL}&q=${ingredientsQuery}&app_id=${process.env.REACT_APP_EDAMAM_API_APP_ID}&app_key=${process.env.REACT_APP_EDAMAM_API_KEY}`;
       let response = {};
       try {
         dispatchAPI(setIsLoaded());
@@ -73,9 +73,7 @@ const useAPI = () => {
     try {
       dispatchAPI(setIsLoaded());
       dispatchAPI(unsetError());
-      const response = await fetch(
-        "https://my-weekly-menu-api.herokuapp.com/myrecipes/"
-      );
+      const response = await fetch(process.env.REACT_APP_HEROKKU_API_URL);
       const recipes = await response.json();
       dispatchMy(loadMyRecipesAction(recipes));
     } catch (error) {
@@ -104,16 +102,13 @@ const useAPI = () => {
       dispatchAPI(setIsLoaded());
       dispatchAPI(unsetError());
 
-      const response = await fetch(
-        "https://my-weekly-menu-api.herokuapp.com/myrecipes/",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(recipeWithId),
-        }
-      );
+      const response = await fetch(process.env.REACT_APP_HEROKKU_API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(recipeWithId),
+      });
       const newRecipe = await response.json();
       dispatchMy(createRecipeAction(newRecipe));
     } catch (error) {
@@ -127,16 +122,13 @@ const useAPI = () => {
       dispatchAPI(setIsLoaded());
       dispatchAPI(unsetError());
 
-      const response = await fetch(
-        "https://my-weekly-menu-api.herokuapp.com/myrecipes/",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(recipe),
-        }
-      );
+      const response = await fetch(process.env.REACT_APP_HEROKKU_API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(recipe),
+      });
       const newRecipe = await response.json();
       dispatchMy(createRecipeAction(newRecipe));
     } catch (error) {
