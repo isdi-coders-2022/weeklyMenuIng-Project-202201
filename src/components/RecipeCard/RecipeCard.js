@@ -61,8 +61,8 @@ const RecipeCard = ({
       <RecipeHead image={recipe.image}>
         <div className="recipe-digest">
           <h2 className="recipe-title">{recipe.label}</h2>
-          {!recipe.yield && <p>{`${parseInt(recipe.yield)} servings`}</p>}
-          {!recipe.calories && (
+          {recipe.yield && <p>{`${parseInt(recipe.yield)} servings`}</p>}
+          {recipe.calories && (
             <h3 className="recipe-calories">{`${parseInt(
               parseInt(recipe.calories) / recipe.yield
             )} Kcal`}</h3>

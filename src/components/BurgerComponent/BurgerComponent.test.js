@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import BurgerComponent from "./BurgerComponent";
 import userEvents from "@testing-library/user-event";
+import TestRenderer from "react-test-renderer";
 
 describe("Given a BurgerComponent component", () => {
   describe("When it's rendered passing a function", () => {
@@ -13,6 +14,12 @@ describe("Given a BurgerComponent component", () => {
       userEvents.click(burger);
 
       expect(action).toHaveBeenCalled();
+    });
+
+    test("then it should match the snapshot", () => {
+      const app = TestRenderer.create(<BurgerComponent />).toJSON();
+
+      expect(app).toMatchSnapshot();
     });
   });
 });
