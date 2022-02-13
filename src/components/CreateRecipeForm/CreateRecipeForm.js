@@ -45,7 +45,7 @@ const CreateRecipeForm = () => {
             name="label"
             id="label"
             onChange={handleChange}
-            placeholder="You'r recipe name"
+            placeholder="Your recipe name"
           />
         </div>
         <div className="form-block">
@@ -53,7 +53,7 @@ const CreateRecipeForm = () => {
             {"Image URL: "}
           </label>
           <input
-            placeholder="You'r recipe image"
+            placeholder="Your recipe image"
             type="url"
             name="image"
             id="image"
@@ -65,7 +65,7 @@ const CreateRecipeForm = () => {
             {"Number of servings: "}
           </label>
           <input
-            placeholder="For how many people?"
+            placeholder="For how many people"
             type="number"
             name="yield"
             id="yield"

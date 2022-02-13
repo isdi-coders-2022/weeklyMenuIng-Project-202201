@@ -8,7 +8,27 @@ import CreateRecipeForm from "./CreateRecipeForm";
 describe("Given a Create Recipe form", () => {
   describe("When it's rendered and typed on the name input", () => {
     test("Then the label input should contain the text typed", () => {
-      const inputPlaceholder = "You'r recipe name";
+      const inputPlaceholder = "Your recipe name";
+
+      render(
+        <MyRecipesContextProvider>
+          <RecipesContextProvider>
+            <ApiContextProvider>
+              <CreateRecipeForm />
+            </ApiContextProvider>
+          </RecipesContextProvider>
+        </MyRecipesContextProvider>
+      );
+
+      const input = screen.queryByPlaceholderText(inputPlaceholder);
+      userEvent.type(input, "text");
+      expect(input).toHaveDisplayValue("text");
+    });
+  });
+
+  describe("When it's rendered and typed on the image input", () => {
+    test("Then the label input should contain the text typed", () => {
+      const inputPlaceholder = "Your recipe image";
 
       render(
         <MyRecipesContextProvider>
