@@ -14,9 +14,8 @@ body {
 .main {
   display: flex;
   flex-direction: column;
-  align-items: center;
   margin-bottom: 25px;
-  min-height: calc(100vh-200px);
+  min-height: 100vh;
 }
 
 input {
@@ -192,7 +191,11 @@ input[type="checkbox"]:disabled {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  @media (min-width: 530px) {
+    display: none;
+  }
 }
+
 .recipe-calories {
   margin: 0;
   font-weight: 900;
