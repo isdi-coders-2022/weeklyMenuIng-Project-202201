@@ -2,7 +2,7 @@ import { rest } from "msw";
 
 export const handlers = [
   rest.get(
-    "https://api.edamam.com/api/recipes/v2?type=public&q=chicken&app_id=dc6d4a3e&app_key=5139a87e32f135390c522c62e6f7f946",
+    "https://api.edamam.com/api/recipes/v2",
     async (request, response, context) => {
       return response(
         context.json({
