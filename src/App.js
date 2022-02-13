@@ -21,15 +21,12 @@ function App() {
       <Week />
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
-        <Route path="/home">
-          <Route index element={<MyMenuPage />} />
-          <Route path="view/:id:api" element={<RecipePage />} />
+        <Route path="/home" element={<MyMenuPage />} />
+        <Route path="/search" element={<SearchRecipesPage />} />
+        <Route path="/recipe">
+          <Route path="view/:api/:id" element={<RecipePage />} />
           <Route path="new" element={<NewRecipePage />} />
           <Route path="edit/:id" element={<EditRecipePage />} />
-        </Route>
-        <Route path="/search">
-          <Route index element={<SearchRecipesPage />} />
-          <Route path="view/:id:api" element={<RecipePage />} />
         </Route>
         <Route path="/about" element={<AboutPage />} />
         <Route path="*" element={<NotFoundPage />} />

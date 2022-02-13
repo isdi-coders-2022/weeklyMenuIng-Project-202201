@@ -21,7 +21,7 @@ const Smtwtfs = ({ smtwtfs, recipe }) => {
       {smtwtfs.map((day, index) => {
         return (
           <li
-            key={index}
+            key={`${recipe.label}${index}`}
             className={`day-letter ${day.active ? "day-letter--active" : ""}`}
             onClick={() => {
               dispatch(toggleDay(recipe, index));

@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from "uuid";
 import styled from "styled-components";
 import { useContext } from "react";
 import RecipesContext from "../../store/contexts/RecipesContext/RecipesContext";
@@ -15,7 +14,7 @@ const RecipesGrid = styled.ul`
   padding: 25px;
 `;
 
-const RecipesList = ({ myList = false }) => {
+const RecipesList = ({ myList = false, actionOnClick }) => {
   const { recipes, nextEndPoint } = useContext(RecipesContext);
   const { myRecipes } = useContext(MyRecipesContext);
   const { loadMoreRecipesAPI } = useAPI();
@@ -27,9 +26,19 @@ const RecipesList = ({ myList = false }) => {
         <p className="search-results-msg">{`Showing ${recipes.length} recipes`}</p>
       )}
       <RecipesGrid>
-        {recipesObject.map((recipe) => (
-          <RecipeCard key={uuidv4()} recipe={recipe} isMyList={myList} />
-        ))}
+        {recipesObject.map((recipe) => {
+          const uniqueKey = recipe.recipe.uri
+            ? recipe.recipe.uri.slice(recipe.recipe.uri.lastIndexOf("_") + 1)
+            : recipe.id;
+          return (
+            <RecipeCard
+              key={uniqueKey}
+              recipe={recipe}
+              isMyList={myList}
+              actionOnClick={actionOnClick}
+            />
+          );
+        })}
       </RecipesGrid>
       {!myList && nextEndPoint && (
         <Button

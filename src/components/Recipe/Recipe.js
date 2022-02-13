@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from "uuid";
 import Button from "../Button/Button";
 import styled from "styled-components";
 import Smtwtfs from "../Smtwtfs/Smtwtfs";
@@ -22,6 +21,8 @@ const RecipeHead = styled.div`
   background-color: #0000006b;
   border-radius: 10px 10px 0px 0px;
   color: white;
+  font-size: 45px;
+  font-weight: bolder;
   width: 100%;
   height: 50vh;
   text-align: center;
@@ -29,7 +30,41 @@ const RecipeHead = styled.div`
   justify-content: center;
   align-items: center;
 `;
-
+const RecipeLabels = styled.span`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+const RecipeButtons = styled.div`
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+`;
+const List = styled.ul`
+  list-style: none;
+`;
+const RedDot = styled.div`
+  background-color: red;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 5px;
+`;
+const YellowDot = styled.div`
+  background-color: yellow;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 5px;
+`;
+const GreenDot = styled.div`
+  background-color: green;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 5px;
+`;
 const Recipe = ({
   className,
   recipe: { recipe, days, id },
@@ -43,22 +78,34 @@ const Recipe = ({
         <h2>{recipe.label}</h2>
       </RecipeHead>
 
-      <span
-        style={{
-          display: `flex`,
-          flexDirection: `column`,
-        }}
-      >
+      <RecipeLabels>
         {recipe.dietLabels.map((label) => {
-          return <span className="diet-labels__item">{label}</span>;
+          return (
+            <span className="diet-labels__item">{label.toUpperCase()}</span>
+          );
         })}
         <p>{`${parseInt(recipe.yield)} servings`}</p>
-      </span>
+      </RecipeLabels>
+      <button
+        text="VIEW RECIPE SOURCE"
+        className="receipeUrl"
+        actionOnClick={viewOriginalSource}
+        style={{
+          backgroundColor: `white`,
+          color: `#b3dfe2`,
+          width: `180px`,
+          padding: `0`,
+          fontSize: `15px`,
+        }}
+      >
+        VIEW RECIPE SOURCE
+      </button>
       <div className="recipe-info">
         <div className="recipe-ingredients">
+          <h3>INGREDIENTS LIST</h3>
           {recipe.ingredientLines.map((ingredient) => {
             return (
-              <p className="ingredient" key={uuidv4()}>
+              <p className="ingredient" key={`${recipe.label}${ingredient}`}>
                 {ingredient}
               </p>
             );
@@ -75,12 +122,40 @@ const Recipe = ({
           <h3>{`${parseInt(
             parseInt(recipe.calories) / recipe.yield
           )} Kcal`}</h3>
-          <ul>
-            <li>{`Fat: ${parseInt(recipe.digest[0].total)} g`}</li>
-            <li>{`Protein: ${parseInt(recipe.digest[1].total)} g`}</li>
-            <li>{`Carbs: ${parseInt(recipe.digest[2].total)} g`}</li>
-          </ul>
-          <ul>
+          <List>
+            <li
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              <GreenDot />
+              {`Protein: ${parseInt(recipe.digest[1].total)} g`}
+            </li>
+
+            <li
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              <YellowDot />
+              {` Carbs: ${parseInt(recipe.digest[2].total)} g`}
+            </li>
+            <li
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              <RedDot />
+              {` Fat: ${parseInt(recipe.digest[0].total)} g`}
+            </li>
+          </List>
+          <List>
             <li>
               {`Cholesterol: ${parseInt(recipe.totalNutrients.CHOLE.quantity)}`}
             </li>
@@ -93,23 +168,18 @@ const Recipe = ({
               recipe.totalNutrients.K.quantity
             )}`}</li>
             <li>{`Iron: ${parseInt(recipe.totalNutrients.FE.quantity)}`}</li>
-          </ul>
+          </List>
         </div>
         {days ? <Smtwtfs recipe={id} smtwtfs={days} /> : ""}
       </div>
-      <div className="recipe-buttons">
+      <RecipeButtons className="recipe-buttons">
+        <Button text="REMOVE RECIPE" className="button" />
         <Button
-          text="view recipe source"
-          className="receipeUrl"
-          actionOnClick={viewOriginalSource}
-        />
-        <Button text="remove recipe" className="button" />
-        <Button
-          text="Add to my list"
+          text="ADD TO MY LIST"
           className="button"
           actionOnClick={actionOnClickAdd}
         />
-      </div>
+      </RecipeButtons>
     </Container>
   );
 };
