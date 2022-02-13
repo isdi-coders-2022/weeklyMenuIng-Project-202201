@@ -9,3 +9,8 @@ export const loadMoreRecipesAction = (recipes) => ({
   type: actionTypes.loadMoreRecipes,
   recipes,
 });
+
+export const getRecipeAction = (recipe) => ({
+  type: actionTypes.getRecipe,
+  recipe,
+});
