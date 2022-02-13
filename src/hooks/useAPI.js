@@ -8,6 +8,7 @@ import {
 import {
   loadRecipesAction,
   loadMoreRecipesAction,
+  getRecipeAction,
 } from "../store/actions/recipes/recipesActionsCreator";
 import {
   loadRecipesAction as loadMyRecipesAction,
@@ -20,13 +21,14 @@ import RecipesContext from "../store/contexts/RecipesContext/RecipesContext";
 import MyRecipesContext from "../store/contexts/MyRecipesContext/MyRecipesContext";
 
 const useAPI = () => {
-  const { dispatch, setNextEndpoint } = useContext(RecipesContext);
+  const { dispatch, setNextEndpoint, recipeDispatch } =
+    useContext(RecipesContext);
   const { dispatch: dispatchMy } = useContext(MyRecipesContext);
   const { dispatch: dispatchAPI } = useContext(ApiContext);
 
   const loadRecipesAPI = useCallback(
     async (ingredientsQuery) => {
-      const APIendpointURL = `${process.env.REACT_APP_EDAMAM_API_URL}&q=${ingredientsQuery}&app_id=${process.env.REACT_APP_EDAMAM_API_APP_ID}&app_key=${process.env.REACT_APP_EDAMAM_API_KEY}`;
+      const APIendpointURL = `${process.env.REACT_APP_EDAMAM_API_URL}?type=public&q=${ingredientsQuery}&app_id=${process.env.REACT_APP_EDAMAM_API_APP_ID}&app_key=${process.env.REACT_APP_EDAMAM_API_KEY}`;
       let response = {};
       try {
         dispatchAPI(setIsLoaded());
@@ -81,6 +83,27 @@ const useAPI = () => {
     }
     dispatchAPI(unsetIsLoaded());
   }, [dispatchMy, dispatchAPI]);
+
+  const getRecipeAPI = useCallback(
+    async (id, api) => {
+      const APIendpointURL =
+        api === "edamam"
+          ? `${process.env.REACT_APP_EDAMAM_API_URL}/${id}?type=public&app_id=${process.env.REACT_APP_EDAMAM_API_APP_ID}&app_key=${process.env.REACT_APP_EDAMAM_API_KEY}`
+          : `${process.env.REACT_APP_HEROKKU_API_URL}/${id}`;
+      let response = {};
+      try {
+        dispatchAPI(setIsLoaded());
+        dispatchAPI(unsetError());
+        response = await fetch(APIendpointURL);
+        const recipe = await response.json();
+        recipeDispatch(getRecipeAction(recipe));
+      } catch (error) {
+        dispatchAPI(setError(error));
+      }
+      dispatchAPI(unsetIsLoaded());
+    },
+    [dispatchAPI, recipeDispatch]
+  );
 
   const addRecipeToMyListAPI = async (recipe) => {
     const uri = recipe.recipe.uri;
@@ -183,6 +206,7 @@ const useAPI = () => {
   return {
     loadRecipesAPI,
     loadMoreRecipesAPI,
+    getRecipeAPI,
     loadMyRecipesAPI,
     addRecipeAPI,
     deleteRecipeAPI,

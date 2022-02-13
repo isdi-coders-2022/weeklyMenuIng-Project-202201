@@ -67,11 +67,11 @@ const GreenDot = styled.div`
 `;
 const Recipe = ({
   className,
-  recipe: { recipe, days, id },
+  recipe: { recipe, id, days },
+  api,
   actionOnClickAdd,
 }) => {
   const viewOriginalSource = () => window.open(recipe.url, "_blank");
-
   return (
     <Container className={className}>
       <RecipeHead image={recipe.image}>
@@ -81,13 +81,15 @@ const Recipe = ({
       <RecipeLabels>
         {recipe.dietLabels.map((label) => {
           return (
-            <span className="diet-labels__item">{label.toUpperCase()}</span>
+            <span key={`${recipe.label}${label}`} className="diet-labels__item">
+              {label.toUpperCase()}
+            </span>
           );
         })}
         <p>{`${parseInt(recipe.yield)} servings`}</p>
       </RecipeLabels>
-      <button
-        text="VIEW RECIPE SOURCE"
+      <Button
+        text="go to recipe source"
         className="receipeUrl"
         actionOnClick={viewOriginalSource}
         style={{
@@ -97,9 +99,7 @@ const Recipe = ({
           padding: `0`,
           fontSize: `15px`,
         }}
-      >
-        VIEW RECIPE SOURCE
-      </button>
+      />
       <div className="recipe-info">
         <div className="recipe-ingredients">
           <h3>INGREDIENTS LIST</h3>
@@ -115,8 +115,7 @@ const Recipe = ({
           className="recipe-digest"
           style={{
             display: `flex`,
-            justifyContent: `center`,
-            alignItems: `center`,
+            flexDirection: `column`,
           }}
         >
           <h3>{`${parseInt(
@@ -170,15 +169,22 @@ const Recipe = ({
             <li>{`Iron: ${parseInt(recipe.totalNutrients.FE.quantity)}`}</li>
           </List>
         </div>
-        {days ? <Smtwtfs recipe={id} smtwtfs={days} /> : ""}
+        {api === "local" && <Smtwtfs smtwtfs={days} recipe={recipe} />}
       </div>
-      <RecipeButtons className="recipe-buttons">
-        <Button text="REMOVE RECIPE" className="button" />
-        <Button
-          text="ADD TO MY LIST"
-          className="button"
-          actionOnClick={actionOnClickAdd}
-        />
+      <RecipeButtons>
+        {api === "local" && (
+          <>
+            <Button text="edit recipe" className="button" />
+            <Button text="remove recipe" className="button" />
+          </>
+        )}
+        {api === "edamam" && (
+          <Button
+            text="Add to my list"
+            className="button"
+            actionOnClick={actionOnClickAdd}
+          />
+        )}
       </RecipeButtons>
     </Container>
   );

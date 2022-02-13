@@ -88,7 +88,8 @@ const RecipeCard = ({
                 className={`heart-button ${
                   isMine ? "heart-button--active" : ""
                 }`}
-                onClick={() => {
+                onClick={(event) => {
+                  event.stopPropagation();
                   toggleMine();
                 }}
               >
