@@ -1,5 +1,5 @@
 import Infoblock from "../components/Infoblock/Infoblock";
-import "./About.css";
+import "./AboutPage.css";
 import logo from "./logo.svg";
 import githubLogo from "./github-logo.png";
 
@@ -20,7 +20,13 @@ const AboutPage = () => {
             </span>
             <span className="about-repo">
               CHECK OUR REPO AT
-              <img className="github-logo" src={githubLogo} alt="GitHub Logo" />
+              <a href="https://github.com/isdi-coders-2022/weeklyMenuIng-Project-202201">
+                <img
+                  className="github-logo"
+                  src={githubLogo}
+                  alt="GitHub Logo"
+                />
+              </a>
             </span>
           </div>
         </div>
