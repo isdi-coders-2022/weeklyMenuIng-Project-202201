@@ -9,3 +9,5 @@ export const loadMoreRecipesAction = (recipes) => ({
   type: actionTypes.loadMoreRecipes,
   recipes,
 });
+
+export const dragRecipeAction = () => ({});

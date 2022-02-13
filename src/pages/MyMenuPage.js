@@ -2,6 +2,7 @@ import useAPI from "../hooks/useAPI";
 import { useEffect } from "react";
 import RecipesList from "../components/RecipesList/RecipesList";
 import { useNavigate } from "react-router-dom";
+import Week from "../components/Week/Week";
 
 const MyMenuPage = () => {
   const { loadMyRecipesAPI } = useAPI();
@@ -18,6 +19,7 @@ const MyMenuPage = () => {
   return (
     <>
       <main className="main">
+        <Week />
         <RecipesList
           myList={true}
           actionOnClick={(api, id) => {
