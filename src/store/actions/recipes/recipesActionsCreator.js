@@ -16,4 +16,3 @@ export const getRecipeAction = (recipe) => ({
 });
 
 export const dragRecipeAction = () => ({});
-
