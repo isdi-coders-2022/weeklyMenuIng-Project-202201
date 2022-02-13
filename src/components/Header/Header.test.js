@@ -46,7 +46,7 @@ describe("Given a Header Component", () => {
   });
 
   describe("Wher it's rendered and cilcked on the burger menu and then on the floating menu", () => {
-    test("Then the burger menu should not have class active", () => {
+    test("Then the floating menu should not have class active", () => {
       render(
         <BrowserRouter>
           <Header />
