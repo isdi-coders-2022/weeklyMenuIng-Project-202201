@@ -14,3 +14,6 @@ export const getRecipeAction = (recipe) => ({
   type: actionTypes.getRecipe,
   recipe,
 });
+
+export const dragRecipeAction = () => ({});
+
