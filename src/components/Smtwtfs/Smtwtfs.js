@@ -1,7 +1,7 @@
-import { useReducer } from "react";
+import { useContext } from "react";
 import styled from "styled-components";
 import { toggleDay } from "../../store/actions/myRecipes/myRecipesActionsCreator";
-import myRecipesReducer from "../../store/reducers/myRecipes/myRcipesReducer";
+import MyRecipesContext from "../../store/contexts/MyRecipesContext/MyRecipesContext";
 
 const DayList = styled.ul`
   width: 100%;
@@ -15,7 +15,7 @@ const DayList = styled.ul`
 `;
 
 const Smtwtfs = ({ smtwtfs, recipe }) => {
-  const [, dispatch] = useReducer(myRecipesReducer);
+  const { dispatch } = useContext(MyRecipesContext);
   return (
     <DayList>
       {smtwtfs.map((day, index) => {
