@@ -8,11 +8,10 @@ const Loading = () => {
   const {
     apiState: { isLoaded },
   } = useContext(ApiContext);
-
   return (
     <>
       {isLoaded && (
-        <div className="pre-loader">
+        <div title="loading" className="pre-loader">
           <div className="outer">
             <div className="inner">
               <FontAwesomeIcon icon={faCircleNotch} className="wrap" />
