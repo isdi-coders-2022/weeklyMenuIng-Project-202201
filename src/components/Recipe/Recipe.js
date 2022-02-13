@@ -37,100 +37,89 @@ const Recipe = ({
 }) => {
   const viewOriginalSource = () => window.open(recipe.url, "_blank");
   return (
-    <>
-      <Container className={className}>
-        <RecipeHead image={recipe.image}>
-          <h2>{recipe.label}</h2>
-        </RecipeHead>
-        <span
-          style={{
-            display: `flex`,
-            flexDirection: `column`,
-          }}
-        >
-          {recipe.dietLabels.map((label) => {
+    <Container className={className}>
+      <RecipeHead image={recipe.image}>
+        <h2>{recipe.label}</h2>
+      </RecipeHead>
+      <span
+        style={{
+          display: `flex`,
+          flexDirection: `column`,
+        }}
+      >
+        {recipe.dietLabels.map((label) => {
+          return (
+            <span key={`${recipe.label}${label}`} className="diet-labels__item">
+              {label}
+            </span>
+          );
+        })}
+        <p>{`${parseInt(recipe.yield)} servings`}</p>
+      </span>
+      <div className="recipe-info">
+        <div className="recipe-ingredients">
+          {recipe.ingredientLines.map((ingredient) => {
             return (
-              <span
-                key={`${recipe.label}${label}`}
-                className="diet-labels__item"
-              >
-                {label}
-              </span>
+              <p className="ingredient" key={`${recipe.label}${ingredient}`}>
+                {ingredient}
+              </p>
             );
           })}
-          <p>{`${parseInt(recipe.yield)} servings`}</p>
-        </span>
-        <div className="recipe-info">
-          <div className="recipe-ingredients">
-            {recipe.ingredientLines.map((ingredient) => {
-              return (
-                <p className="ingredient" key={`${recipe.label}${ingredient}`}>
-                  {ingredient}
-                </p>
-              );
-            })}
-          </div>
-          <div
-            className="recipe-digest"
-            style={{
-              display: `flex`,
-              justifyContent: `center`,
-              alignItems: `center`,
-            }}
-          >
-            <h3>{`${parseInt(
-              parseInt(recipe.calories) / recipe.yield
-            )} Kcal`}</h3>
-            <ul>
-              <li>{`Fat: ${parseInt(recipe.digest[0].total)} g`}</li>
-              <li>{`Protein: ${parseInt(recipe.digest[1].total)} g`}</li>
-              <li>{`Carbs: ${parseInt(recipe.digest[2].total)} g`}</li>
-            </ul>
-            <ul>
-              <li>
-                {`Cholesterol: ${parseInt(
-                  recipe.totalNutrients.CHOLE.quantity
-                )}`}
-              </li>
-              <li>{`Sodium: ${parseInt(
-                recipe.totalNutrients.NA.quantity
-              )}`}</li>
-              <li>{`Calcium: ${parseInt(
-                recipe.totalNutrients.CA.quantity
-              )}`}</li>
-              <li>{`Magnesium: ${parseInt(
-                recipe.totalNutrients.MG.quantity
-              )}`}</li>
-              <li>{`Postasium: ${parseInt(
-                recipe.totalNutrients.K.quantity
-              )}`}</li>
-              <li>{`Iron: ${parseInt(recipe.totalNutrients.FE.quantity)}`}</li>
-            </ul>
-          </div>
-          {api === "local" && <Smtwtfs smtwtfs={days} recipe={recipe} />}
         </div>
-        <div className="recipe-buttons">
+        <div
+          className="recipe-digest"
+          style={{
+            display: `flex`,
+            justifyContent: `center`,
+            alignItems: `center`,
+          }}
+        >
+          <h3>{`${parseInt(
+            parseInt(recipe.calories) / recipe.yield
+          )} Kcal`}</h3>
+          <ul>
+            <li>{`Fat: ${parseInt(recipe.digest[0].total)} g`}</li>
+            <li>{`Protein: ${parseInt(recipe.digest[1].total)} g`}</li>
+            <li>{`Carbs: ${parseInt(recipe.digest[2].total)} g`}</li>
+          </ul>
+          <ul>
+            <li>
+              {`Cholesterol: ${parseInt(recipe.totalNutrients.CHOLE.quantity)}`}
+            </li>
+            <li>{`Sodium: ${parseInt(recipe.totalNutrients.NA.quantity)}`}</li>
+            <li>{`Calcium: ${parseInt(recipe.totalNutrients.CA.quantity)}`}</li>
+            <li>{`Magnesium: ${parseInt(
+              recipe.totalNutrients.MG.quantity
+            )}`}</li>
+            <li>{`Postasium: ${parseInt(
+              recipe.totalNutrients.K.quantity
+            )}`}</li>
+            <li>{`Iron: ${parseInt(recipe.totalNutrients.FE.quantity)}`}</li>
+          </ul>
+        </div>
+        {api === "local" && <Smtwtfs smtwtfs={days} recipe={recipe} />}
+      </div>
+      <div className="recipe-buttons">
+        <Button
+          text="view recipe source"
+          className="receipeUrl"
+          actionOnClick={viewOriginalSource}
+        />
+        {api === "local" && (
+          <>
+            <Button text="edit recipe" className="button" />
+            <Button text="remove recipe" className="button" />{" "}
+          </>
+        )}
+        {api === "edamam" && (
           <Button
-            text="view recipe source"
-            className="receipeUrl"
-            actionOnClick={viewOriginalSource}
+            text="Add to my list"
+            className="button"
+            actionOnClick={actionOnClickAdd}
           />
-          {api === "local" && (
-            <>
-              <Button text="edit recipe" className="button" />
-              <Button text="remove recipe" className="button" />{" "}
-            </>
-          )}
-          {api === "edamam" && (
-            <Button
-              text="Add to my list"
-              className="button"
-              actionOnClick={actionOnClickAdd}
-            />
-          )}
-        </div>
-      </Container>
-    </>
+        )}
+      </div>
+    </Container>
   );
 };
 
