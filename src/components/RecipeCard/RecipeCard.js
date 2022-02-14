@@ -36,15 +36,16 @@ const RecipeCard = ({
   recipe: { recipe, days, id },
   isMyList = false,
   actionOnClick,
+  uid,
 }) => {
   const [isMine, setIsMine] = useState(false);
   const { addRecipeToMyListAPI, deleteRecipeAPI } = useAPI();
 
   const toggleMine = () => {
     if (!isMine) {
-      addRecipeToMyListAPI({ recipe, days, id });
+      addRecipeToMyListAPI({ recipe: { ...recipe } });
     } else {
-      deleteRecipeAPI(id);
+      deleteRecipeAPI(uid);
     }
     setIsMine(!isMine);
   };

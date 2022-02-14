@@ -22,23 +22,6 @@ describe("Given a SearchRecipesForm Component", () => {
 
       expect(formInput).toBeInTheDocument();
     });
-
-    test("Then a form should display 6 checkboxes", () => {
-      const expectedNumberOfCheckboxes = 6;
-      render(
-        <ApiContextProvider>
-          <MyRecipesContextProvider>
-            <RecipesContextProvider>
-              <SearchRecipesForm />
-            </RecipesContextProvider>
-          </MyRecipesContextProvider>
-        </ApiContextProvider>
-      );
-
-      const numOfCheckboxes = screen.queryAllByRole("checkbox").length;
-
-      expect(numOfCheckboxes).toBe(expectedNumberOfCheckboxes);
-    });
   });
 
   describe("submit button", () => {
