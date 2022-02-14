@@ -31,7 +31,10 @@ const RecipesList = ({ myList = false, actionOnClick }) => {
         return filter === recipe.dietLabels[0];
       });
     });
-    return res;
+    if (res.length === 0) return recipesObject;
+    else {
+      return res;
+    }
   };
   const changeData = (event) => {
     setFiltersData([
@@ -46,44 +49,46 @@ const RecipesList = ({ myList = false, actionOnClick }) => {
       {!myList && filteredResults.length > 0 && (
         <p className="search-results-msg">{`Showing ${recipes.length} recipes`}</p>
       )}
-      <div className="filters">
-        <Checkbox
-          text="no-sugar"
-          className="diets-checkbox"
-          checked={filtersData["no-sugar"]}
-          onChange={changeData}
-        />
-        <Checkbox
-          text="high-protein"
-          className="diets-checkbox"
-          checked={filtersData["high-protein"]}
-          onChange={changeData}
-        />
-        <Checkbox
-          text="balanced"
-          className="diets-checkbox"
-          checked={filtersData.balanced}
-          onChange={changeData}
-        />
-        <Checkbox
-          text="low-sodium"
-          className="diets-checkbox"
-          checked={filtersData["low-sodium"]}
-          onChange={changeData}
-        />
-        <Checkbox
-          text="vegan"
-          className="diets-checkbox"
-          checked={filtersData.vegan}
-          onChange={changeData}
-        />
-        <Checkbox
-          text="vegetarian"
-          className="diets-checkbox"
-          checked={filtersData.vegetarian}
-          onChange={changeData}
-        />
-      </div>
+      {!myList && (
+        <div className="filters">
+          <Checkbox
+            text="no-sugar"
+            className="diets-checkbox"
+            checked={filtersData["no-sugar"]}
+            onChange={changeData}
+          />
+          <Checkbox
+            text="high-protein"
+            className="diets-checkbox"
+            checked={filtersData["high-protein"]}
+            onChange={changeData}
+          />
+          <Checkbox
+            text="balanced"
+            className="diets-checkbox"
+            checked={filtersData.balanced}
+            onChange={changeData}
+          />
+          <Checkbox
+            text="low-sodium"
+            className="diets-checkbox"
+            checked={filtersData["low-sodium"]}
+            onChange={changeData}
+          />
+          <Checkbox
+            text="vegan"
+            className="diets-checkbox"
+            checked={filtersData.vegan}
+            onChange={changeData}
+          />
+          <Checkbox
+            text="vegetarian"
+            className="diets-checkbox"
+            checked={filtersData.vegetarian}
+            onChange={changeData}
+          />
+        </div>
+      )}
       <RecipesGrid>
         {filteredResults.map((recipe) => {
           const uniqueKey = recipe.recipe.uri
