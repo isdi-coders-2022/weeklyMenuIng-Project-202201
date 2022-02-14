@@ -67,9 +67,11 @@ const GreenDot = styled.div`
 `;
 const Recipe = ({
   className,
-  recipe: { recipe, id, days },
+  recipe: { recipe, id, days, edamam },
   api,
   actionOnClickAdd,
+  actionOnClickEdit,
+  actionOnClickRemove,
 }) => {
   const viewOriginalSource = () => window.open(recipe.url, "_blank");
   return (
@@ -100,89 +102,112 @@ const Recipe = ({
           fontSize: `15px`,
         }}
       />
-      <div className="recipe-info">
-        <div className="recipe-ingredients">
-          <h3>INGREDIENTS LIST</h3>
-          {recipe.ingredientLines.map((ingredient) => {
-            return (
-              <p className="ingredient" key={`${recipe.label}${ingredient}`}>
-                {ingredient}
-              </p>
-            );
-          })}
-        </div>
-        <div
-          className="recipe-digest"
-          style={{
-            display: `flex`,
-            flexDirection: `column`,
-          }}
-        >
-          <h3>{`${parseInt(
-            parseInt(recipe.calories) / recipe.yield
-          )} Kcal`}</h3>
-          <List>
-            <li
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
-              }}
-            >
-              <GreenDot />
-              {`Protein: ${parseInt(recipe.digest[1].total)} g`}
-            </li>
 
-            <li
+      <div className="recipe-info">
+        {(edamam || api === "edamam") && (
+          <>
+            <div className="recipe-ingredients">
+              <h3>INGREDIENTS LIST</h3>
+              {recipe.ingredientLines.map((ingredient) => {
+                return (
+                  <p
+                    className="ingredient"
+                    key={`${recipe.label}${ingredient}`}
+                  >
+                    {ingredient}
+                  </p>
+                );
+              })}
+            </div>
+            <div
+              className="recipe-digest"
               style={{
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
+                display: `flex`,
+                flexDirection: `column`,
               }}
             >
-              <YellowDot />
-              {` Carbs: ${parseInt(recipe.digest[2].total)} g`}
-            </li>
-            <li
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
-              }}
-            >
-              <RedDot />
-              {` Fat: ${parseInt(recipe.digest[0].total)} g`}
-            </li>
-          </List>
-          <List>
-            <li>
-              {`Cholesterol: ${parseInt(recipe.totalNutrients.CHOLE.quantity)}`}
-            </li>
-            <li>{`Sodium: ${parseInt(recipe.totalNutrients.NA.quantity)}`}</li>
-            <li>{`Calcium: ${parseInt(recipe.totalNutrients.CA.quantity)}`}</li>
-            <li>{`Magnesium: ${parseInt(
-              recipe.totalNutrients.MG.quantity
-            )}`}</li>
-            <li>{`Postasium: ${parseInt(
-              recipe.totalNutrients.K.quantity
-            )}`}</li>
-            <li>{`Iron: ${parseInt(recipe.totalNutrients.FE.quantity)}`}</li>
-          </List>
-        </div>
+              <h3>{`${parseInt(
+                parseInt(recipe.calories) / recipe.yield
+              )} Kcal`}</h3>
+              <List>
+                <li
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "center",
+                  }}
+                >
+                  <GreenDot />
+                  {`Protein: ${parseInt(recipe.digest[1].total)} g`}
+                </li>
+                <li>
+                  style=
+                  {{
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "center",
+                  }}
+                  <YellowDot />
+                  {` Carbs: ${parseInt(recipe.digest[2].total)} g`}
+                </li>
+                <li
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "center",
+                  }}
+                >
+                  <RedDot />
+                  {` Fat: ${parseInt(recipe.digest[0].total)} g`}
+                </li>
+              </List>
+              <List>
+                <li>
+                  {`Cholesterol: ${parseInt(
+                    recipe.totalNutrients.CHOLE.quantity
+                  )}`}
+                </li>
+                <li>{`Sodium: ${parseInt(
+                  recipe.totalNutrients.NA.quantity
+                )}`}</li>
+                <li>{`Calcium: ${parseInt(
+                  recipe.totalNutrients.CA.quantity
+                )}`}</li>
+                <li>{`Magnesium: ${parseInt(
+                  recipe.totalNutrients.MG.quantity
+                )}`}</li>
+                <li>{`Postasium: ${parseInt(
+                  recipe.totalNutrients.K.quantity
+                )}`}</li>
+                <li>{`Iron: ${parseInt(
+                  recipe.totalNutrients.FE.quantity
+                )}`}</li>
+              </List>
+            </div>
+          </>
+        )}
       </div>
       {api === "local" && <Smtwtfs smtwtfs={days} recipe={recipe} />}
       <RecipeButtons>
         {api === "local" && (
           <>
-            <Button text="edit recipe" className="button" />
-            <Button text="remove recipe" className="button" />
+            <Button
+              text="edit recipe"
+              className="button"
+              actionOnClick={() => actionOnClickEdit(id)}
+            />
+            <Button
+              text="remove recipe"
+              className="button"
+              actionOnClick={() => actionOnClickRemove(id)}
+            />
           </>
         )}
         {api === "edamam" && (
           <Button
             text="Add to my list"
             className="button"
-            actionOnClick={actionOnClickAdd}
+            actionOnClick={() => actionOnClickAdd({ recipe: { ...recipe } })}
           />
         )}
       </RecipeButtons>
