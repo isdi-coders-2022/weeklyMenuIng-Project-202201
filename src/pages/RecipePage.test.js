@@ -4,6 +4,7 @@ import RecipesContextProvider from "../store/contexts/RecipesContext/RecipesCont
 import MyRecipesContextProvider from "../store/contexts/MyRecipesContext/MyRecipesContextProvider";
 import RecipePage from "./RecipePage";
 import { server } from "../mocks/server";
+import { BrowserRouter } from "react-router-dom";
 
 beforeAll(() => server.listen());
 
@@ -18,7 +19,9 @@ describe("Given a Recipe page", () => {
         <ApiContextProvider>
           <MyRecipesContextProvider>
             <RecipesContextProvider>
-              <RecipePage> </RecipePage>
+              <BrowserRouter>
+                <RecipePage />
+              </BrowserRouter>
             </RecipesContextProvider>
           </MyRecipesContextProvider>
         </ApiContextProvider>

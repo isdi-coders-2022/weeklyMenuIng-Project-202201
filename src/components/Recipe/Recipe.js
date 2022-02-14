@@ -140,44 +140,52 @@ const Recipe = ({
                   <GreenDot />
                   {`Protein: ${parseInt(recipe.digest[1].total)} g`}
                 </li>
-
-
-            <li
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
-              }}
-            >
-              <YellowDot />
-              {` Carbs: ${parseInt(recipe.digest[2].total)} g`}
-            </li>
-            <li
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
-              }}
-            >
-              <RedDot />
-              {` Fat: ${parseInt(recipe.digest[0].total)} g`}
-            </li>
-          </List>
-          <List>
-            <li>
-              {`Cholesterol: ${parseInt(recipe.totalNutrients.CHOLE.quantity)}`}
-            </li>
-            <li>{`Sodium: ${parseInt(recipe.totalNutrients.NA.quantity)}`}</li>
-            <li>{`Calcium: ${parseInt(recipe.totalNutrients.CA.quantity)}`}</li>
-            <li>{`Magnesium: ${parseInt(
-              recipe.totalNutrients.MG.quantity
-            )}`}</li>
-            <li>{`Postasium: ${parseInt(
-              recipe.totalNutrients.K.quantity
-            )}`}</li>
-            <li>{`Iron: ${parseInt(recipe.totalNutrients.FE.quantity)}`}</li>
-          </List>
-        </div>
+                <li>
+                  style=
+                  {{
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "center",
+                  }}
+                  <YellowDot />
+                  {` Carbs: ${parseInt(recipe.digest[2].total)} g`}
+                </li>
+                <li
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "center",
+                  }}
+                >
+                  <RedDot />
+                  {` Fat: ${parseInt(recipe.digest[0].total)} g`}
+                </li>
+              </List>
+              <List>
+                <li>
+                  {`Cholesterol: ${parseInt(
+                    recipe.totalNutrients.CHOLE.quantity
+                  )}`}
+                </li>
+                <li>{`Sodium: ${parseInt(
+                  recipe.totalNutrients.NA.quantity
+                )}`}</li>
+                <li>{`Calcium: ${parseInt(
+                  recipe.totalNutrients.CA.quantity
+                )}`}</li>
+                <li>{`Magnesium: ${parseInt(
+                  recipe.totalNutrients.MG.quantity
+                )}`}</li>
+                <li>{`Postasium: ${parseInt(
+                  recipe.totalNutrients.K.quantity
+                )}`}</li>
+                <li>{`Iron: ${parseInt(
+                  recipe.totalNutrients.FE.quantity
+                )}`}</li>
+              </List>
+            </div>
+          </>
+        )}
       </div>
       {api === "local" && <Smtwtfs smtwtfs={days} recipe={recipe} />}
       <RecipeButtons>
